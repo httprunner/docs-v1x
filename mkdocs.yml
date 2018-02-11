@@ -1,0 +1,14 @@
+site_name: HttpRunner 中文使用手册
+pages:
+    - Home: index.md
+    - 总体介绍: Introduction.md
+    - 安装说明: Installation.md
+    - 快速上手: quickstart.md
+    - 准备测试用例: prepare-testcases.md
+    - 运行测试用例: run-testcases.md
+    - 数据驱动: data-driven.md
+    - 性能测试: load-test.md
+    - 开发日志: development.md
+    - 常见问题: FAQ.md
+theme: readthedocs
+# repo_url: https://github.com/httprunner/httprunner
