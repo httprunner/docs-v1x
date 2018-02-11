@@ -1,0 +1,144 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "",
+            "title": "Home"
+        },
+        {
+            "location": "/Introduction/",
+            "text": "\u9879\u76ee\u4ecb\u7ecd",
+            "title": "\u603b\u4f53\u4ecb\u7ecd"
+        },
+        {
+            "location": "/Introduction/#_1",
+            "text": "",
+            "title": "\u9879\u76ee\u4ecb\u7ecd"
+        },
+        {
+            "location": "/Installation/",
+            "text": "\u8fd0\u884c\u73af\u5883\n\n\nHttpRunner \u662f\u4e00\u4e2a\u57fa\u4e8e Python \u5f00\u53d1\u7684\u6d4b\u8bd5\u6846\u67b6\uff0c\u53ef\u4ee5\u8fd0\u884c\u5728 macOS\u3001Linux\u3001Windows \u7cfb\u7edf\u5e73\u53f0\u4e0a\u3002\n\n\nHttpRunner \u7684\u5f00\u53d1\u73af\u5883\u4e3a macOS + Python 3.6\uff1b\u5b9e\u9645\u4e0a\uff0cHttpRunner \u652f\u6301 Python 2.7 \u548c Python 3.3 \u4ee5\u4e0a\u7684\u6240\u6709\u7248\u672c\uff0c\u5e76\u4f7f\u7528 Travis-CI \u8fdb\u884c\u4e86\n\u6301\u7eed\u96c6\u6210\u6d4b\u8bd5\n\uff0c\u6d4b\u8bd5\u8986\u76d6\u7684\u7248\u672c\u5305\u62ec 2.7/3.4/3.5/3.6\u3002\n\n\n\u63a8\u8350\u4f7f\u7528 macOS/Linux + Python 3.6 \u7684\u8fd0\u884c\u73af\u5883\u7ec4\u5408\u3002\n\n\n\u5b89\u88c5\u65b9\u5f0f\n\n\nHttpRunner \u7684\u7a33\u5b9a\u7248\u672c\u6258\u7ba1\u5728 PyPI \u4e0a\uff0c\u53ef\u4ee5\u4f7f\u7528\npip\n\u6216\u8005\neasy_install\n\u8fdb\u884c\u5b89\u88c5\u3002\n\n\n$ pip install httprunner\n\n\n\n\n\u6216\u8005\n\n\n$ easy_install httprunner\n\n\n\n\n\u5982\u679c\u4f60\u9700\u8981\u4f7f\u7528\u6700\u65b0\u7684\u5f00\u53d1\u7248\u672c\uff0c\u90a3\u4e48\u53ef\u4ee5\u91c7\u7528\u9879\u76ee\u7684 GitHub \u4ed3\u5e93\u5730\u5740\u8fdb\u884c\u5b89\u88c5\uff1a\n\n\n$ pip install git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner\n\n\n\n\n\u7248\u672c\u5347\u7ea7\n\n\n\u5047\u5982\u4f60\u4e4b\u524d\u5df2\u7ecf\u5b89\u88c5\u8fc7\u4e86 HttpRunner\uff0c\u73b0\u5728\u9700\u8981\u5347\u7ea7\u5230\u6700\u65b0\u7248\u672c\uff0c\u90a3\u4e48\u4f60\u53ef\u4ee5\u4f7f\u7528\n-U\n\u53c2\u6570\u3002\u8be5\u53c2\u6570\u5bf9\u4ee5\u4e0a\u4e09\u79cd\u5b89\u88c5\u65b9\u5f0f\u5747\u751f\u6548\u3002\n\n\n$ pip install -U HttpRunner\n$ easy_install -U HttpRunner\n$ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner\n\n\n\n\n\u5b89\u88c5\u6821\u9a8c\n\n\n\u5728 HttpRunner \u5b89\u88c5\u6210\u529f\u540e\uff0c\u5728\u4f60\u7684\u7cfb\u7edf\u4e2d\u4f1a\u65b0\u589e\u5982\u4e0b 4 \u4e2a\u547d\u4ee4\uff1a\n\n\n\n\nhttprunner: \u6838\u5fc3\u547d\u4ee4\n\n\nhrun: httprunner \u7684\u7f29\u5199\uff0c\u529f\u80fd\u4e0e httprunner \u5b8c\u5168\u76f8\u540c\n\n\nate: \u66fe\u7ecf\u7528\u8fc7\u7684\u547d\u4ee4\uff08\u5f53\u65f6\u6846\u67b6\u540d\u79f0\u4e3a ApiTestEngine\uff09\uff0c\u529f\u80fd\u4e0e httprunner \u5b8c\u5168\u76f8\u540c\n\n\nlocusts: \u7528\u4e8e\n\u6027\u80fd\u6d4b\u8bd5\n\n\n\n\nhttprunner\u3001hrun\u3001ate \u4e09\u4e2a\u547d\u4ee4\u5b8c\u5168\u7b49\u4ef7\uff0c\u529f\u80fd\u7279\u6027\u5b8c\u5168\u76f8\u540c\uff0c\u4e2a\u4eba\u63a8\u8350\u4f7f\u7528\nhrun\n\u547d\u4ee4\u3002\n\n\n\u8fd0\u884c\u5982\u4e0b\u547d\u4ee4\uff0c\u82e5\u6b63\u5e38\u663e\u793a\u7248\u672c\u53f7\uff0c\u5219\u8bf4\u660e HttpRunner \u5b89\u88c5\u6210\u529f\u3002\n\n\n$ hrun -V\nHttpRunner version: 0.9.0\nPyUnitReport version: 0.1.4",
+            "title": "\u5b89\u88c5\u8bf4\u660e"
+        },
+        {
+            "location": "/Installation/#_1",
+            "text": "HttpRunner \u662f\u4e00\u4e2a\u57fa\u4e8e Python \u5f00\u53d1\u7684\u6d4b\u8bd5\u6846\u67b6\uff0c\u53ef\u4ee5\u8fd0\u884c\u5728 macOS\u3001Linux\u3001Windows \u7cfb\u7edf\u5e73\u53f0\u4e0a\u3002  HttpRunner \u7684\u5f00\u53d1\u73af\u5883\u4e3a macOS + Python 3.6\uff1b\u5b9e\u9645\u4e0a\uff0cHttpRunner \u652f\u6301 Python 2.7 \u548c Python 3.3 \u4ee5\u4e0a\u7684\u6240\u6709\u7248\u672c\uff0c\u5e76\u4f7f\u7528 Travis-CI \u8fdb\u884c\u4e86 \u6301\u7eed\u96c6\u6210\u6d4b\u8bd5 \uff0c\u6d4b\u8bd5\u8986\u76d6\u7684\u7248\u672c\u5305\u62ec 2.7/3.4/3.5/3.6\u3002  \u63a8\u8350\u4f7f\u7528 macOS/Linux + Python 3.6 \u7684\u8fd0\u884c\u73af\u5883\u7ec4\u5408\u3002",
+            "title": "\u8fd0\u884c\u73af\u5883"
+        },
+        {
+            "location": "/Installation/#_2",
+            "text": "HttpRunner \u7684\u7a33\u5b9a\u7248\u672c\u6258\u7ba1\u5728 PyPI \u4e0a\uff0c\u53ef\u4ee5\u4f7f\u7528 pip \u6216\u8005 easy_install \u8fdb\u884c\u5b89\u88c5\u3002  $ pip install httprunner  \u6216\u8005  $ easy_install httprunner  \u5982\u679c\u4f60\u9700\u8981\u4f7f\u7528\u6700\u65b0\u7684\u5f00\u53d1\u7248\u672c\uff0c\u90a3\u4e48\u53ef\u4ee5\u91c7\u7528\u9879\u76ee\u7684 GitHub \u4ed3\u5e93\u5730\u5740\u8fdb\u884c\u5b89\u88c5\uff1a  $ pip install git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner",
+            "title": "\u5b89\u88c5\u65b9\u5f0f"
+        },
+        {
+            "location": "/Installation/#_3",
+            "text": "\u5047\u5982\u4f60\u4e4b\u524d\u5df2\u7ecf\u5b89\u88c5\u8fc7\u4e86 HttpRunner\uff0c\u73b0\u5728\u9700\u8981\u5347\u7ea7\u5230\u6700\u65b0\u7248\u672c\uff0c\u90a3\u4e48\u4f60\u53ef\u4ee5\u4f7f\u7528 -U \u53c2\u6570\u3002\u8be5\u53c2\u6570\u5bf9\u4ee5\u4e0a\u4e09\u79cd\u5b89\u88c5\u65b9\u5f0f\u5747\u751f\u6548\u3002  $ pip install -U HttpRunner\n$ easy_install -U HttpRunner\n$ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner",
+            "title": "\u7248\u672c\u5347\u7ea7"
+        },
+        {
+            "location": "/Installation/#_4",
+            "text": "\u5728 HttpRunner \u5b89\u88c5\u6210\u529f\u540e\uff0c\u5728\u4f60\u7684\u7cfb\u7edf\u4e2d\u4f1a\u65b0\u589e\u5982\u4e0b 4 \u4e2a\u547d\u4ee4\uff1a   httprunner: \u6838\u5fc3\u547d\u4ee4  hrun: httprunner \u7684\u7f29\u5199\uff0c\u529f\u80fd\u4e0e httprunner \u5b8c\u5168\u76f8\u540c  ate: \u66fe\u7ecf\u7528\u8fc7\u7684\u547d\u4ee4\uff08\u5f53\u65f6\u6846\u67b6\u540d\u79f0\u4e3a ApiTestEngine\uff09\uff0c\u529f\u80fd\u4e0e httprunner \u5b8c\u5168\u76f8\u540c  locusts: \u7528\u4e8e \u6027\u80fd\u6d4b\u8bd5   httprunner\u3001hrun\u3001ate \u4e09\u4e2a\u547d\u4ee4\u5b8c\u5168\u7b49\u4ef7\uff0c\u529f\u80fd\u7279\u6027\u5b8c\u5168\u76f8\u540c\uff0c\u4e2a\u4eba\u63a8\u8350\u4f7f\u7528 hrun \u547d\u4ee4\u3002  \u8fd0\u884c\u5982\u4e0b\u547d\u4ee4\uff0c\u82e5\u6b63\u5e38\u663e\u793a\u7248\u672c\u53f7\uff0c\u5219\u8bf4\u660e HttpRunner \u5b89\u88c5\u6210\u529f\u3002  $ hrun -V\nHttpRunner version: 0.9.0\nPyUnitReport version: 0.1.4",
+            "title": "\u5b89\u88c5\u6821\u9a8c"
+        },
+        {
+            "location": "/quickstart/",
+            "text": "\u7b80\u5355\u6848\u4f8b\n\n\n\u6d4b\u8bd5\u51c6\u5907\n\n\n\u7f16\u5199\u6d4b\u8bd5\u7528\u4f8b\n\n\n\u8fd0\u884c\u6d4b\u8bd5\u7528\u4f8b",
+            "title": "\u5feb\u901f\u4e0a\u624b"
+        },
+        {
+            "location": "/quickstart/#_1",
+            "text": "",
+            "title": "\u7b80\u5355\u6848\u4f8b"
+        },
+        {
+            "location": "/quickstart/#_2",
+            "text": "",
+            "title": "\u6d4b\u8bd5\u51c6\u5907"
+        },
+        {
+            "location": "/quickstart/#_3",
+            "text": "",
+            "title": "\u7f16\u5199\u6d4b\u8bd5\u7528\u4f8b"
+        },
+        {
+            "location": "/quickstart/#_4",
+            "text": "",
+            "title": "\u8fd0\u884c\u6d4b\u8bd5\u7528\u4f8b"
+        },
+        {
+            "location": "/prepare-testcases/",
+            "text": "\u624b\u5de5\u7f16\u5199\n\n\n\u5f55\u5236\u751f\u6210",
+            "title": "\u51c6\u5907\u6d4b\u8bd5\u7528\u4f8b"
+        },
+        {
+            "location": "/prepare-testcases/#_1",
+            "text": "",
+            "title": "\u624b\u5de5\u7f16\u5199"
+        },
+        {
+            "location": "/prepare-testcases/#_2",
+            "text": "",
+            "title": "\u5f55\u5236\u751f\u6210"
+        },
+        {
+            "location": "/run-testcases/",
+            "text": "\u8fd0\u884c\u5355\u4e2a\u6587\u4ef6\n\n\n\u8fd0\u884c\u591a\u4e2a\u6587\u4ef6\n\n\n\u8fd0\u884c\u6574\u4e2a\u76ee\u5f55",
+            "title": "\u8fd0\u884c\u6d4b\u8bd5\u7528\u4f8b"
+        },
+        {
+            "location": "/run-testcases/#_1",
+            "text": "",
+            "title": "\u8fd0\u884c\u5355\u4e2a\u6587\u4ef6"
+        },
+        {
+            "location": "/run-testcases/#_2",
+            "text": "",
+            "title": "\u8fd0\u884c\u591a\u4e2a\u6587\u4ef6"
+        },
+        {
+            "location": "/run-testcases/#_3",
+            "text": "",
+            "title": "\u8fd0\u884c\u6574\u4e2a\u76ee\u5f55"
+        },
+        {
+            "location": "/data-driven/",
+            "text": "\u6570\u636e\u9a71\u52a8",
+            "title": "\u6570\u636e\u9a71\u52a8"
+        },
+        {
+            "location": "/data-driven/#_1",
+            "text": "",
+            "title": "\u6570\u636e\u9a71\u52a8"
+        },
+        {
+            "location": "/load-test/",
+            "text": "\u6027\u80fd\u6d4b\u8bd5",
+            "title": "\u6027\u80fd\u6d4b\u8bd5"
+        },
+        {
+            "location": "/load-test/#_1",
+            "text": "",
+            "title": "\u6027\u80fd\u6d4b\u8bd5"
+        },
+        {
+            "location": "/development/",
+            "text": "\u5f00\u53d1\u8c03\u8bd5",
+            "title": "\u5f00\u53d1\u65e5\u5fd7"
+        },
+        {
+            "location": "/development/#_1",
+            "text": "",
+            "title": "\u5f00\u53d1\u8c03\u8bd5"
+        },
+        {
+            "location": "/FAQ/",
+            "text": "\u5e38\u89c1\u95ee\u9898",
+            "title": "\u5e38\u89c1\u95ee\u9898"
+        },
+        {
+            "location": "/FAQ/#_1",
+            "text": "",
+            "title": "\u5e38\u89c1\u95ee\u9898"
+        }
+    ]
+}

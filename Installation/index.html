@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>安装说明 - HttpRunner 中文使用手册</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5b89\u88c5\u8bf4\u660e";
+    var mkdocs_page_input_path = "Installation.md";
+    var mkdocs_page_url = "/Installation/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> HttpRunner 中文使用手册</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Introduction/">总体介绍</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">安装说明</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#_1">运行环境</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_2">安装方式</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_3">版本升级</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_4">安装校验</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../quickstart/">快速上手</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../prepare-testcases/">准备测试用例</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../run-testcases/">运行测试用例</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../data-driven/">数据驱动</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../load-test/">性能测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../development/">开发日志</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../FAQ/">常见问题</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">HttpRunner 中文使用手册</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>安装说明</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="_1">运行环境</h2>
+<p>HttpRunner 是一个基于 Python 开发的测试框架，可以运行在 macOS、Linux、Windows 系统平台上。</p>
+<p>HttpRunner 的开发环境为 macOS + Python 3.6；实际上，HttpRunner 支持 Python 2.7 和 Python 3.3 以上的所有版本，并使用 Travis-CI 进行了<a href="https://travis-ci.org/HttpRunner/HttpRunner">持续集成测试</a>，测试覆盖的版本包括 2.7/3.4/3.5/3.6。</p>
+<p>推荐使用 macOS/Linux + Python 3.6 的运行环境组合。</p>
+<h2 id="_2">安装方式</h2>
+<p>HttpRunner 的稳定版本托管在 PyPI 上，可以使用<code>pip</code>或者<code>easy_install</code>进行安装。</p>
+<pre><code class="bash">$ pip install httprunner
+</code></pre>
+
+<p>或者</p>
+<pre><code class="bash">$ easy_install httprunner
+</code></pre>
+
+<p>如果你需要使用最新的开发版本，那么可以采用项目的 GitHub 仓库地址进行安装：</p>
+<pre><code class="bash">$ pip install git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner
+</code></pre>
+
+<h2 id="_3">版本升级</h2>
+<p>假如你之前已经安装过了 HttpRunner，现在需要升级到最新版本，那么你可以使用<code>-U</code>参数。该参数对以上三种安装方式均生效。</p>
+<pre><code class="bash">$ pip install -U HttpRunner
+$ easy_install -U HttpRunner
+$ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner
+</code></pre>
+
+<h2 id="_4">安装校验</h2>
+<p>在 HttpRunner 安装成功后，在你的系统中会新增如下 4 个命令：</p>
+<ul>
+<li>httprunner: 核心命令</li>
+<li>hrun: httprunner 的缩写，功能与 httprunner 完全相同</li>
+<li>ate: 曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同</li>
+<li>locusts: 用于<a href="../load-test/">性能测试</a></li>
+</ul>
+<p>httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，个人推荐使用<code>hrun</code>命令。</p>
+<p>运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功。</p>
+<pre><code class="bash">$ hrun -V
+HttpRunner version: 0.9.0
+PyUnitReport version: 0.1.4
+</code></pre>
+
+<!-- ## 使用 docker 镜像 -->
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../quickstart/" class="btn btn-neutral float-right" title="快速上手">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Introduction/" class="btn btn-neutral" title="总体介绍"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Introduction/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../quickstart/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
