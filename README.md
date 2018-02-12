@@ -4,7 +4,7 @@
 
 本文档托管在`GitHub Pages`上，访问地址：
 
-http://docs-cn.httprunner.top
+http://cn.httprunner.top
 
 ## 本地预览
 
