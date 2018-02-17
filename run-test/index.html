@@ -202,7 +202,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../prepare-testcases/" title="准备测试用例" class="md-nav__link">
+    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
       准备测试用例
     </a>
   </li>
@@ -237,22 +237,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="运行单个文件" class="md-nav__link">
-    运行单个文件
+  <a href="#_1" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="运行多个文件" class="md-nav__link">
-    运行多个文件
+  <a href="#failfast" title="failfast" class="md-nav__link">
+    failfast
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="运行整个目录" class="md-nav__link">
-    运行整个目录
+  <a href="#_2" title="日志级别" class="md-nav__link">
+    日志级别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="测试报告" class="md-nav__link">
+    测试报告
   </a>
   
 </li>
@@ -335,22 +342,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="运行单个文件" class="md-nav__link">
-    运行单个文件
+  <a href="#_1" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="运行多个文件" class="md-nav__link">
-    运行多个文件
+  <a href="#failfast" title="failfast" class="md-nav__link">
+    failfast
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="运行整个目录" class="md-nav__link">
-    运行整个目录
+  <a href="#_2" title="日志级别" class="md-nav__link">
+    日志级别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="测试报告" class="md-nav__link">
+    测试报告
   </a>
   
 </li>
@@ -374,9 +388,69 @@
                 
                   <h1>运行测试用例</h1>
                 
-                <h2 id="_1">运行单个文件</h2>
-<h2 id="_2">运行多个文件</h2>
-<h2 id="_3">运行整个目录</h2>
+                <h2 id="_1">指定用例集路径</h2>
+<p>使用 HttpRunner 指定用例集路径时，支持多种方式。</p>
+<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例集：</p>
+<pre><code class="text">$ hrun filepath/testcase.yml
+</code></pre>
+
+<p>使用 hrun 命令外加多个测试用例文件的路径，即可运行多个测试用例集：</p>
+<pre><code class="text">$ hrun filepath1/testcase1.yml filepath2/testcase2.yml
+</code></pre>
+
+<p>使用 hrun 命令外加文件夹的路径，即可运行指定文件夹下所有的测试用例集：</p>
+<pre><code class="text">$ hrun testcases_folder_path
+</code></pre>
+
+<h2 id="failfast">failfast</h2>
+<p>默认情况下，HttpRunner 会运行指定用例集中的所有测试用例，并统计测试结果。</p>
+<blockquote>
+<p>对于某些依赖于执行顺序的测试用例集，例如需要先登录成功才能执行后续接口请求的场景，当前面的测试用例执行失败后，后续的测试用例也都必将失败，因此没有继续执行的必要了。</p>
+</blockquote>
+<p>若希望测试用例集在运行过程中，遇到失败时不再继续运行后续用例，则可通过在命令中添加<code>--failfast</code>实现。</p>
+<pre><code class="text">$ hrun filepath/testcase.yml --failfast
+</code></pre>
+
+<h2 id="_2">日志级别</h2>
+<p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
+<pre><code>$ hrun tests/data/demo_parameters.yml
+
+Running tests...
+----------------------------------------------------------------------
+ get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
+INFO:root: status_code: 200, response_time: 12 ms, response_length: 46 bytes
+OK (0.014408)s
+
+----------------------------------------------------------------------
+Ran 1 test in 0.015s
+</code></pre>
+
+<p>若需要查看到更详尽的信息，例如请求的参数和响应的详细内容，可以将日志级别设置为<code>DEBUG</code>，即在命令中添加<code>--log-level debug</code>。</p>
+<pre><code>$ hrun tests/data/demo_parameters.yml --log-level debug
+
+Running tests...
+----------------------------------------------------------------------
+ get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
+DEBUG:root: kwargs: {'headers': {'Content-Type': 'application/json', 'device_sn': 'eOq6w6T7DaFnHvu', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6'}, 'json': {'sign': '354432a9efd9111e8ee2a77f9c08124d997876a9'}}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1
+DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 &quot;POST /api/get-token HTTP/1.1&quot; 200 46
+DEBUG:root: response: {'method': 'POST', 'start_time': 1518884607.878689, 'url': '/api/get-token', 'response_time': 11, 'content_size': 46, 'request_headers': {'User-Agent': 'python-requests/2.18.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'device_sn': 'eOq6w6T7DaFnHvu', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6', 'Content-Length': '52'}, 'request_body':b'{&quot;sign&quot;: &quot;354432a9efd9111e8ee2a77f9c08124d997876a9&quot;}', 'status_code': 200, 'response_headers': {'Content-Type': 'application/json', 'Content-Length': '46', 'Server': 'Werkzeug/0.14.1 Python/3.6.4', 'Date': 'Sat, 17 Feb 2018 16:23:27 GMT'}, 'response_content': b'{&quot;success&quot;: true, &quot;token&quot;: &quot;Wo2J1hKCdSq7l66s&quot;}'}
+INFO:root: status_code: 200, response_time: 11 ms, response_length: 46 bytes
+OK (0.013259)s
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+</code></pre>
+
+<h2 id="_3">测试报告</h2>
+<p>运行结束后，会在当前路径的 reports 目录下生成一份 HTML 格式的测试报告，报告名称为当前的时间戳。</p>
+<pre><code>Generating HTML reports...
+Template is not specified, load default template instead.
+Reports generated: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-02-18-00-20-41.html
+</code></pre>
+
+<p>测试报告形式如下：</p>
+<p><img alt="" src="http://debugtalk.com/images/httprunner-skip.jpg" /></p>
                 
                   
                 
@@ -395,7 +469,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../prepare-testcases/" title="准备测试用例" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../prepare-test/" title="准备测试用例" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
