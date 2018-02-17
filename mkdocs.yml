@@ -3,8 +3,8 @@ pages:
     - 介绍: index.md
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
-    - 准备测试用例: prepare-testcases.md
-    - 运行测试用例: run-testcases.md
+    - 准备测试用例: prepare-test.md
+    - 运行测试用例: run-test.md
     - 数据驱动: data-driven.md
     - 性能测试: load-test.md
     - 开发日志: development.md
