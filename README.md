@@ -16,6 +16,12 @@ http://cn.httprunner.org
 $ pip install mkdocs
 ```
 
+`mkdocs`支持主题配置，本项目选择了第三方的[`mkdocs-material`](https://squidfunk.github.io/mkdocs-material/)。
+
+```bash
+$ pip install mkdocs-material
+```
+
 ### 启动本地server
 
 在项目根目录中运行如下命令：
