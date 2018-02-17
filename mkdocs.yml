@@ -10,5 +10,5 @@ pages:
     - 性能测试: load-test.md
     - 开发日志: development.md
     - 常见问题: FAQ.md
-theme: readthedocs
+theme: material
 # repo_url: https://github.com/httprunner/httprunner
