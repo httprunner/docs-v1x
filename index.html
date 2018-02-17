@@ -69,6 +69,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -91,7 +95,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                Home
+                介绍
               </span>
             
           
@@ -168,22 +172,44 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
-      Home
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        介绍
+      </label>
+    
+    <a href="." title="介绍" class="md-nav__link md-nav__link--active">
+      介绍
     </a>
     
-  </li>
-
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="设计理念" class="md-nav__link">
+    设计理念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="核心特性" class="md-nav__link">
+    核心特性
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="Introduction/" title="总体介绍" class="md-nav__link">
-      总体介绍
-    </a>
   </li>
 
     
@@ -290,15 +316,71 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="设计理念" class="md-nav__link">
+    设计理念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="核心特性" class="md-nav__link">
+    核心特性
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Home</h1>
+                  <h1>介绍</h1>
                 
-                
+                <p>HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维护一份<code>YAML/JSON</code>脚本，即可实现自动化测试、性能测试、线上监控、持续集成等目的。</p>
+<h2 id="_1">设计理念</h2>
+<ul>
+<li>充分复用优秀的开源项目，功能简洁但不简单</li>
+<li>遵循<code>约定大于配置</code>的准则，将最佳工程实践融入其中</li>
+<li>追求投入产出比，一份投入即可实现多种测试需求</li>
+</ul>
+<h2 id="_2">核心特性</h2>
+<ul>
+<li>继承 <a href="http://docs.python-requests.org/en/master/">Requests</a> 的全部特性，轻松实现 HTTP(S) 的测试描述</li>
+<li>测试用例与代码分离，采用<code>YAML/JSON</code>的形式描述测试场景</li>
+<li>测试用例支持分层机制，充分实现测试用例的复用</li>
+<li>测试用例支持参数化和数据驱动机制</li>
+<li>使用 skip 机制实现对测试用例的分组执行控制</li>
+<li>支持热加载机制，在文本测试用例中轻松实现复杂的定制化功能</li>
+<li>基于 HAR 实现接口录制和用例生成功能</li>
+<li>结合 <a href="http://locust.io/">Locust</a> 框架，无需额外的工作即可实现性能测试</li>
+<li>执行方式采用 CLI 调用，可与 Jenkins 等持续集成工具完美结合</li>
+<li>测试结果统计报告简洁清晰，附带详尽统计信息和日志记录</li>
+<li>具有可扩展性，便于扩展实现Web平台化（<a href="https://github.com/HttpRunner/HttpRunnerManager">HttpRunnerManager</a>）</li>
+</ul>
                 
                   
                 
@@ -318,13 +400,13 @@
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="Introduction/" title="总体介绍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="Installation/" title="安装说明" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                总体介绍
+                安装说明
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
