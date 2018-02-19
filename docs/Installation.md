@@ -55,6 +55,28 @@ HttpRunner version: 0.9.0
 PyUnitReport version: 0.1.4
 ```
 
+## 辅助工具 har2case
+
+[har2case][har2case] 是 HttpRunner 的辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为 HttpRunner 的`YAML/JSON`测试用例。
+
+安装和升级方式与 HttpRunner 类似：
+
+```bash
+# install
+$ pip install har2case
+
+# upgrade
+$ pip install -U har2case
+```
+
+安装完成后，在系统中会新增`har2case`命令，若运行如下命令可正常显示版本号，则说明安装成功。
+
+```
+$ har2case -V
+0.1.4
+```
+
 <!-- ## 使用 docker 镜像 -->
 
 [travis-ci]: https://travis-ci.org/HttpRunner/HttpRunner
+[har2case]: https://github.com/HttpRunner/har2case
