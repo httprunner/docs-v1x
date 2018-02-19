@@ -213,8 +213,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简单案例" class="md-nav__link">
-    简单案例
+  <a href="#_1" title="案例介绍" class="md-nav__link">
+    案例介绍
   </a>
   
 </li>
@@ -224,18 +224,45 @@
     测试准备
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="抓包分析" class="md-nav__link">
+    抓包分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="生成测试用例" class="md-nav__link">
+    生成测试用例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="编写测试用例" class="md-nav__link">
-    编写测试用例
+  <a href="#_5" title="优化测试用例" class="md-nav__link">
+    优化测试用例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="运行测试用例" class="md-nav__link">
+  <a href="#_6" title="运行测试用例" class="md-nav__link">
     运行测试用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-test-cases-and-generate-report" title="Run test cases and generate report" class="md-nav__link">
+    Run test cases and generate report
   </a>
   
 </li>
@@ -257,20 +284,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
-      准备测试用例
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../run-test/" title="运行测试用例" class="md-nav__link">
-      运行测试用例
+    <a href="../advanced/" title="进阶手册" class="md-nav__link">
+      进阶手册
     </a>
   </li>
 
@@ -342,8 +357,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简单案例" class="md-nav__link">
-    简单案例
+  <a href="#_1" title="案例介绍" class="md-nav__link">
+    案例介绍
   </a>
   
 </li>
@@ -353,18 +368,45 @@
     测试准备
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="抓包分析" class="md-nav__link">
+    抓包分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="生成测试用例" class="md-nav__link">
+    生成测试用例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="编写测试用例" class="md-nav__link">
-    编写测试用例
+  <a href="#_5" title="优化测试用例" class="md-nav__link">
+    优化测试用例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="运行测试用例" class="md-nav__link">
+  <a href="#_6" title="运行测试用例" class="md-nav__link">
     运行测试用例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-test-cases-and-generate-report" title="Run test cases and generate report" class="md-nav__link">
+    Run test cases and generate report
   </a>
   
 </li>
@@ -388,10 +430,56 @@
                 
                   <h1>快速上手</h1>
                 
-                <h2 id="_1">简单案例</h2>
+                <p>为了让大家快速掌握 HttpRunner 的核心功能，我设计了一个简单但比较典型的案例，向大家演示 HttpRunner 的使用方法。</p>
+<h2 id="_1">案例介绍</h2>
+<p>该案例作为被测服务，主要有两类接口：</p>
+<ul>
+<li>权限校验，获取 token</li>
+<li>支持 CRUD 操作的 RESTful APIs，所有接口的请求头域中都必须包含有效的 token</li>
+</ul>
+<p>不难看出，该案例覆盖了自动化测试中的大部分场景，因此只要熟悉了该案例的自动化测试方法，应该就能应对项目中常见的自动化测试需求。</p>
+<p>该案例文件存储于 HttpRunner 的单元测试目录中，路径为<code>test/api_server.py</code>。</p>
+<p>案例的实现形式为 flask 应用服务，启动方式如下：</p>
+<pre><code class="text">$ export FLASK_APP=tests/api_server.py
+$ flask run
+ * Serving Flask app &quot;tests.api_server&quot;
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+</code></pre>
+
+<p>服务启动成功后，我们就可以开始对其进行测试了。</p>
 <h2 id="_2">测试准备</h2>
-<h2 id="_3">编写测试用例</h2>
-<h2 id="_4">运行测试用例</h2>
+<h3 id="_3">抓包分析</h3>
+<p>在开始测试之前，我们需要先了解接口的请求和响应细节，而最佳的方式就是采用 <code>Charles Proxy</code> 或者 <code>Fiddler</code> 这类网络抓包工具进行抓包分析。</p>
+<p>例如，在本案例中，我们先进行权限校验，然后成功创建一个用户，对应的网络抓包内容如下图所示：</p>
+<p><img alt="" src="../images/ate-quickstart-http-1.jpg" /></p>
+<p><img alt="" src="../images/ate-quickstart-http-2.jpg" /></p>
+<p>通过抓包，我们可以看到具体的接口信息，包括请求的URL、Method、headers、参数和响应内容等内容，基于这些信息，我们就可以开始编写测试用例了。</p>
+<h3 id="_4">生成测试用例</h3>
+<p>直接编写测试用例是没有什么问题，但终究有点麻烦。为了简化测试用例的编写工作，HttpRunner 实现了测试用例生成的功能。</p>
+<h2 id="_5">优化测试用例</h2>
+<h2 id="_6">运行测试用例</h2>
+<h2 id="run-test-cases-and-generate-report">Run test cases and generate report</h2>
+<p>Finally, let's run test set [<code>quickstart-demo-rev-3.yml</code>][quickstart-demo-rev-3] once more.</p>
+<pre><code class="text">$ ate examples/quickstart-demo-rev-4.yml
+Running tests...
+----------------------------------------------------------------------
+ get token ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
+INFO:root: status_code: 200, response_time: 33 ms, response_length: 46 bytes
+OK (0.037027)s
+ create user which does not exist ... INFO:root: Start to POST http://127.0.0.1:5000/api/users/1000
+INFO:root: status_code: 201, response_time: 15 ms, response_length: 54 bytes
+OK (0.016414)s
+----------------------------------------------------------------------
+Ran 2 tests in 0.054s
+OK
+
+Generating HTML reports...
+Template is not specified, load default template instead.
+Reports generated: /Users/Leo/MyProjects/HttpRunner/reports/quickstart-demo-rev-0/2017-08-01-16-51-51.html
+</code></pre>
+
+<p>Great! The test case runs successfully and generates a <code>HTML</code> test report.</p>
+<p><img alt="" src="../images/ate-quickstart-demo-report.jpg" /></p>
                 
                   
                 
@@ -425,13 +513,13 @@
           </a>
         
         
-          <a href="../prepare-test/" title="准备测试用例" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../advanced/" title="进阶手册" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                准备测试用例
+                进阶手册
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

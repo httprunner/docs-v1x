@@ -36,7 +36,7 @@
     
     
       
-        <title>运行测试用例 - HttpRunner 中文使用手册</title>
+        <title>进阶手册 - HttpRunner 中文使用手册</title>
       
     
     
@@ -95,7 +95,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                运行测试用例
+                进阶手册
               </span>
             
           
@@ -200,18 +200,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
-      准备测试用例
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -221,11 +209,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        运行测试用例
+        进阶手册
       </label>
     
-    <a href="./" title="运行测试用例" class="md-nav__link md-nav__link--active">
-      运行测试用例
+    <a href="./" title="进阶手册" class="md-nav__link md-nav__link--active">
+      进阶手册
     </a>
     
       
@@ -237,28 +225,68 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="指定用例集路径" class="md-nav__link">
-    指定用例集路径
+  <a href="#_1" title="准备测试用例" class="md-nav__link">
+    准备测试用例
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="录制生成" class="md-nav__link">
+    录制生成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="手工编写" class="md-nav__link">
+    手工编写
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="运行测试用例" class="md-nav__link">
+    运行测试用例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#failfast" title="failfast" class="md-nav__link">
     failfast
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="日志级别" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="日志级别" class="md-nav__link">
     日志级别
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="测试报告" class="md-nav__link">
+  <a href="#_7" title="测试报告" class="md-nav__link">
     测试报告
   </a>
   
@@ -342,28 +370,68 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="指定用例集路径" class="md-nav__link">
-    指定用例集路径
+  <a href="#_1" title="准备测试用例" class="md-nav__link">
+    准备测试用例
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="录制生成" class="md-nav__link">
+    录制生成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="手工编写" class="md-nav__link">
+    手工编写
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="运行测试用例" class="md-nav__link">
+    运行测试用例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#failfast" title="failfast" class="md-nav__link">
     failfast
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="日志级别" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="日志级别" class="md-nav__link">
     日志级别
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="测试报告" class="md-nav__link">
+  <a href="#_7" title="测试报告" class="md-nav__link">
     测试报告
   </a>
   
@@ -386,9 +454,14 @@
               
                 
                 
-                  <h1>运行测试用例</h1>
+                  <h1>进阶手册</h1>
                 
-                <h2 id="_1">指定用例集路径</h2>
+                <h2 id="_1">准备测试用例</h2>
+<h3 id="_2">录制生成</h3>
+<p>简单来说，就是当前主流的抓包工具和浏览器都能将抓取得到的数据包导出为标准通用的 HAR 格式（HTTP Archive），然后 HttpRunner 可以将 HAR 格式的数据包转换为<code>YAML/JSON</code>格式的测试用例文件。</p>
+<h3 id="_3">手工编写</h3>
+<h2 id="_4">运行测试用例</h2>
+<h3 id="_5">指定用例集路径</h3>
 <p>使用 HttpRunner 指定用例集路径时，支持多种方式。</p>
 <p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例集：</p>
 <pre><code class="text">$ hrun filepath/testcase.yml
@@ -402,7 +475,7 @@
 <pre><code class="text">$ hrun testcases_folder_path
 </code></pre>
 
-<h2 id="failfast">failfast</h2>
+<h3 id="failfast">failfast</h3>
 <p>默认情况下，HttpRunner 会运行指定用例集中的所有测试用例，并统计测试结果。</p>
 <blockquote>
 <p>对于某些依赖于执行顺序的测试用例集，例如需要先登录成功才能执行后续接口请求的场景，当前面的测试用例执行失败后，后续的测试用例也都必将失败，因此没有继续执行的必要了。</p>
@@ -411,7 +484,7 @@
 <pre><code class="text">$ hrun filepath/testcase.yml --failfast
 </code></pre>
 
-<h2 id="_2">日志级别</h2>
+<h3 id="_6">日志级别</h3>
 <p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
 <pre><code>$ hrun tests/data/demo_parameters.yml
 
@@ -442,7 +515,7 @@ OK (0.013259)s
 Ran 1 test in 0.013s
 </code></pre>
 
-<h2 id="_3">测试报告</h2>
+<h2 id="_7">测试报告</h2>
 <p>运行结束后，会在当前路径的 reports 目录下生成一份 HTML 格式的测试报告，报告名称为当前的时间戳。</p>
 <pre><code>Generating HTML reports...
 Template is not specified, load default template instead.
@@ -469,7 +542,7 @@ Reports generated: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../prepare-test/" title="准备测试用例" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../quickstart/" title="快速上手" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -478,7 +551,7 @@ Reports generated: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                准备测试用例
+                快速上手
               </span>
             </div>
           </a>

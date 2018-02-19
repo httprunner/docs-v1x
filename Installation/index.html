@@ -228,6 +228,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#har2case" title="辅助工具 har2case" class="md-nav__link">
+    辅助工具 har2case
+  </a>
+  
+</li>
+      
       
       
       
@@ -257,20 +264,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
-      准备测试用例
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../run-test/" title="运行测试用例" class="md-nav__link">
-      运行测试用例
+    <a href="../advanced/" title="进阶手册" class="md-nav__link">
+      进阶手册
     </a>
   </li>
 
@@ -369,6 +364,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#har2case" title="辅助工具 har2case" class="md-nav__link">
+    辅助工具 har2case
+  </a>
+  
+</li>
+      
       
       
       
@@ -425,6 +427,21 @@ $ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner
 <pre><code class="bash">$ hrun -V
 HttpRunner version: 0.9.0
 PyUnitReport version: 0.1.4
+</code></pre>
+
+<h2 id="har2case">辅助工具 har2case</h2>
+<p><a href="https://github.com/HttpRunner/har2case">har2case</a> 是 HttpRunner 的辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为 HttpRunner 的<code>YAML/JSON</code>测试用例。</p>
+<p>安装和升级方式与 HttpRunner 类似：</p>
+<pre><code class="bash"># install
+$ pip install har2case
+
+# upgrade
+$ pip install -U har2case
+</code></pre>
+
+<p>安装完成后，在系统中会新增<code>har2case</code>命令，若运行如下命令可正常显示版本号，则说明安装成功。</p>
+<pre><code>$ har2case -V
+0.1.4
 </code></pre>
 
 <!-- ## 使用 docker 镜像 -->
