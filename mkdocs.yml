@@ -12,3 +12,6 @@ pages:
     - 开发文档: development.md
     - 常见问题: FAQ.md
 theme: material
+google_analytics:
+  - 'UA-114587036-2'
+  - 'auto'
