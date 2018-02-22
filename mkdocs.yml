@@ -1,4 +1,44 @@
+# Project information
 site_name: HttpRunner 中文使用手册
+site_description: HttpRunner User Documentation
+site_author: 'Leo Lee'
+
+# Copyright
+copyright: 'Copyright &copy; 2017 - 2018 debugtalk'
+
+# Configuration
+theme:
+    name: 'material'
+    language: 'zh'
+    palette:
+        primary: 'indigo'
+        accent: 'indigo'
+    font:
+        text: 'Roboto'
+        code: 'Roboto Mono'
+
+# Google Analytics
+google_analytics:
+    - 'UA-114587036-2'
+    - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+# extra
+extra:
+    search:
+        language: 'en, jp'
+    social:
+        - type: 'github'
+          link: 'https://github.com/httprunner'
+
+# index pages
 pages:
     - 介绍: index.md
     - 安装说明: Installation.md
@@ -11,7 +51,3 @@ pages:
     - 性能测试: load-test.md
     - 开发文档: development.md
     - 常见问题: FAQ.md
-theme: material
-google_analytics:
-  - 'UA-114587036-2'
-  - 'auto'
