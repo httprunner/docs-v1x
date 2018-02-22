@@ -440,16 +440,30 @@ Ran 1 test in 0.015s
 
 Running tests...
 ----------------------------------------------------------------------
- get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-DEBUG:root: kwargs: {'headers': {'Content-Type': 'application/json', 'device_sn': 'eOq6w6T7DaFnHvu', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6'}, 'json': {'sign': '354432a9efd9111e8ee2a77f9c08124d997876a9'}}
-DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1
-DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 &quot;POST /api/get-token HTTP/1.1&quot; 200 46
-DEBUG:root: response: {'method': 'POST', 'start_time': 1518884607.878689, 'url': '/api/get-token', 'response_time': 11, 'content_size': 46, 'request_headers': {'User-Agent': 'python-requests/2.18.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'device_sn': 'eOq6w6T7DaFnHvu', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6', 'Content-Length': '52'}, 'request_body':b'{&quot;sign&quot;: &quot;354432a9efd9111e8ee2a77f9c08124d997876a9&quot;}', 'status_code': 200, 'response_headers': {'Content-Type': 'application/json', 'Content-Length': '46', 'Server': 'Werkzeug/0.14.1 Python/3.6.4', 'Date': 'Sat, 17 Feb 2018 16:23:27 GMT'}, 'response_content': b'{&quot;success&quot;: true, &quot;token&quot;: &quot;Wo2J1hKCdSq7l66s&quot;}'}
-INFO:root: status_code: 200, response_time: 11 ms, response_length: 46 bytes
-OK (0.013259)s
+ get token with iOS/10.3 and 2.8.6 ... INFO     POST http://127.0.0.1:5000/api/get-token
+DEBUG    request kwargs: {'headers': {'Content-Type': 'application/json', 'device_sn': 'fK6Jxb5QJKYkN5G', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6'}, 'json': {'sign': '2b2eb00a06bf35623efe55a79118ac29df2f88ee'}}
+DEBUG    Starting new HTTP connection (1): 127.0.0.1
+DEBUG    http://127.0.0.1:5000 &quot;POST /api/get-token HTTP/1.1&quot; 200 46
+DEBUG    response status_code: 200
+DEBUG    response headers: {'Content-Type': 'application/json', 'Content-Length': '46', 'Server': 'Werkzeug/0.14.1 Python/3.6.4', 'Date': 'Thu, 22 Feb 201814:58:13 GMT'}
+DEBUG    response body: {&quot;success&quot;: true, &quot;token&quot;: &quot;b23c6mVM5oMzD03K&quot;}
+INFO     status_code: 200, response_time: 11 ms, response_length: 46 bytes
+OK (0.015256)s
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.013s
+Ran 1 test in 0.015s
+
+OK
+
+Generating HTML reports...
+Template is not specified, load default template instead.
+Reports generated: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-02-22-22-58-13.html
+DEBUG
+================== Output ==================
+Variable        :  Value
+--------        :  -----
+token           :  b23c6mVM5oMzD03K
+============================================
 </code></pre>
                 
                   
