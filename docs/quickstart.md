@@ -114,7 +114,61 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 ]
 ```
 
-如上便是 HttpRunner 测试用例的基本结构。
+除了 JSON 格式，HttpRunner 同时支持 YAML 格式的测试用例。
+
+若将 demo-quickstart.har 转换为 YAML 格式的测试用例，则文件描述如下：
+
+```yaml
+- config:
+    name: testset description
+    request:
+        base_url: ''
+        headers:
+            User-Agent: python-requests/2.18.4
+    variables: []
+
+- test:
+    name: /api/get-token
+    request:
+        url: http://127.0.0.1:5000/api/get-token
+        method: POST
+        headers:
+            Content-Type: application/json
+            app_version: 2.8.6
+            device_sn: FwgRiO7CNA50DSU
+            os_platform: ios
+            user_agent: iOS/10.3
+        json:
+            sign: 958a05393efef0ac7c0fb80a7eac45e24fd40c27
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.success, true]
+        - eq: [content.token, baNLX1zhFYP11Seb]
+
+- test:
+    name: /api/users/1000
+    request:
+        url: http://127.0.0.1:5000/api/users/1000
+        method: POST
+        headers:
+            Content-Type: application/json
+            device_sn: FwgRiO7CNA50DSU
+            token: baNLX1zhFYP11Seb
+        json:
+            name: user1
+            password: '123456'
+    validate:
+        - eq: [status_code, 201]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.success, true]
+        - eq: [content.msg, "user created successfully."]
+```
+
+在 HttpRunner 中，JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全相同。
+
+- 对于熟悉 YAML 格式的人来说，编写维护 YAML 格式的测试用例会更简洁，但前提是要保证 YAML 格式没有语法错误；
+- 对于新手来说，推荐使用 JSON 格式，虽然描述形式上稍显累赘，但是不容易出错（大多编辑器都具有 JSON 格式的检测功能）。
 
 现在我们只需要知道如下几点：
 
@@ -123,13 +177,15 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 - `config`为全局配置项，作用域为整个测试用例集
 - `test`对应单个接口的测试用例，作用域仅限于本身
 
+如上便是 HttpRunner 测试用例的基本结构。
+
 关于测试用例的更多内容，请查看[测试用例参考手册](/testcase/)。
 
 ### 首次运行测试用例
 
 既然现在已经有了测试用例文件，那么我们先尝试运行下吧。
 
-为了演示测试用例文件的迭代优化过程，我们先将 demo-quickstart.json 重命名为 [demo-quickstart-0.json](data/demo-quickstart-0.json)。
+为了演示测试用例文件的迭代优化过程，我们先将 demo-quickstart.json 重命名为 [demo-quickstart-0.json](data/demo-quickstart-0.json)（对应的 YAML 格式：[demo-quickstart-0.yml](data/demo-quickstart-0.yml)）。
 
 运行测试用例的命令为`hrun`，后面直接指定测试用例文件的路径即可。
 
@@ -164,7 +220,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 正确的做法是，在测试用例的 validate 中应该去掉这类动态变化的值。
 
-去除该项后，将用例另存为 [demo-quickstart-1.json](data/demo-quickstart-1.json)。
+去除该项后，将用例另存为 [demo-quickstart-1.json](data/demo-quickstart-1.json)（对应的 YAML 格式：[demo-quickstart-1.yml](data/demo-quickstart-1.yml)）。
 
 再次运行测试用例，运行结果如下：
 
@@ -208,7 +264,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 }
 ```
 
-修改后的测试用例另存为 [demo-quickstart-2.json](data/demo-quickstart-2.json)。
+修改后的测试用例另存为 [demo-quickstart-2.json](data/demo-quickstart-2.json)（对应的 YAML 格式：[demo-quickstart-2.yml](data/demo-quickstart-2.yml)）。
 
 再次运行测试用例，运行结果如下：
 
@@ -241,7 +297,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 }
 ```
 
-其中，host 部分对应 config 中的 base_url。调整后的测试用例另存为 [demo-quickstart-3.json](data/demo-quickstart-3.json)。
+其中，host 部分对应 config 中的 base_url。调整后的测试用例另存为 [demo-quickstart-3.json](data/demo-quickstart-3.json)（对应的 YAML 格式：[demo-quickstart-3.yml](data/demo-quickstart-3.yml)）。
 
 重启 flask 应用服务后再次运行测试用例，所有的测试用例仍然运行成功。
 
@@ -253,7 +309,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 在 HttpRunner 中，支持变量申明（`variables`）和引用（`$var`）的机制。在 config 和 test 中均可以通过 variables 关键字定义变量，然后在测试用例中可以通过 `$ + 变量名称` 的方式引用变量。区别在于，在 config 中定义的变量为全局的，整个测试用例集（testset）的所有地方均可以引用；在 test 中定义的变量作用域仅局限于当前测试用例（testcase）。
 
-对上述硬编码的参数进行变量申请和引用调整后，新的测试用例集另存为 [demo-quickstart-4.json](data/demo-quickstart-4.json)。
+对上述硬编码的参数进行变量申请和引用调整后，新的测试用例集另存为 [demo-quickstart-4.json](data/demo-quickstart-4.json)（对应的 YAML 格式：[demo-quickstart-4.yml](data/demo-quickstart-4.yml)）。
 
 重启 flask 应用服务后再次运行测试用例，所有的测试用例仍然运行成功。
 
@@ -313,7 +369,7 @@ def get_sign(*args):
 }
 ```
 
-对测试用例进行上述调整后，另存为 [demo-quickstart-5.json](data/demo-quickstart-5.json)。
+对测试用例进行上述调整后，另存为 [demo-quickstart-5.json](data/demo-quickstart-5.json)（对应的 YAML 格式：[demo-quickstart-5.yml](data/demo-quickstart-5.yml)）。
 
 重启 flask 应用服务后再次运行测试用例，所有的测试用例仍然运行成功。
 
@@ -357,7 +413,7 @@ user_id
 
 完成以上两步后，针对 user_id 的参数化数据驱动就完成了。
 
-将经过调整的测试用例另存为 [demo-quickstart-6.json](data/demo-quickstart-6.json)，重启 flask 应用服务后再次运行测试用例，测试用例运行情况如下所示：
+将经过调整的测试用例另存为 [demo-quickstart-6.json](data/demo-quickstart-6.json)（对应的 YAML 格式：[demo-quickstart-6.yml](data/demo-quickstart-6.yml)），重启 flask 应用服务后再次运行测试用例，测试用例运行情况如下所示：
 
 ![](/images/run-demo-quickstart-6.jpg)
 
