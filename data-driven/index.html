@@ -3,36 +3,40 @@
 
 
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
+        <meta name="description" content="HttpRunner User Documentation">
       
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="author" content="Leo Lee">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="en, jp">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.5">
     
     
       
@@ -40,7 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.9d8fef76.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
       
     
     
@@ -57,7 +63,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     <svg class="md-svg">
       <defs>
@@ -70,7 +78,7 @@
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <a href="#_1" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -110,7 +118,7 @@
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -120,7 +128,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -233,7 +241,7 @@
   
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
+    <label class="md-nav__title" for="toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -382,7 +390,7 @@
   
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
+    <label class="md-nav__title" for="toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -452,7 +460,7 @@
                 
                   <h1>数据驱动</h1>
                 
-                <h2 id="_1">介绍</h2>
+                <h2 id="_1">介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在自动化测试中，经常会遇到如下场景：</p>
 <ul>
 <li>测试搜索功能，只有一个搜索输入框，但有10种不同类型的搜索关键字；</li>
@@ -467,9 +475,9 @@
 <p>然后，对于参数而言，我们可能具有一个参数列表，在脚本运行时需要按照不同的规则去取值，例如顺序取值、随机取值、循环取值等等。</p>
 <p>这就是典型的参数化和数据驱动。</p>
 <p>如需了解 HttpRunner 参数化数据驱动机制的实现原理和技术细节，可前往阅读<a href="http://debugtalk.com/post/httprunner-data-driven/">《HttpRunner 实现参数化数据驱动机制》</a>。</p>
-<h2 id="_2">使用说明</h2>
+<h2 id="_2">使用说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在 HttpRunner 中若要使用数据驱动，需要进行两步操作：参数定义和数据源准备。</p>
-<h3 id="_3">参数定义</h3>
+<h3 id="_3">参数定义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>在 YAML/JSON 测试用例的 config 模块中，新增一个<code>parameters</code>字段，参数化的定义均放置在该字段下。</p>
 <p>定义内容包括参数名称和参数取值方式。</p>
 <ul>
@@ -477,87 +485,95 @@
 <li>参数取值方式当前支持顺序取值（Sequential）和乱序取值（Random）两种方式。</li>
 </ul>
 <p>示例如下：</p>
-<pre><code class="yaml">- config:
-    name: &quot;demo&quot;
-    parameters:
-        - user_agent: Random
-        - username-password: Sequential
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;demo&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Random</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Sequential</span>
+</pre></div>
+
 
 <p>假如测试用例中定义了多个参数，那么测试用例在运行时会对参数进行笛卡尔积组合，覆盖所有参数组合情况。</p>
 <p>参数取值方式采用乱序取值（Random）时，会先对该参数进行乱序排序，然后再进行笛卡尔积组合。</p>
-<h3 id="_4">数据源准备</h3>
+<h3 id="_4">数据源准备<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>约定采用<code>.csv</code>文件格式来存储参数列表，独立参数存放在独立的<code>.csv</code>文件中，多个具有关联性的参数存放在一个<code>.csv</code>文件中；文件名称需要与参数名称保持一致，多个具有关联性的参数采用短横线（<code>-</code>）进行连接。</p>
 <p>同时，约定在<code>.csv</code>文件中的第一行必须为参数名称；从第二行开始为参数值，每个值占一行；参数名称和数值之间采用逗号进行分隔。</p>
 <p>例如，<code>keyword</code>这种独立的参数就可以存放在<code>keyword.csv</code>中，内容形式如下：</p>
-<pre><code class="csv">keyword
+<div class="codehilite"><pre><span></span>keyword
 hello
 world
 debugtalk
-</code></pre>
+</pre></div>
+
 
 <p><code>username</code>和<code>password</code>这种具有关联性的参数就可以存放在<code>username-password.csv</code>中，内容形式如下：</p>
-<pre><code class="csv">username,password
+<div class="codehilite"><pre><span></span>username,password
 test1,111111
 test2,222222
 test3,333333
-</code></pre>
+</pre></div>
 
-<h3 id="_5">参数化运行</h3>
+
+<h3 id="_5">参数化运行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>完成以上参数定义和数据源准备工作之后，参数化运行与普通测试用例的运行完全一致。</p>
 <p>采用 hrun 命令运行自动化测试：</p>
-<pre><code class="bash">$ hrun tests/data/demo_parameters.yml
-</code></pre>
+<div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
+</pre></div>
+
 
 <p>采用 locusts 命令运行性能测试：</p>
-<pre><code class="bash">$ locusts -f tests/data/demo_parameters.yml
-</code></pre>
+<div class="codehilite"><pre><span></span>$ locusts -f tests/data/demo_parameters.yml
+</pre></div>
+
 
 <p>区别在于，测试用例集在运行时会分别运行每一种组合情况；自动化测试时遍历一遍后会终止执行，性能测试时每个用户都会循环遍历。</p>
-<h2 id="_6">案例演示</h2>
+<h2 id="_6">案例演示<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>假设我们有一个获取token的接口，我们需要使用 user_agent 和 app_version 这两个参数来进行参数化数据驱动。</p>
 <p>YAML 测试用例的描述形式如下所示：</p>
-<pre><code class="yaml">- config:
-    name: &quot;user management testset.&quot;
-    parameters:
-        - user_agent: Random
-        - app_version: Sequential
-    variables:
-        - user_agent: 'iOS/10.3'
-        - device_sn: ${gen_random_string(15)}
-        - os_platform: 'ios'
-        - app_version: '2.8.6'
-    request:
-        base_url: $BASE_URL
-        headers:
-            Content-Type: application/json
-            device_sn: $device_sn
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;user</span><span class="nv"> </span><span class="s">management</span><span class="nv"> </span><span class="s">testset.&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Random</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Sequential</span>
+    <span class="l l-Scalar l-Scalar-Plain">variables</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="s">&#39;iOS/10.3&#39;</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">device_sn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${gen_random_string(15)}</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">os_platform</span><span class="p p-Indicator">:</span> <span class="s">&#39;ios&#39;</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="s">&#39;2.8.6&#39;</span>
+    <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$BASE_URL</span>
+        <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
+            <span class="l l-Scalar l-Scalar-Plain">device_sn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$device_sn</span>
 
-- test:
-    name: get token with $user_agent and $app_version
-    api: get_token($user_agent, $device_sn, $os_platform, $app_version)
-    extract:
-        - token: content.token
-    validate:
-        - &quot;eq&quot;: [&quot;status_code&quot;, 200]
-        - &quot;len_eq&quot;: [&quot;content.token&quot;, 16]
-</code></pre>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">get token with $user_agent and $app_version</span>
+    <span class="l l-Scalar l-Scalar-Plain">api</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">get_token($user_agent, $device_sn, $os_platform, $app_version)</span>
+    <span class="l l-Scalar l-Scalar-Plain">extract</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">content.token</span>
+    <span class="l l-Scalar l-Scalar-Plain">validate</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="s">&quot;eq&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;status_code&quot;</span><span class="p p-Indicator">,</span> <span class="nv">200</span><span class="p p-Indicator">]</span>
+        <span class="p p-Indicator">-</span> <span class="s">&quot;len_eq&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;content.token&quot;</span><span class="p p-Indicator">,</span> <span class="nv">16</span><span class="p p-Indicator">]</span>
+</pre></div>
+
 
 <p>其中，user_agent 和 app_version 的数据源列表分别为：</p>
-<pre><code class="csv">user_agent
+<div class="codehilite"><pre><span></span>user_agent
 iOS/10.1
 iOS/10.2
 iOS/10.3
-</code></pre>
+</pre></div>
 
-<pre><code class="csv">app_version
+
+<div class="codehilite"><pre><span></span>app_version
 2.8.5
 2.8.6
-</code></pre>
+</pre></div>
+
 
 <p>那么，经过笛卡尔积组合，应该总共有6种参数组合情况，并且 user_agent 为乱序取值，app_version 为顺序取值。</p>
 <p>最终的测试结果如下所示：</p>
-<pre><code>$ hrun tests/data/demo_parameters.yml
+<div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
 
 Running tests...
 ----------------------------------------------------------------------
@@ -581,7 +597,7 @@ INFO:root: status_code: 200, response_time: 3 ms, response_length: 46 bytes
 OK (0.004846)s
 ----------------------------------------------------------------------
 Ran 6 tests in 0.046s
-</code></pre>
+</pre></div>
                 
                   
                 
@@ -607,7 +623,7 @@ Ran 6 tests in 0.046s
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  后退
                 </span>
                 准备测试用例
               </span>
@@ -619,7 +635,7 @@ Ran 6 tests in 0.046s
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  前进
                 </span>
                 测试用例分层
               </span>
@@ -636,6 +652,10 @@ Ran 6 tests in 0.046s
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 - 2018 debugtalk
+          </div>
+        
         powered by
         <a href="http://www.mkdocs.org">MkDocs</a>
         and
@@ -644,6 +664,14 @@ Ran 6 tests in 0.046s
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/httprunner" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
       
     </div>
   </div>
@@ -651,7 +679,28 @@ Ran 6 tests in 0.046s
       
     </div>
     
-      <script src="../assets/javascripts/application.abd7b172.js"></script>
+      <script src="../assets/javascripts/application.02434462.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+            <script src="../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
       
       <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
