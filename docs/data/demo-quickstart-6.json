@@ -1,0 +1,71 @@
+[
+    {
+        "config": {
+            "name": "testset description",
+            "parameters": [
+                {"user_id": "Sequential"}
+            ],
+            "variables": [
+                {"device_sn": "${gen_random_string(15)}"},
+                {"user_id": 1000}
+            ],
+            "request": {
+                "base_url": "http://127.0.0.1:5000",
+                "headers": {
+                    "User-Agent": "python-requests/2.18.4",
+                    "device_sn": "$device_sn",
+                    "Content-Type": "application/json"
+                }
+            }
+        }
+    },
+    {
+        "test": {
+            "name": "/api/get-token",
+            "variables": [
+                {"user_agent": "iOS/10.3"},
+                {"os_platform": "ios"},
+                {"app_version": "2.8.6"}
+            ],
+            "request": {
+                "url": "/api/get-token",
+                "headers": {
+                    "user_agent": "$user_agent",
+                    "os_platform": "$os_platform",
+                    "app_version": "$app_version"
+                },
+                "method": "POST",
+                "json": {
+                    "sign": "${get_sign($user_agent, $device_sn, $os_platform, $app_version)}"
+                }
+            },
+            "extract": [
+                {"token": "content.token"}
+            ],
+            "validate": [
+                {"eq": ["status_code", 200]},
+                {"eq": ["headers.Content-Type", "application/json"]},
+                {"eq": ["content.success", true]}
+            ]
+        }
+    },
+    {
+        "test": {
+            "name": "/api/users/$user_id",
+            "request": {
+                "url": "/api/users/$user_id",
+                "headers": {
+                    "token": "$token"
+                },
+                "method": "POST",
+                "json": {"name": "user1", "password": "123456"}
+            },
+            "validate": [
+                {"eq": ["status_code", 201]},
+                {"eq": ["headers.Content-Type", "application/json"]},
+                {"eq": ["content.success", true]},
+                {"eq": ["content.msg", "user created successfully."]}
+            ]
+        }
+    }
+]
