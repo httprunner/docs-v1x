@@ -229,8 +229,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#har2case" title="辅助工具 har2case" class="md-nav__link">
-    辅助工具 har2case
+  <a href="#_5" title="开发者模式" class="md-nav__link">
+    开发者模式
   </a>
   
 </li>
@@ -264,8 +264,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../advanced/" title="进阶手册" class="md-nav__link">
-      进阶手册
+    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
+      准备测试用例
     </a>
   </li>
 
@@ -288,6 +288,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../testcase-layer/" title="测试用例分层" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../run-test/" title="运行测试用例" class="md-nav__link">
+      运行测试用例
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../report/" title="测试报告" class="md-nav__link">
+      测试报告
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../load-test/" title="性能测试" class="md-nav__link">
       性能测试
     </a>
@@ -300,8 +336,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/" title="开发日志" class="md-nav__link">
-      开发日志
+    <a href="../development/" title="开发文档" class="md-nav__link">
+      开发文档
     </a>
   </li>
 
@@ -365,8 +401,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#har2case" title="辅助工具 har2case" class="md-nav__link">
-    辅助工具 har2case
+  <a href="#_5" title="开发者模式" class="md-nav__link">
+    开发者模式
   </a>
   
 </li>
@@ -415,33 +451,45 @@ $ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner
 </code></pre>
 
 <h2 id="_4">安装校验</h2>
-<p>在 HttpRunner 安装成功后，在你的系统中会新增如下 4 个命令：</p>
+<p>在 HttpRunner 安装成功后，系统中会新增如下 5 个命令：</p>
 <ul>
-<li>httprunner: 核心命令</li>
-<li>hrun: httprunner 的缩写，功能与 httprunner 完全相同</li>
-<li>ate: 曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同</li>
-<li>locusts: 用于<a href="../load-test/">性能测试</a></li>
+<li><code>httprunner</code>: 核心命令</li>
+<li><code>ate</code>: 曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同</li>
+<li><code>hrun</code>: httprunner 的缩写，功能与 httprunner 完全相同</li>
+<li><code>locusts</code>: 基于 <a href="http://locust.io/">Locust</a> 实现<a href="../load-test/">性能测试</a></li>
+<li><a href="https://github.com/HttpRunner/har2case"><code>har2case</code></a>: 辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为<code>YAML/JSON</code>格式的测试用例</li>
 </ul>
 <p>httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，个人推荐使用<code>hrun</code>命令。</p>
 <p>运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功。</p>
 <pre><code class="bash">$ hrun -V
-HttpRunner version: 0.9.0
+HttpRunner version: 0.9.3
 PyUnitReport version: 0.1.4
-</code></pre>
 
-<h2 id="har2case">辅助工具 har2case</h2>
-<p><a href="https://github.com/HttpRunner/har2case">har2case</a> 是 HttpRunner 的辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为 HttpRunner 的<code>YAML/JSON</code>测试用例。</p>
-<p>安装和升级方式与 HttpRunner 类似：</p>
-<pre><code class="bash"># install
-$ pip install har2case
-
-# upgrade
-$ pip install -U har2case
-</code></pre>
-
-<p>安装完成后，在系统中会新增<code>har2case</code>命令，若运行如下命令可正常显示版本号，则说明安装成功。</p>
-<pre><code>$ har2case -V
+$ har2case -V
 0.1.4
+</code></pre>
+
+<h2 id="_5">开发者模式</h2>
+<p>默认情况下，安装 HttpRunner 的时候只会获取到核心代码，没有将单元测试代码（tests）和示例代码（examples）包含进来，也没有安装运行示例代码所依赖的库（flask）。</p>
+<p>如果你不仅仅是使用 HttpRunner，还需要在本地调试运行（debug），或者需要运行用户使用说明文档中的示例，那么就需要进行如下操作：</p>
+<p>获取代码仓库：</p>
+<pre><code class="bash">$ git clone https://github.com/HttpRunner/HttpRunner.git
+</code></pre>
+
+<p>进入仓库目录，安装所有依赖：</p>
+<pre><code class="bash">$ pip install -r requirements-dev.txt
+</code></pre>
+
+<p>运行单元测试：</p>
+<pre><code class="bash">$ python -m unittest discover
+</code></pre>
+
+<p>调试运行方式：</p>
+<pre><code class="bash"># 调试运行 hrun
+$ python httprunner/cli.py hrun -h
+
+# 调试运行 locusts
+$ python httprunner/cli.py locusts -h
 </code></pre>
 
 <!-- ## 使用 docker 镜像 -->

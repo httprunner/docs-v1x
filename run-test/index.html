@@ -31,20 +31,20 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="./assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.2">
     
     
       
-        <title>HttpRunner 中文使用手册</title>
+        <title>运行测试用例 - HttpRunner 中文使用手册</title>
       
     
     
-      <link rel="stylesheet" href="./assets/stylesheets/application.9b572555.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.9b572555.css">
       
     
     
-      <script src="./assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       
@@ -78,7 +78,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="HttpRunner 中文使用手册" class="md-header-nav__button md-logo">
+        <a href=".." title="HttpRunner 中文使用手册" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -95,7 +95,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                介绍
+                运行测试用例
               </span>
             
           
@@ -164,6 +164,78 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href=".." title="介绍" class="md-nav__link">
+      介绍
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Installation/" title="安装说明" class="md-nav__link">
+      安装说明
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="快速上手" class="md-nav__link">
+      快速上手
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
+      准备测试用例
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../data-driven/" title="数据驱动" class="md-nav__link">
+      数据驱动
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../testcase-layer/" title="测试用例分层" class="md-nav__link">
+      测试用例分层
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -173,11 +245,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        介绍
+        运行测试用例
       </label>
     
-    <a href="." title="介绍" class="md-nav__link md-nav__link--active">
-      介绍
+    <a href="./" title="运行测试用例" class="md-nav__link md-nav__link--active">
+      运行测试用例
     </a>
     
       
@@ -189,15 +261,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="设计理念" class="md-nav__link">
-    设计理念
+  <a href="#_1" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="核心特性" class="md-nav__link">
-    核心特性
+  <a href="#failfast" title="failfast" class="md-nav__link">
+    failfast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="日志级别" class="md-nav__link">
+    日志级别
   </a>
   
 </li>
@@ -219,79 +298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="Installation/" title="安装说明" class="md-nav__link">
-      安装说明
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="quickstart/" title="快速上手" class="md-nav__link">
-      快速上手
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="prepare-test/" title="准备测试用例" class="md-nav__link">
-      准备测试用例
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="data-driven/" title="数据驱动" class="md-nav__link">
-      数据驱动
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="testcase-layer/" title="测试用例分层" class="md-nav__link">
-      测试用例分层
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="run-test/" title="运行测试用例" class="md-nav__link">
-      运行测试用例
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="report/" title="测试报告" class="md-nav__link">
+    <a href="../report/" title="测试报告" class="md-nav__link">
       测试报告
     </a>
   </li>
@@ -303,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="load-test/" title="性能测试" class="md-nav__link">
+    <a href="../load-test/" title="性能测试" class="md-nav__link">
       性能测试
     </a>
   </li>
@@ -315,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="development/" title="开发文档" class="md-nav__link">
+    <a href="../development/" title="开发文档" class="md-nav__link">
       开发文档
     </a>
   </li>
@@ -327,7 +334,7 @@
 
 
   <li class="md-nav__item">
-    <a href="FAQ/" title="常见问题" class="md-nav__link">
+    <a href="../FAQ/" title="常见问题" class="md-nav__link">
       常见问题
     </a>
   </li>
@@ -352,15 +359,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="设计理念" class="md-nav__link">
-    设计理念
+  <a href="#_1" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="核心特性" class="md-nav__link">
-    核心特性
+  <a href="#failfast" title="failfast" class="md-nav__link">
+    failfast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="日志级别" class="md-nav__link">
+    日志级别
   </a>
   
 </li>
@@ -382,31 +396,61 @@
               
                 
                 
-                  <h1>介绍</h1>
+                  <h1>运行测试用例</h1>
                 
-                <p>HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维护一份<code>YAML/JSON</code>脚本，即可实现自动化测试、性能测试、线上监控、持续集成等目的。</p>
-<h2 id="_1">设计理念</h2>
-<ul>
-<li>充分复用优秀的开源项目，功能简洁但不简单</li>
-<li>遵循<code>约定大于配置</code>的准则，将最佳工程实践融入其中</li>
-<li>追求投入产出比，一份投入即可实现多种测试需求</li>
-</ul>
-<!-- ## 架构图 -->
+                <h2 id="_1">指定用例集路径</h2>
+<p>使用 HttpRunner 指定用例集路径时，支持多种方式。</p>
+<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例集：</p>
+<pre><code class="text">$ hrun filepath/testcase.yml
+</code></pre>
 
-<h2 id="_2">核心特性</h2>
-<ul>
-<li>继承 <a href="http://docs.python-requests.org/en/master/">Requests</a> 的全部特性，轻松实现 HTTP(S) 的测试描述</li>
-<li>测试用例与代码分离，采用<code>YAML/JSON</code>的形式描述测试场景</li>
-<li>测试用例支持分层机制，充分实现测试用例的复用</li>
-<li>测试用例支持参数化和数据驱动机制</li>
-<li>使用 skip 机制实现对测试用例的分组执行控制</li>
-<li>支持热加载机制，在文本测试用例中轻松实现复杂的定制化功能</li>
-<li>基于 HAR 实现接口录制和用例生成功能（<a href="https://github.com/HttpRunner/har2case">har2case</a>）</li>
-<li>结合 <a href="http://locust.io/">Locust</a> 框架，无需额外的工作即可实现分布式性能测试</li>
-<li>执行方式采用 CLI 调用，可与 Jenkins 等持续集成工具完美结合</li>
-<li>测试结果统计报告简洁清晰，附带详尽统计信息和日志记录</li>
-<li>具有可扩展性，便于扩展实现Web平台化（<a href="https://github.com/HttpRunner/HttpRunnerManager">HttpRunnerManager</a>）</li>
-</ul>
+<p>使用 hrun 命令外加多个测试用例文件的路径，即可运行多个测试用例集：</p>
+<pre><code class="text">$ hrun filepath1/testcase1.yml filepath2/testcase2.yml
+</code></pre>
+
+<p>使用 hrun 命令外加文件夹的路径，即可运行指定文件夹下所有的测试用例集：</p>
+<pre><code class="text">$ hrun testcases_folder_path
+</code></pre>
+
+<h2 id="failfast">failfast</h2>
+<p>默认情况下，HttpRunner 会运行指定用例集中的所有测试用例，并统计测试结果。</p>
+<blockquote>
+<p>对于某些依赖于执行顺序的测试用例集，例如需要先登录成功才能执行后续接口请求的场景，当前面的测试用例执行失败后，后续的测试用例也都必将失败，因此没有继续执行的必要了。</p>
+</blockquote>
+<p>若希望测试用例集在运行过程中，遇到失败时不再继续运行后续用例，则可通过在命令中添加<code>--failfast</code>实现。</p>
+<pre><code class="text">$ hrun filepath/testcase.yml --failfast
+</code></pre>
+
+<h2 id="_2">日志级别</h2>
+<p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
+<pre><code>$ hrun tests/data/demo_parameters.yml
+
+Running tests...
+----------------------------------------------------------------------
+ get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
+INFO:root: status_code: 200, response_time: 12 ms, response_length: 46 bytes
+OK (0.014408)s
+
+----------------------------------------------------------------------
+Ran 1 test in 0.015s
+</code></pre>
+
+<p>若需要查看到更详尽的信息，例如请求的参数和响应的详细内容，可以将日志级别设置为<code>DEBUG</code>，即在命令中添加<code>--log-level debug</code>。</p>
+<pre><code>$ hrun tests/data/demo_parameters.yml --log-level debug
+
+Running tests...
+----------------------------------------------------------------------
+ get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
+DEBUG:root: kwargs: {'headers': {'Content-Type': 'application/json', 'device_sn': 'eOq6w6T7DaFnHvu', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6'}, 'json': {'sign': '354432a9efd9111e8ee2a77f9c08124d997876a9'}}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1
+DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 &quot;POST /api/get-token HTTP/1.1&quot; 200 46
+DEBUG:root: response: {'method': 'POST', 'start_time': 1518884607.878689, 'url': '/api/get-token', 'response_time': 11, 'content_size': 46, 'request_headers': {'User-Agent': 'python-requests/2.18.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'device_sn': 'eOq6w6T7DaFnHvu', 'user_agent': 'iOS/10.3', 'os_platform': 'ios', 'app_version': '2.8.6', 'Content-Length': '52'}, 'request_body':b'{&quot;sign&quot;: &quot;354432a9efd9111e8ee2a77f9c08124d997876a9&quot;}', 'status_code': 200, 'response_headers': {'Content-Type': 'application/json', 'Content-Length': '46', 'Server': 'Werkzeug/0.14.1 Python/3.6.4', 'Date': 'Sat, 17 Feb 2018 16:23:27 GMT'}, 'response_content': b'{&quot;success&quot;: true, &quot;token&quot;: &quot;Wo2J1hKCdSq7l66s&quot;}'}
+INFO:root: status_code: 200, response_time: 11 ms, response_length: 46 bytes
+OK (0.013259)s
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+</code></pre>
                 
                   
                 
@@ -425,14 +469,28 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
+          <a href="../testcase-layer/" title="测试用例分层" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                测试用例分层
+              </span>
+            </div>
+          </a>
         
-          <a href="Installation/" title="安装说明" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../report/" title="测试报告" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                安装说明
+                测试报告
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -462,9 +520,9 @@
       
     </div>
     
-      <script src="./assets/javascripts/application.abd7b172.js"></script>
+      <script src="../assets/javascripts/application.abd7b172.js"></script>
       
-      <script>app.initialize({version:"0.17.2",url:{base:"."}})</script>
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
     
     
