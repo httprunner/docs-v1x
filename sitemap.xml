@@ -26,43 +26,37 @@
     
 
     
+        
     <url>
      <loc>/prepare-test/</loc>
      <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
      <loc>/data-driven/</loc>
      <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
      <loc>/testcase-layer/</loc>
      <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
      <loc>/run-test/</loc>
      <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
      <loc>/report/</loc>
      <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     
 
     
