@@ -49,7 +49,7 @@ $ har2case /path/to/demo-quickstart.har
 INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 ```
 
-关于 [har2case][har2case] 的详细使用说明，请查看[进阶手册](/advanced/#_2)。
+关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/prepare-test/#_1)。
 
 经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 [demo-quickstart.json](data/demo-quickstart.json)，其内容如下：
 
