@@ -35,6 +35,8 @@ extra:
     search:
         language: 'en, jp'
     social:
+        - type: globe
+          link: http://debugtalk.com
         - type: 'github'
           link: 'https://github.com/httprunner'
 
