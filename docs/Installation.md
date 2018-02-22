@@ -38,12 +38,13 @@ $ pip install -U git+https://github.com/HttpRunner/HttpRunner.git#egg=HttpRunner
 
 ## 安装校验
 
-在 HttpRunner 安装成功后，在你的系统中会新增如下 4 个命令：
+在 HttpRunner 安装成功后，系统中会新增如下 5 个命令：
 
-- httprunner: 核心命令
-- hrun: httprunner 的缩写，功能与 httprunner 完全相同
-- ate: 曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同
-- locusts: 用于[性能测试](load-test.md)
+- `httprunner`: 核心命令
+- `ate`: 曾经用过的命令（当时框架名称为 ApiTestEngine），功能与 httprunner 完全相同
+- `hrun`: httprunner 的缩写，功能与 httprunner 完全相同
+- `locusts`: 基于 [Locust][Locust] 实现[性能测试](load-test.md)
+- [`har2case`][har2case]: 辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为`YAML/JSON`格式的测试用例
 
 httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，个人推荐使用`hrun`命令。
 
@@ -51,32 +52,49 @@ httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，�
 
 ```bash
 $ hrun -V
-HttpRunner version: 0.9.0
+HttpRunner version: 0.9.3
 PyUnitReport version: 0.1.4
-```
 
-## 辅助工具 har2case
-
-[har2case][har2case] 是 HttpRunner 的辅助工具，可将标准通用的 HAR 格式（HTTP Archive）转换为 HttpRunner 的`YAML/JSON`测试用例。
-
-安装和升级方式与 HttpRunner 类似：
-
-```bash
-# install
-$ pip install har2case
-
-# upgrade
-$ pip install -U har2case
-```
-
-安装完成后，在系统中会新增`har2case`命令，若运行如下命令可正常显示版本号，则说明安装成功。
-
-```
 $ har2case -V
 0.1.4
+```
+
+## 开发者模式
+
+默认情况下，安装 HttpRunner 的时候只会获取到核心代码，没有将单元测试代码（tests）和示例代码（examples）包含进来，也没有安装运行示例代码所依赖的库（flask）。
+
+如果你不仅仅是使用 HttpRunner，还需要在本地调试运行（debug），或者需要运行用户使用说明文档中的示例，那么就需要进行如下操作：
+
+获取代码仓库：
+
+```bash
+$ git clone https://github.com/HttpRunner/HttpRunner.git
+```
+
+进入仓库目录，安装所有依赖：
+
+```bash
+$ pip install -r requirements-dev.txt
+```
+
+运行单元测试：
+
+```bash
+$ python -m unittest discover
+```
+
+调试运行方式：
+
+```bash
+# 调试运行 hrun
+$ python httprunner/cli.py hrun -h
+
+# 调试运行 locusts
+$ python httprunner/cli.py locusts -h
 ```
 
 <!-- ## 使用 docker 镜像 -->
 
 [travis-ci]: https://travis-ci.org/HttpRunner/HttpRunner
+[Locust]: http://locust.io/
 [har2case]: https://github.com/HttpRunner/har2case
