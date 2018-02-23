@@ -1,3 +1,6 @@
+## 测试用例结构描述
+
+TODO
 
 ## 录制生成测试用例
 
@@ -40,7 +43,5 @@ INFO:root:Generate YAML testset successfully: demo.yml
 $ har2case docs/data/demo-quickstart.har demo.json
 INFO:root:Generate JSON testset successfully: demo.json
 ```
-
-## 手工编写测试用例
 
 [har2case]: https://github.com/HttpRunner/har2case

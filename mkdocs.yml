@@ -51,10 +51,10 @@ pages:
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
     - 进阶手册:
-        - 准备测试用例: prepare-test.md
+        - 测试用例: testcase.md
         - 数据驱动: data-driven.md
         - 测试用例分层: testcase-layer.md
-        - 运行测试用例: run-test.md
+        - 运行测试: run-test.md
         - 测试报告: report.md
     - 性能测试: load-test.md
     - 开发文档: development.md
