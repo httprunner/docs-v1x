@@ -3,6 +3,11 @@ site_name: HttpRunner 中文使用手册
 site_description: HttpRunner User Documentation
 site_author: 'Leo Lee'
 
+# Repository
+repo_name: HttpRunner
+repo_url: https://github.com/HttpRunner/HttpRunner
+edit_uri: ""
+
 # Copyright
 copyright: 'Copyright &copy; 2017 - 2018 debugtalk'
 
@@ -45,11 +50,12 @@ pages:
     - 介绍: index.md
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
-    - 准备测试用例: prepare-test.md
-    - 数据驱动: data-driven.md
-    - 测试用例分层: testcase-layer.md
-    - 运行测试用例: run-test.md
-    - 测试报告: report.md
+    - 进阶手册:
+        - 准备测试用例: prepare-test.md
+        - 数据驱动: data-driven.md
+        - 测试用例分层: testcase-layer.md
+        - 运行测试用例: run-test.md
+        - 测试报告: report.md
     - 性能测试: load-test.md
     - 开发文档: development.md
     - 常见问题: FAQ.md
