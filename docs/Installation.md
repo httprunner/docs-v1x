@@ -52,7 +52,7 @@ httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，�
 
 ```bash
 $ hrun -V
-HttpRunner version: 0.9.3
+HttpRunner version: 0.9.3b
 PyUnitReport version: 0.1.4
 
 $ har2case -V
@@ -87,13 +87,15 @@ $ python -m unittest discover
 
 ```bash
 # 调试运行 hrun
-$ python httprunner/cli.py hrun -h
+$ python main-debug.py hrun -h
 
 # 调试运行 locusts
-$ python httprunner/cli.py locusts -h
+$ python main-debug.py locusts -h
 ```
 
-<!-- ## 使用 docker 镜像 -->
+## Docker
+
+TODO
 
 [travis-ci]: https://travis-ci.org/HttpRunner/HttpRunner
 [Locust]: http://locust.io/

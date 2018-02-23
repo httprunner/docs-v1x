@@ -10,13 +10,13 @@ http://cn.httprunner.org
 
 ### 安装依赖
 
-本项目文档采用`mkdocs`生成，如需在本地预览查看，则需安装该工具。
+本项目文档采用[`mkdocs`][mkdocs]生成，如需在本地预览查看，则需安装该工具。
 
 ```bash
 $ pip install mkdocs
 ```
 
-`mkdocs`支持主题配置，本项目选择了第三方的[`mkdocs-material`](https://squidfunk.github.io/mkdocs-material/)。
+`mkdocs`支持主题配置，本项目选择了第三方的[`mkdocs-material`][mkdocs-material]。
 
 ```bash
 $ pip install mkdocs-material
@@ -36,3 +36,6 @@ INFO    -  Cleaning site directory
 ```
 
 然后在浏览器中访问`http://127.0.0.1:8000`即可。
+
+[mkdocs]: http://www.mkdocs.org/
+[mkdocs-material]: https://squidfunk.github.io/mkdocs-material/
