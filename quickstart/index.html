@@ -424,8 +424,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../prepare-test/" title="准备测试用例" class="md-nav__link">
-      准备测试用例
+    <a href="../testcase/" title="测试用例" class="md-nav__link">
+      测试用例
     </a>
   </li>
 
@@ -460,8 +460,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-test/" title="运行测试用例" class="md-nav__link">
-      运行测试用例
+    <a href="../run-test/" title="运行测试" class="md-nav__link">
+      运行测试
     </a>
   </li>
 
@@ -693,7 +693,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 </pre></div>
 
 
-<p>关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="../prepare-test/#_1">《录制生成测试用例》</a>。</p>
+<p>关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="../testcase/#_2">《录制生成测试用例》</a>。</p>
 <p>经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 <a href="../data/demo-quickstart.json">demo-quickstart.json</a>，其内容如下：</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
@@ -818,7 +818,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <li><code>test</code>对应单个接口的测试用例，作用域仅限于本身</li>
 </ul>
 <p>如上便是 HttpRunner 测试用例的基本结构。</p>
-<p>关于测试用例的更多内容，请查看<a href="../testcase/">测试用例参考手册</a>。</p>
+<p>关于测试用例的更多内容，请查看<a href="../testcase/#_1">《测试用例结构描述》</a>。</p>
 <h3 id="_5">首次运行测试用例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>既然现在已经有了测试用例文件，那么我们先尝试运行下吧。</p>
 <p>为了演示测试用例文件的迭代优化过程，我们先将 demo-quickstart.json 重命名为 <a href="../data/demo-quickstart-0.json">demo-quickstart-0.json</a>（对应的 YAML 格式：<a href="../data/demo-quickstart-0.yml">demo-quickstart-0.yml</a>）。</p>
@@ -1028,13 +1028,13 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
           </a>
         
         
-          <a href="../prepare-test/" title="准备测试用例" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../testcase/" title="测试用例" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                准备测试用例
+                测试用例
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
