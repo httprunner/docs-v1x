@@ -388,6 +388,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_14" title="总结" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
       
       
       
@@ -660,6 +667,13 @@
         <li class="md-nav__item">
   <a href="#_13" title="查看测试报告" class="md-nav__link">
     查看测试报告
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="总结" class="md-nav__link">
+    总结
   </a>
   
 </li>
@@ -994,29 +1008,28 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 
 <p>然后是准备参数的数据源。约定采用<code>.csv</code>文件格式来存储参数列表，文件名称需要与参数名称保持一致，并且将文件放置在测试用例文件的同级目录中。同时，约定在<code>.csv</code>文件中的第一行必须为参数名称；从第二行开始为参数值，每个值占一行；参数名称和数值之间采用逗号进行分隔。</p>
-<p>例如，user_id 的参数取值范围为 1001～1008，那么我们就可以创建 <a href="../data/user_id.csv">user_id.csv</a>，并且在文件中按照如下形式进行描述。</p>
+<p>例如，user_id 的参数取值范围为 1001～1004，那么我们就可以创建 <a href="../data/user_id.csv">user_id.csv</a>，并且在文件中按照如下形式进行描述。</p>
 <div class="codehilite"><pre><span></span>user_id
 1001
 1002
 1003
 1004
-1005
-1006
-1007
-1008
 </pre></div>
 
 
 <p>完成以上两步后，针对 user_id 的参数化数据驱动就完成了。</p>
 <p>将经过调整的测试用例另存为 <a href="../data/demo-quickstart-6.json">demo-quickstart-6.json</a>（对应的 YAML 格式：<a href="../data/demo-quickstart-6.yml">demo-quickstart-6.yml</a>），重启 flask 应用服务后再次运行测试用例，测试用例运行情况如下所示：</p>
 <p><img alt="" src="../images/run-demo-quickstart-6.jpg" /></p>
-<p>可以看出，测试用例集总共运行了 8 次，并且每次运行时都是采用的不同 user_id。</p>
+<p>可以看出，测试用例集总共运行了 4 次，并且每次运行时都是采用的不同 user_id。</p>
 <p>关于数据驱动，这里只描述了最简单的场景，如需了解更多，请进一步阅读<a href="../data-driven/">《数据驱动使用手册》</a>。</p>
 <h2 id="_13">查看测试报告<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>在每次使用 hrun 命令运行测试用例后，均会生成一份 HTML 格式的测试报告。报告文件位于 reports 目录下，文件名称为测试用例的开始运行时间。</p>
-<p>报告展现形式为：</p>
-<p><img alt="" src="../images/html_output.gif" />
-<img alt="" src="../images/html_output.png" /></p>
+<p>例如，在运行完 <a href="../data/demo-quickstart-2.json">demo-quickstart-2.json</a> 后，将生成如下形式的测试报告：</p>
+<p><img alt="" src="../images/report-demo-quickstart-1-overview.jpg" /></p>
+<p><img alt="" src="../images/report-demo-quickstart-1-log.jpg" /></p>
+<p><img alt="" src="../images/report-demo-quickstart-1-traceback.jpg" /></p>
+<p>关于测试报告的详细内容，请查看进阶手册的<a href="../report/">《测试报告》</a>部分。</p>
+<h2 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>到此为止，HttpRunner 的核心功能就介绍完了，掌握本文中的功能特性，足以帮助你应对日常项目工作中至少 80% 的自动化测试需求。</p>
 <p>当然，HttpRunner 不止于此，如需挖掘 HttpRunner 的更多特性，实现更复杂场景的自动化测试需求，可继续阅读后续文档。</p>
                 
