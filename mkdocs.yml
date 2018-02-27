@@ -58,5 +58,5 @@ pages:
         - 测试报告: report.md
         - 信息安全: security.md
     - 性能测试: load-test.md
-    - 开发文档: development.md
+    - 开发扩展: development.md
     - 常见问题: FAQ.md
