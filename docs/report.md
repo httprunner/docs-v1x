@@ -71,65 +71,65 @@ reports/demo/demo-2018-02-27-18-22-53.html
 
 ```json
 {
-    "success": False,
-    "stat": {
-        "testsRun": 2,
-        "failures": 0,
-        "errors": 1,
-        "skipped": 0,
-        "expectedFailures": 0,
-        "unexpectedSuccesses": 0,
-        "successes": 1
+  "success": False,
+  "stat": {
+    "testsRun": 2,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0,
+    "expectedFailures": 0,
+    "unexpectedSuccesses": 0,
+    "successes": 1
+  },
+  "platform": {
+    "python_version": "CPython_3.6.4",
+    "platform": "Darwin-17.4.0-x86_64-i386-64bit"
+  },
+  "time": {
+    "start_at": datetime.datetime(2018, 2, 27, 19, 13, 33, 376820),
+    "duration": 0.03526616096496582
+  },
+  "records": [
+    {
+      "name": "/api/get-token",
+      "status": "success",
+      "response_time": 13,
+      "attachment": "",
+      "meta_data": {
+        "method": "POST",
+        "request_time": 1519730013.377347,
+        "response_time": 13,
+        "elapsed": 0.002855,
+        "url": "/api/get-token",
+        "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding":"gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "device_sn": "FwgRiO7CNA50DSU", "user_agent": "iOS/10.3", "os_platform": "ios", "app_version": "2.8.6", "content-type": "application/json", "Content-Length": "52"},
+        "request_body": "{"sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"}",
+        "status_code": 200,
+        "response_headers": {"Content-Type": "application/json", "Content-Length": "46", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Tue, 27 Feb 2018 11:13:33 GMT"},
+        "response_body": "{"success": true, "token": "WD2NntPTcjGkITfp"}",
+        "content_size": 46
+      }
     },
-    "platform": {
-        "python_version": "CPython_3.6.4",
-        "platform": "Darwin-17.4.0-x86_64-i386-64bit"
-    },
-    "time": {
-        "start_at": datetime.datetime(2018, 2, 27, 19, 13, 33, 376820),
-        "duration": 0.03526616096496582
-    },
-    "records": [
-        {
-            "name": "/api/get-token",
-            "status": "success",
-            "response_time": 13,
-            "attachment": "",
-            "meta_data": {
-                "method": "POST",
-                "request_time": 1519730013.377347,
-                "response_time": 13,
-                "elapsed": 0.002855,
-                "url": "/api/get-token",
-                "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding":"gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "device_sn": "FwgRiO7CNA50DSU", "user_agent": "iOS/10.3", "os_platform": "ios", "app_version": "2.8.6", "content-type": "application/json", "Content-Length": "52"},
-                "request_body": "{"sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"}",
-                "status_code": 200,
-                "response_headers": {"Content-Type": "application/json", "Content-Length": "46", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Tue, 27 Feb 2018 11:13:33 GMT"},
-                "response_body": "{"success": true, "token": "WD2NntPTcjGkITfp"}",
-                "content_size": 46
-            }
-        },
-        {
-            "name": "/api/users/1000",
-            "status": "error",
-            "response_time": 3,
-            "attachment": "Traceback (most recent call last):\nAssertionError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\nhttprunner.exception.ValidationError: \n\tcheck item name: status_code;\n\tcheck item value: 403 (int);\n\tcomparator: equals;\n\texpected value: 201 (int).\n",
-            "meta_data": {
-                "method": "POST",
-                "request_time": 1519730013.39279,
-                "response_time": 3,
-                "elapsed": 0.002066,
-                "url": "/api/users/1000",
-                "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "device_sn": "FwgRiO7CNA50DSU", "token": "baNLX1zhFYP11Seb", "content-type": "application/json", "Content-Length": "39"},
-                "request_body": "{"name": "user1", "password": "123456"}",
-                "status_code": 403,
-                "response_headers": {"Content-Type": "application/json", "Content-Length": "50", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Tue, 27 Feb 2018 11:13:33 GMT"},
-                "response_body": "{"success": false, "msg": "Authorization failed!"}",
-                "content_size": 50
-            }
-        }
-    ],
-    "html_report_name": "demo-quickstart-1"
+    {
+      "name": "/api/users/1000",
+      "status": "error",
+      "response_time": 3,
+      "attachment": "Traceback (most recent call last):\nAssertionError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\nhttprunner.exception.ValidationError: \n\tcheck item name: status_code;\n\tcheck item value: 403 (int);\n\tcomparator: equals;\n\texpected value: 201 (int).\n",
+      "meta_data": {
+        "method": "POST",
+        "request_time": 1519730013.39279,
+        "response_time": 3,
+        "elapsed": 0.002066,
+        "url": "/api/users/1000",
+        "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "device_sn": "FwgRiO7CNA50DSU", "token": "baNLX1zhFYP11Seb", "content-type": "application/json", "Content-Length": "39"},
+        "request_body": "{"name": "user1", "password": "123456"}",
+        "status_code": 403,
+        "response_headers": {"Content-Type": "application/json", "Content-Length": "50", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Tue, 27 Feb 2018 11:13:33 GMT"},
+        "response_body": "{"success": false, "msg": "Authorization failed!"}",
+        "content_size": 50
+      }
+    }
+  ],
+  "html_report_name": "demo-quickstart-1"
 }
 ```
 
@@ -137,18 +137,18 @@ reports/demo/demo-2018-02-27-18-22-53.html
 
 ```html
 <tr>
-    <th>TOTAL</th>
-    <th>SUCCESS</th>
-    <th>FAILED</th>
-    <th>ERROR</th>
-    <th>SKIPPED</th>
+  <th>TOTAL</th>
+  <th>SUCCESS</th>
+  <th>FAILED</th>
+  <th>ERROR</th>
+  <th>SKIPPED</th>
 </tr>
 <tr>
-    <td>{{stat.testsRun}}</td>
-    <td>{{stat.successes}}</td>
-    <td>{{stat.failures}}</td>
-    <td>{{stat.errors}}</td>
-    <td>{{stat.skipped}}</td>
+  <td>{{stat.testsRun}}</td>
+  <td>{{stat.successes}}</td>
+  <td>{{stat.failures}}</td>
+  <td>{{stat.errors}}</td>
+  <td>{{stat.skipped}}</td>
 </tr>
 ```
 
