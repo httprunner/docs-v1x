@@ -57,17 +57,19 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>/security/</loc>
-     <lastmod>2018-02-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
     <url>
      <loc>/load-test/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/security/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
