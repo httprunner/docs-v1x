@@ -397,7 +397,7 @@ def get_sign(*args):
 
 然后是准备参数的数据源。约定采用`.csv`文件格式来存储参数列表，文件名称需要与参数名称保持一致，并且将文件放置在测试用例文件的同级目录中。同时，约定在`.csv`文件中的第一行必须为参数名称；从第二行开始为参数值，每个值占一行；参数名称和数值之间采用逗号进行分隔。
 
-例如，user_id 的参数取值范围为 1001～1008，那么我们就可以创建 [user_id.csv](data/user_id.csv)，并且在文件中按照如下形式进行描述。
+例如，user_id 的参数取值范围为 1001～1004，那么我们就可以创建 [user_id.csv](data/user_id.csv)，并且在文件中按照如下形式进行描述。
 
 ```csv
 user_id
@@ -405,10 +405,6 @@ user_id
 1002
 1003
 1004
-1005
-1006
-1007
-1008
 ```
 
 完成以上两步后，针对 user_id 的参数化数据驱动就完成了。
@@ -418,7 +414,7 @@ user_id
 ![](/images/run-demo-quickstart-6.jpg)
 
 
-可以看出，测试用例集总共运行了 8 次，并且每次运行时都是采用的不同 user_id。
+可以看出，测试用例集总共运行了 4 次，并且每次运行时都是采用的不同 user_id。
 
 关于数据驱动，这里只描述了最简单的场景，如需了解更多，请进一步阅读[《数据驱动使用手册》](/data-driven/)。
 
@@ -428,10 +424,17 @@ user_id
 
 在每次使用 hrun 命令运行测试用例后，均会生成一份 HTML 格式的测试报告。报告文件位于 reports 目录下，文件名称为测试用例的开始运行时间。
 
-报告展现形式为：
+例如，在运行完 [demo-quickstart-1.json](data/demo-quickstart-1.json) 后，将生成如下形式的测试报告：
 
-![](/images/html_output.gif)
-![](/images/html_output.png)
+![](/images/report-demo-quickstart-1-overview.jpg)
+
+![](/images/report-demo-quickstart-1-log.jpg)
+
+![](/images/report-demo-quickstart-1-traceback.jpg)
+
+关于测试报告的详细内容，请查看进阶手册的[《测试报告》](/report/)部分。
+
+## 总结
 
 到此为止，HttpRunner 的核心功能就介绍完了，掌握本文中的功能特性，足以帮助你应对日常项目工作中至少 80% 的自动化测试需求。
 
