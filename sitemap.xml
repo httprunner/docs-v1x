@@ -28,7 +28,13 @@
     
         
     <url>
-     <loc>/testcase/</loc>
+     <loc>/record-testcase/</loc>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/testcase-structure/</loc>
      <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
