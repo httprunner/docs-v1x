@@ -40,7 +40,7 @@
     
     
       
-        <title>开发文档 - HttpRunner 中文使用手册</title>
+        <title>开发扩展 - HttpRunner 中文使用手册</title>
       
     
     
@@ -122,7 +122,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                开发文档
+                开发扩展
               </span>
             
           
@@ -391,8 +391,8 @@
       
     
     
-    <a href="./" title="开发文档" class="md-nav__link md-nav__link--active">
-      开发文档
+    <a href="./" title="开发扩展" class="md-nav__link md-nav__link--active">
+      开发扩展
     </a>
     
   </li>
@@ -438,7 +438,86 @@
               
                 
                 
-                <h1 id="_1">开发文档<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">开发扩展<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>HttpRunner 除了作为命令行工具使用外，还可以作为软件包集成到你自己的项目中。</p>
+<p>简单来说，HttpRunner 提供了运行 YAML/JSON 格式测试用例的能力，并能返回详细的测试结果信息。</p>
+<p>典型的调用方式如下：</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">httprunner</span> <span class="kn">import</span> <span class="n">HttpRunner</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;failfast&quot;</span><span class="p">:</span> <span class="bp">False</span>
+<span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">HttpRunner</span><span class="p">(</span><span class="s2">&quot;docs/data/demo-quickstart-2.yml&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">html_report_name</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+    <span class="n">html_report_template</span><span class="o">=</span><span class="s2">&quot;/path/to/custom_report_template&quot;</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>调用完成后，在返回值（result）中包含详尽的运行结果数据，其数据结构为：</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="err">True</span><span class="p">,</span>
+  <span class="nt">&quot;stat&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;testsRun&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;failures&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;skipped&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;expectedFailures&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;unexpectedSuccesses&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;successes&quot;</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;python_version&quot;</span><span class="p">:</span> <span class="s2">&quot;CPython_3.6.4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;Darwin-17.4.0-x86_64-i386-64bit&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;start_at&quot;</span><span class="p">:</span> <span class="err">datetime.datetime(</span><span class="mi">2018</span><span class="p">,</span> <span class="err">2,</span> <span class="err">27,</span> <span class="err">17,</span> <span class="err">8,</span> <span class="err">42,</span> <span class="err">194945),</span>
+    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">0.02808094024658203</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;records&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="nt">&quot;attachment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1519722522.195414</span><span class="p">,</span>
+        <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nt">&quot;elapsed&quot;</span><span class="p">:</span> <span class="mf">0.002336</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
+        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">sign</span><span class="s2">&quot;: &quot;</span><span class="mi">958</span><span class="err">a</span><span class="mi">05393</span><span class="err">efef</span><span class="mi">0</span><span class="err">ac</span><span class="mi">7</span><span class="err">c</span><span class="mi">0</span><span class="err">fb</span><span class="mi">80</span><span class="err">a</span><span class="mi">7</span><span class="err">eac</span><span class="mf">45e24</span><span class="err">fd</span><span class="mi">40</span><span class="err">c</span><span class="mi">27</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
+        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">success</span><span class="s2">&quot;: true, &quot;</span><span class="err">token</span><span class="s2">&quot;: &quot;</span><span class="err">yf</span><span class="mi">7</span><span class="err">zUuLBIUD</span><span class="mi">1</span><span class="err">nYXt</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content_size&quot;</span><span class="p">:</span> <span class="mi">46</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;attachment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1519722522.2067862</span><span class="p">,</span>
+        <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;elapsed&quot;</span><span class="p">:</span> <span class="mf">0.001785</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
+        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">name</span><span class="s2">&quot;: &quot;</span><span class="err">user</span><span class="mi">1</span><span class="s2">&quot;, &quot;</span><span class="err">password</span><span class="s2">&quot;: &quot;</span><span class="mi">123456</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
+        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">success</span><span class="s2">&quot;: true, &quot;</span><span class="err">msg</span><span class="s2">&quot;: &quot;</span><span class="err">user</span> <span class="err">created</span> <span class="err">successfully.</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;content_size&quot;</span><span class="p">:</span> <span class="mi">54</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;report_path&quot;</span><span class="p">:</span> <span class="s2">&quot;reports/demo/demo-2018-02-27-17-08-42.html&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;Yfkzr0t3qdTAU7AD&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
