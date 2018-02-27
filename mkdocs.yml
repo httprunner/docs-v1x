@@ -56,7 +56,7 @@ pages:
         - 测试用例分层: testcase-layer.md
         - 运行测试: run-test.md
         - 测试报告: report.md
-        - 信息安全: security.md
     - 性能测试: load-test.md
+    - 信息安全: security.md
     - 开发扩展: development.md
     - 常见问题: FAQ.md
