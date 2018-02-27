@@ -51,7 +51,8 @@ pages:
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
     - 进阶手册:
-        - 测试用例: testcase.md
+        - 录制生成用例: record-testcase.md
+        - 测试用例结构: testcase-structure.md
         - 数据驱动: data-driven.md
         - 测试用例分层: testcase-layer.md
         - 运行测试: run-test.md

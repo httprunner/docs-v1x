@@ -49,7 +49,7 @@ $ har2case /path/to/demo-quickstart.har
 INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 ```
 
-关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/testcase/#_2)。
+关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/record-testcase/)。
 
 经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 [demo-quickstart.json](data/demo-quickstart.json)，其内容如下：
 
@@ -179,7 +179,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 如上便是 HttpRunner 测试用例的基本结构。
 
-关于测试用例的更多内容，请查看[《测试用例结构描述》](/testcase/#_1)。
+关于测试用例的更多内容，请查看[《测试用例结构描述》](/testcase-structure/)。
 
 ### 首次运行测试用例
 
