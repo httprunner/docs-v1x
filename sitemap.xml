@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/Installation/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>/quickstart/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -29,31 +29,37 @@
         
     <url>
      <loc>/testcase/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/data-driven/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/testcase-layer/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/run-test/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/report/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/security/</loc>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -62,7 +68,7 @@
     
     <url>
      <loc>/load-test/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -70,7 +76,7 @@
     
     <url>
      <loc>/development/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -78,7 +84,7 @@
     
     <url>
      <loc>/FAQ/</loc>
-     <lastmod>2018-02-23</lastmod>
+     <lastmod>2018-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
