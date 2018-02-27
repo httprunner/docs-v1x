@@ -43,7 +43,7 @@ reports/demo/demo-2018-02-27-18-22-53.html
 
 ## 默认报告样式
 
-在 HttpRunner 中自带了一个 Jinja2 格式的报告模版，默认情况下，生成的报告样式均基于该模版（httprunner/templates/default_report_template.html）。
+在 HttpRunner 中自带了一个 Jinja2 格式的报告模版，默认情况下，生成的报告样式均基于该模版（[httprunner/templates/default_report_template.html][default_report]）。
 
 测试报告形式如下：
 
