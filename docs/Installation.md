@@ -63,9 +63,15 @@ $ har2case -V
 
 默认情况下，安装 HttpRunner 的时候只会获取到核心代码，没有将单元测试代码（tests）和示例代码（examples）包含进来，也没有安装运行示例代码所依赖的库（flask）。
 
-如果你不仅仅是使用 HttpRunner，还需要在本地调试运行（debug），或者需要运行用户使用说明文档中的示例，那么就需要进行如下操作：
+如果你不仅仅是使用 HttpRunner，还需要在本地调试运行（debug），或者需要运行用户使用说明文档中的示例，那么就需要进行如下操作。
 
-获取代码仓库：
+HttpRunner 使用 [pipenv][pipenv] 对依赖包进行管理，若你还没有安装 pipenv，需要先执行如下命令进行按照：
+
+```bash
+$ pip install pipenv
+```
+
+获取 HttpRunner 源码：
 
 ```bash
 $ git clone https://github.com/HttpRunner/HttpRunner.git
@@ -74,23 +80,43 @@ $ git clone https://github.com/HttpRunner/HttpRunner.git
 进入仓库目录，安装所有依赖：
 
 ```bash
-$ pip install -r requirements-dev.txt
+$ pipenv install --dev
 ```
 
-运行单元测试：
+运行单元测试，若测试全部通过，则说明环境正常。
 
 ```bash
-$ python -m unittest discover
+$ pipenv run python -m unittest discover
+```
+
+查看 HttpRunner 的依赖情况：
+
+```text
+$ pipenv graph
+
+HttpRunner==0.9.7
+  - colorama [required: Any, installed: 0.3.9]
+  - colorlog [required: Any, installed: 3.1.2]
+  - har2case [required: Any, installed: 0.1.4]
+    - PyYAML [required: Any, installed: 3.12]
+  - Jinja2 [required: Any, installed: 2.10]
+    - MarkupSafe [required: >=0.23, installed: 1.0]
+  - PyYAML [required: Any, installed: 3.12]
+  - requests [required: Any, installed: 2.18.4]
+    - certifi [required: >=2017.4.17, installed: 2018.1.18]
+    - chardet [required: <3.1.0,>=3.0.2, installed: 3.0.4]
+    - idna [required: <2.7,>=2.5, installed: 2.6]
+    - urllib3 [required: <1.23,>=1.21.1, installed: 1.22]
 ```
 
 调试运行方式：
 
 ```bash
 # 调试运行 hrun
-$ python main-debug.py hrun -h
+$ pipenv run python main-debug.py hrun -h
 
 # 调试运行 locusts
-$ python main-debug.py locusts -h
+$ pipenv run python main-debug.py locusts -h
 ```
 
 ## Docker
@@ -100,3 +126,4 @@ TODO
 [travis-ci]: https://travis-ci.org/HttpRunner/HttpRunner
 [Locust]: http://locust.io/
 [har2case]: https://github.com/HttpRunner/har2case
+[pipenv]: https://docs.pipenv.org/
