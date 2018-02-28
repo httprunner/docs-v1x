@@ -52,8 +52,7 @@ httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，�
 
 ```bash
 $ hrun -V
-HttpRunner version: 0.9.3b
-PyUnitReport version: 0.1.4
+0.9.7
 
 $ har2case -V
 0.1.4
