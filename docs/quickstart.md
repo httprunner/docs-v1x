@@ -55,120 +55,66 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ```json
 [
-    {
-        "config": {
-            "name": "testset description",
-            "variables": [],
-            "request": {
-                "base_url": "",
-                "headers": {
-                    "User-Agent": "python-requests/2.18.4"
-                }
-            }
+  {
+    "config": {
+      "name": "testset description",
+      "variables": [],
+      "request": {
+        "base_url": "",
+        "headers": {
+          "User-Agent": "python-requests/2.18.4"
         }
-    },
-    {
-        "test": {
-            "name": "/api/get-token",
-            "request": {
-                "url": "http://127.0.0.1:5000/api/get-token",
-                "headers": {
-                    "device_sn": "FwgRiO7CNA50DSU",
-                    "user_agent": "iOS/10.3",
-                    "os_platform": "ios",
-                    "app_version": "2.8.6",
-                    "Content-Type": "application/json"
-                },
-                "method": "POST",
-                "json": {"sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"}
-            },
-            "validate": [
-                {"eq": ["status_code", 200]},
-                {"eq": ["headers.Content-Type", "application/json"]},
-                {"eq": ["content.success", true]},
-                {"eq": ["content.token", "baNLX1zhFYP11Seb"]}
-            ]
-        }
-    },
-    {
-        "test": {
-            "name": "/api/users/1000",
-            "request": {
-                "url": "http://127.0.0.1:5000/api/users/1000",
-                "headers": {
-                    "device_sn": "FwgRiO7CNA50DSU",
-                    "token": "baNLX1zhFYP11Seb",
-                    "Content-Type": "application/json"
-                },
-                "method": "POST",
-                "json": {"name": "user1", "password": "123456"}
-            },
-            "validate": [
-                {"eq": ["status_code", 201]},
-                {"eq": ["headers.Content-Type", "application/json"]},
-                {"eq": ["content.success", true]},
-                {"eq": ["content.msg", "user created successfully."]}
-            ]
-        }
+      }
     }
+  },
+  {
+    "test": {
+      "name": "/api/get-token",
+      "request": {
+        "url": "http://127.0.0.1:5000/api/get-token",
+        "headers": {
+          "device_sn": "FwgRiO7CNA50DSU",
+          "user_agent": "iOS/10.3",
+          "os_platform": "ios",
+          "app_version": "2.8.6",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "json": {"sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"}
+      },
+      "validate": [
+        {"eq": ["status_code", 200]},
+        {"eq": ["headers.Content-Type", "application/json"]},
+        {"eq": ["content.success", true]},
+        {"eq": ["content.token", "baNLX1zhFYP11Seb"]}
+      ]
+    }
+  },
+  {
+    "test": {
+      "name": "/api/users/1000",
+      "request": {
+        "url": "http://127.0.0.1:5000/api/users/1000",
+        "headers": {
+          "device_sn": "FwgRiO7CNA50DSU",
+          "token": "baNLX1zhFYP11Seb",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "json": {"name": "user1", "password": "123456"}
+      },
+      "validate": [
+        {"eq": ["status_code", 201]},
+        {"eq": ["headers.Content-Type", "application/json"]},
+        {"eq": ["content.success", true]},
+        {"eq": ["content.msg", "user created successfully."]}
+      ]
+    }
+  }
 ]
 ```
 
-除了 JSON 格式，HttpRunner 同时支持 YAML 格式的测试用例。
-
-若将 demo-quickstart.har 转换为 YAML 格式的测试用例，则文件描述如下：
-
-```yaml
-- config:
-    name: testset description
-    request:
-        base_url: ''
-        headers:
-            User-Agent: python-requests/2.18.4
-    variables: []
-
-- test:
-    name: /api/get-token
-    request:
-        url: http://127.0.0.1:5000/api/get-token
-        method: POST
-        headers:
-            Content-Type: application/json
-            app_version: 2.8.6
-            device_sn: FwgRiO7CNA50DSU
-            os_platform: ios
-            user_agent: iOS/10.3
-        json:
-            sign: 958a05393efef0ac7c0fb80a7eac45e24fd40c27
-    validate:
-        - eq: [status_code, 200]
-        - eq: [headers.Content-Type, application/json]
-        - eq: [content.success, true]
-        - eq: [content.token, baNLX1zhFYP11Seb]
-
-- test:
-    name: /api/users/1000
-    request:
-        url: http://127.0.0.1:5000/api/users/1000
-        method: POST
-        headers:
-            Content-Type: application/json
-            device_sn: FwgRiO7CNA50DSU
-            token: baNLX1zhFYP11Seb
-        json:
-            name: user1
-            password: '123456'
-    validate:
-        - eq: [status_code, 201]
-        - eq: [headers.Content-Type, application/json]
-        - eq: [content.success, true]
-        - eq: [content.msg, "user created successfully."]
-```
-
-在 HttpRunner 中，JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全相同。
-
-- 对于熟悉 YAML 格式的人来说，编写维护 YAML 格式的测试用例会更简洁，但前提是要保证 YAML 格式没有语法错误；
-- 对于新手来说，推荐使用 JSON 格式，虽然描述形式上稍显累赘，但是不容易出错（大多编辑器都具有 JSON 格式的检测功能）。
+除了 JSON 格式，HttpRunner 同时支持 YAML 格式的测试用例。对于新手来说，推荐使用 JSON 格式。
 
 现在我们只需要知道如下几点：
 
@@ -207,10 +153,10 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ```json
 "validate": [
-    {"eq": ["status_code", 200]},
-    {"eq": ["headers.Content-Type", "application/json"]},
-    {"eq": ["content.success", true]},
-    {"eq": ["content.token", "baNLX1zhFYP11Seb"]}
+  {"eq": ["status_code", 200]},
+  {"eq": ["headers.Content-Type", "application/json"]},
+  {"eq": ["content.success", true]},
+  {"eq": ["content.token", "baNLX1zhFYP11Seb"]}
 ]
 ```
 
@@ -250,7 +196,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ```json
 "extract": [
-    {"token": "content.token"}
+  {"token": "content.token"}
 ]
 ```
 
@@ -258,9 +204,9 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ```json
 "headers": {
-    "device_sn": "FwgRiO7CNA50DSU",
-    "token": "$token",
-    "Content-Type": "application/json"
+  "device_sn": "FwgRiO7CNA50DSU",
+  "token": "$token",
+  "Content-Type": "application/json"
 }
 ```
 
@@ -284,16 +230,16 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ```json
 {
-    "config": {
-        "name": "testset description",
-        "variables": [],
-        "base_url": "http://127.0.0.1:5000",
-        "headers": {
-            "User-Agent": "python-requests/2.18.4",
-            "device_sn": "FwgRiO7CNA50DSU",
-            "Content-Type": "application/json"
-        }
+  "config": {
+    "name": "testset description",
+    "variables": [],
+    "base_url": "http://127.0.0.1:5000",
+    "headers": {
+      "User-Agent": "python-requests/2.18.4",
+      "device_sn": "FwgRiO7CNA50DSU",
+      "Content-Type": "application/json"
     }
+  }
 }
 ```
 
@@ -357,7 +303,7 @@ def get_sign(*args):
 
 ```json
 "variables": [
-    {"device_sn": "${gen_random_string(15)}"}
+  {"device_sn": "${gen_random_string(15)}"}
 ]
 ```
 
@@ -365,7 +311,7 @@ def get_sign(*args):
 
 ```json
 "json": {
-    "sign": "${get_sign($user_agent, $device_sn, $os_platform, $app_version)}"
+  "sign": "${get_sign($user_agent, $device_sn, $os_platform, $app_version)}"
 }
 ```
 
@@ -389,9 +335,9 @@ def get_sign(*args):
 
 ```json
 "config": {
-    "parameters": [
-        {"user_id": "Sequential"}
-    ]
+  "parameters": [
+    {"user_id": "Sequential"}
+  ]
 }
 ```
 
