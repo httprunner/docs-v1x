@@ -734,120 +734,67 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="../record-testcase/">《录制生成测试用例》</a>。</p>
 <p>经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 <a href="../data/demo-quickstart.json">demo-quickstart.json</a>，其内容如下：</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[],</span>
-            <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span>
         <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000/api/get-token&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;iOS/10.3&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;ios&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.8.6&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-                <span class="p">},</span>
-                <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;958a05393efef0ac7c0fb80a7eac45e24fd40c27&quot;</span><span class="p">}</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]},</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.token&quot;</span><span class="p">,</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">]}</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000/api/users/1000&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-                <span class="p">},</span>
-                <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span> <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">}</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">201</span><span class="p">]},</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]},</span>
-                <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.msg&quot;</span><span class="p">,</span> <span class="s2">&quot;user created successfully.&quot;</span><span class="p">]}</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
+      <span class="p">}</span>
     <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000/api/get-token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;iOS/10.3&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;ios&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.8.6&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;958a05393efef0ac7c0fb80a7eac45e24fd40c27&quot;</span><span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.token&quot;</span><span class="p">,</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">]}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000/api/users/1000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span> <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">201</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.msg&quot;</span><span class="p">,</span> <span class="s2">&quot;user created successfully.&quot;</span><span class="p">]}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 
 
-<p>除了 JSON 格式，HttpRunner 同时支持 YAML 格式的测试用例。</p>
-<p>若将 demo-quickstart.har 转换为 YAML 格式的测试用例，则文件描述如下：</p>
-<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">testset description</span>
-    <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">User-Agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python-requests/2.18.4</span>
-    <span class="l l-Scalar l-Scalar-Plain">variables</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[]</span>
-
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/get-token</span>
-    <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:5000/api/get-token</span>
-        <span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
-        <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
-            <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2.8.6</span>
-            <span class="l l-Scalar l-Scalar-Plain">device_sn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FwgRiO7CNA50DSU</span>
-            <span class="l l-Scalar l-Scalar-Plain">os_platform</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ios</span>
-            <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iOS/10.3</span>
-        <span class="l l-Scalar l-Scalar-Plain">json</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">sign</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">958a05393efef0ac7c0fb80a7eac45e24fd40c27</span>
-    <span class="l l-Scalar l-Scalar-Plain">validate</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">status_code</span><span class="p p-Indicator">,</span> <span class="nv">200</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">headers.Content-Type</span><span class="p p-Indicator">,</span> <span class="nv">application/json</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">content.success</span><span class="p p-Indicator">,</span> <span class="nv">true</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">content.token</span><span class="p p-Indicator">,</span> <span class="nv">baNLX1zhFYP11Seb</span><span class="p p-Indicator">]</span>
-
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/users/1000</span>
-    <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:5000/api/users/1000</span>
-        <span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
-        <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
-            <span class="l l-Scalar l-Scalar-Plain">device_sn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FwgRiO7CNA50DSU</span>
-            <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">baNLX1zhFYP11Seb</span>
-        <span class="l l-Scalar l-Scalar-Plain">json</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">user1</span>
-            <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="s">&#39;123456&#39;</span>
-    <span class="l l-Scalar l-Scalar-Plain">validate</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">status_code</span><span class="p p-Indicator">,</span> <span class="nv">201</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">headers.Content-Type</span><span class="p p-Indicator">,</span> <span class="nv">application/json</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">content.success</span><span class="p p-Indicator">,</span> <span class="nv">true</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">content.msg</span><span class="p p-Indicator">,</span> <span class="s">&quot;user</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">successfully.&quot;</span><span class="p p-Indicator">]</span>
-</pre></div>
-
-
-<p>在 HttpRunner 中，JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全相同。</p>
-<ul>
-<li>对于熟悉 YAML 格式的人来说，编写维护 YAML 格式的测试用例会更简洁，但前提是要保证 YAML 格式没有语法错误；</li>
-<li>对于新手来说，推荐使用 JSON 格式，虽然描述形式上稍显累赘，但是不容易出错（大多编辑器都具有 JSON 格式的检测功能）。</li>
-</ul>
+<p>除了 JSON 格式，HttpRunner 同时支持 YAML 格式的测试用例。对于新手来说，推荐使用 JSON 格式。</p>
 <p>现在我们只需要知道如下几点：</p>
 <ul>
 <li>每个 YAML/JSON 文件对应一个测试用例集（testset）</li>
@@ -870,10 +817,10 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>默认情况下，<a href="https://github.com/HttpRunner/har2case">har2case</a> 生成用例时，若 HTTP 请求的响应内容为 JSON 格式，则会将第一层级中的所有<code>key-value</code>转换为 validator。</p>
 <p>例如上面的第一个测试用例，生成的 validator 为：</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;validate&quot;</span><span class="err">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
-    <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
-    <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]},</span>
-    <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.token&quot;</span><span class="p">,</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">]}</span>
+  <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
+  <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
+  <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]},</span>
+  <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.token&quot;</span><span class="p">,</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">]}</span>
 <span class="p">]</span>
 </pre></div>
 
@@ -898,16 +845,16 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 <p>那么要获取到 token 参数，就可以使用 content.token 的方式；具体的写法如下：</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;extract&quot;</span><span class="err">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;content.token&quot;</span><span class="p">}</span>
+  <span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;content.token&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 
 
 <p>其中，token 作为提取后的参数名称，可以在后续使用<code>$token</code>进行引用。</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;headers&quot;</span><span class="err">:</span> <span class="p">{</span>
-    <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;$token&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+  <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;$token&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -922,16 +869,16 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>因此，我们可以将各个测试用例（test）中公共的部分抽取出来，放到全局配置模块（config）中进行描述。</p>
 <p>将 device_sn、Content-Type 字段以及 host 抽取出来放置到 config 中后，config如下所示：</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-        <span class="p">}</span>
+  <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -978,14 +925,14 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>然后，我们在 YAML/JSON 测试用例文件中，就可以对定义的函数进行调用，对定义的变量进行引用了。引用变量的方式仍然与前面讲的一样，采用<code>$ + 变量名称</code>的方式；调用函数的方式为<code>${func($var)}</code>。</p>
 <p>例如，生成 15 位长度的随机字符串并赋值给 device_sn 的代码为：</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;variables&quot;</span><span class="err">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;${gen_random_string(15)}&quot;</span><span class="p">}</span>
+  <span class="p">{</span><span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;${gen_random_string(15)}&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 
 
 <p>使用 $user_agent、$device_sn、$os_platform、$app_version 根据签名算法生成 sign 值的代码为：</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;json&quot;</span><span class="err">:</span> <span class="p">{</span>
-    <span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;${get_sign($user_agent, $device_sn, $os_platform, $app_version)}&quot;</span>
+  <span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;${get_sign($user_agent, $device_sn, $os_platform, $app_version)}&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1000,9 +947,9 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>定义参数时，需要使用 parameters 关键字，需要参数化的参数名称和参数取值方式均定义在其中。</p>
 <p>例如，我们需要对 user_id 进行参数化，并且取值方式为顺序取值，那么描述方式就为如下形式：</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;config&quot;</span><span class="err">:</span> <span class="p">{</span>
-    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Sequential&quot;</span><span class="p">}</span>
-    <span class="p">]</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Sequential&quot;</span><span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 
