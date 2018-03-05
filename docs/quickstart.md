@@ -233,11 +233,13 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
   "config": {
     "name": "testset description",
     "variables": [],
-    "base_url": "http://127.0.0.1:5000",
-    "headers": {
-      "User-Agent": "python-requests/2.18.4",
-      "device_sn": "FwgRiO7CNA50DSU",
-      "Content-Type": "application/json"
+    "request": {
+        "base_url": "http://127.0.0.1:5000",
+        "headers": {
+            "User-Agent": "python-requests/2.18.4",
+            "device_sn": "FwgRiO7CNA50DSU",
+            "Content-Type": "application/json"
+        }
     }
   }
 }
