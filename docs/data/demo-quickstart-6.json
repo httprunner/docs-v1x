@@ -3,7 +3,7 @@
         "config": {
             "name": "testset description",
             "parameters": [
-                {"user_id": "Sequential"}
+                {"user_id": [1001, 1002, 1003, 1004]}
             ],
             "variables": [
                 {"device_sn": "${gen_random_string(15)}"},
