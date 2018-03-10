@@ -350,8 +350,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="配置位置" class="md-nav__link">
-    配置位置
+  <a href="#_2" title="数据驱动作用域" class="md-nav__link">
+    数据驱动作用域
   </a>
   
 </li>
@@ -537,8 +537,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="配置位置" class="md-nav__link">
-    配置位置
+  <a href="#_2" title="数据驱动作用域" class="md-nav__link">
+    数据驱动作用域
   </a>
   
 </li>
@@ -632,7 +632,7 @@
 <p>然后，对于参数而言，我们可能具有一个参数列表，在脚本运行时需要按照不同的规则去取值，例如顺序取值、随机取值、循环取值等等。</p>
 <p>这就是典型的参数化和数据驱动。</p>
 <p>如需了解 HttpRunner 参数化数据驱动机制的实现原理和技术细节，可前往阅读<a href="http://debugtalk.com/post/httprunner-data-driven/">《HttpRunner 实现参数化数据驱动机制》</a>。</p>
-<h2 id="_2">配置位置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">数据驱动作用域<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在 HttpRunner 中，支持用例集（testset）和用例（testcase）两个层级的参数化驱动配置。</p>
 <p>两个层级的配置方式完全相同，差异仅在于配置的位置。</p>
 <ul>
@@ -819,19 +819,28 @@ test3,333333,18600000003,23
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">os_platform</span><span class="p p-Indicator">:</span> <span class="s">&#39;ios&#39;</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="s">&#39;2.8.6&#39;</span>
     <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$BASE_URL</span>
+        <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:5000</span>
         <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
             <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
             <span class="l l-Scalar l-Scalar-Plain">device_sn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$device_sn</span>
 
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">get token with $user_agent and $app_version</span>
-    <span class="l l-Scalar l-Scalar-Plain">api</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">get_token($user_agent, $device_sn, $os_platform, $app_version)</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">get token with $user_agent, $os_platform, $app_version</span>
+    <span class="l l-Scalar l-Scalar-Plain">request</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/get-token</span>
+        <span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
+        <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$app_version</span>
+            <span class="l l-Scalar l-Scalar-Plain">os_platform</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$os_platform</span>
+            <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$user_agent</span>
+        <span class="l l-Scalar l-Scalar-Plain">json</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">sign</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${get_sign($user_agent, $device_sn, $os_platform, $app_version)}</span>
     <span class="l l-Scalar l-Scalar-Plain">extract</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">content.token</span>
     <span class="l l-Scalar l-Scalar-Plain">validate</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="s">&quot;eq&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;status_code&quot;</span><span class="p p-Indicator">,</span> <span class="nv">200</span><span class="p p-Indicator">]</span>
-        <span class="p p-Indicator">-</span> <span class="s">&quot;len_eq&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;content.token&quot;</span><span class="p p-Indicator">,</span> <span class="nv">16</span><span class="p p-Indicator">]</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">status_code</span><span class="p p-Indicator">,</span> <span class="nv">200</span><span class="p p-Indicator">]</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">headers.Content-Type</span><span class="p p-Indicator">,</span> <span class="nv">application/json</span><span class="p p-Indicator">]</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">eq</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">content.success</span><span class="p p-Indicator">,</span> <span class="nv">true</span><span class="p p-Indicator">]</span>
 </pre></div>
 
 
