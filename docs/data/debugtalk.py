@@ -19,3 +19,26 @@ def get_sign(*args):
     sign_key = SECRET_KEY.encode('ascii')
     sign = hmac.new(sign_key, content, hashlib.sha1).hexdigest()
     return sign
+
+def get_user_id():
+    return [
+        {"user_id": 1001},
+        {"user_id": 1002},
+        {"user_id": 1003},
+        {"user_id": 1004}
+    ]
+
+def get_account(num):
+    accounts = []
+    for index in range(1, num+1):
+        accounts.append(
+            {"username": "user%s" % index, "password": str(index) * 6},
+        )
+
+    return accounts
+
+def get_os_platform():
+    return [
+        {"os_platform": "ios"},
+        {"os_platform": "android"}
+    ]
