@@ -350,30 +350,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="使用说明" class="md-nav__link">
-    使用说明
+  <a href="#_2" title="配置位置" class="md-nav__link">
+    配置位置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="参数定义 &amp; 数据源指定" class="md-nav__link">
+    参数定义 &amp; 数据源指定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="数据源准备" class="md-nav__link">
+    数据源准备
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="参数定义" class="md-nav__link">
-    参数定义
+  <a href="#_5" title="直接指定参数列表" class="md-nav__link">
+    直接指定参数列表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="数据源准备" class="md-nav__link">
-    数据源准备
+  <a href="#csv" title="引用 CSV 数据文件" class="md-nav__link">
+    引用 CSV 数据文件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="参数化运行" class="md-nav__link">
-    参数化运行
+  <a href="#_6" title="自定义函数生成参数列表" class="md-nav__link">
+    自定义函数生成参数列表
   </a>
   
 </li>
@@ -384,7 +398,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="案例演示" class="md-nav__link">
+  <a href="#_7" title="参数化运行" class="md-nav__link">
+    参数化运行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="案例演示" class="md-nav__link">
     案例演示
   </a>
   
@@ -516,30 +537,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="使用说明" class="md-nav__link">
-    使用说明
+  <a href="#_2" title="配置位置" class="md-nav__link">
+    配置位置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="参数定义 &amp; 数据源指定" class="md-nav__link">
+    参数定义 &amp; 数据源指定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="数据源准备" class="md-nav__link">
+    数据源准备
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" title="参数定义" class="md-nav__link">
-    参数定义
+  <a href="#_5" title="直接指定参数列表" class="md-nav__link">
+    直接指定参数列表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="数据源准备" class="md-nav__link">
-    数据源准备
+  <a href="#csv" title="引用 CSV 数据文件" class="md-nav__link">
+    引用 CSV 数据文件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="参数化运行" class="md-nav__link">
-    参数化运行
+  <a href="#_6" title="自定义函数生成参数列表" class="md-nav__link">
+    自定义函数生成参数列表
   </a>
   
 </li>
@@ -550,7 +585,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="案例演示" class="md-nav__link">
+  <a href="#_7" title="参数化运行" class="md-nav__link">
+    参数化运行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="案例演示" class="md-nav__link">
     案例演示
   </a>
   
@@ -590,38 +632,90 @@
 <p>然后，对于参数而言，我们可能具有一个参数列表，在脚本运行时需要按照不同的规则去取值，例如顺序取值、随机取值、循环取值等等。</p>
 <p>这就是典型的参数化和数据驱动。</p>
 <p>如需了解 HttpRunner 参数化数据驱动机制的实现原理和技术细节，可前往阅读<a href="http://debugtalk.com/post/httprunner-data-driven/">《HttpRunner 实现参数化数据驱动机制》</a>。</p>
-<h2 id="_2">使用说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在 HttpRunner 中若要使用数据驱动，需要进行两步操作：参数定义和数据源准备。</p>
-<h3 id="_3">参数定义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>在 YAML/JSON 测试用例的 config 模块中，新增一个<code>parameters</code>字段，参数化的定义均放置在该字段下。</p>
-<p>定义内容包括参数名称和参数取值方式。</p>
+<h2 id="_2">配置位置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在 HttpRunner 中，支持用例集（testset）和用例（testcase）两个层级的参数化驱动配置。</p>
+<p>两个层级的配置方式完全相同，差异仅在于配置的位置。</p>
 <ul>
-<li>独立参数单独进行定义；多个参数具有关联性的参数需要将其定义在一起，采用短横线（<code>-</code>）进行连接。</li>
-<li>参数取值方式当前支持顺序取值（Sequential）和乱序取值（Random）两种方式。</li>
+<li>在 config 模块中配置，实现对整个用例集（testset）的参数化数据驱动</li>
+<li>在 test 模块中配置，实现对当前用例（testcase）的参数化数据驱动</li>
+</ul>
+<p>配置方式均包括三个部分：参数定义、数据源指定、数据源准备。</p>
+<h2 id="_3">参数定义 &amp; 数据源指定<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在 YAML/JSON 测试用例的 config/test 模块中，新增一个<code>parameters</code>字段，参数化的定义均放置在该字段下。</p>
+<p>定义内容包括参数名称和数据源指定。</p>
+<p>参数名称的定义分为两种情况：</p>
+<ul>
+<li>独立参数单独进行定义；</li>
+<li>多个参数具有关联性的参数需要将其定义在一起，采用短横线（<code>-</code>）进行连接。</li>
+</ul>
+<p>数据源指定支持三种方式：</p>
+<ul>
+<li>在 YAML/JSON 中直接指定参数列表</li>
+<li>通过内置的 parameterize（可简写为P）函数引用 CSV 文件</li>
+<li>调用 debugtalk.py 中自定义的函数生成参数列表</li>
 </ul>
 <p>示例如下：</p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;demo&quot;</span>
     <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Random</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Sequential</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;iOS/10.1&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;iOS/10.2&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;iOS/10.3&quot;</span><span class="p p-Indicator">]</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${P(user_id.csv)}</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${get_account(10)}</span>
 </pre></div>
 
 
-<p>假如测试用例中定义了多个参数，那么测试用例在运行时会对参数进行笛卡尔积组合，覆盖所有参数组合情况。</p>
-<p>参数取值方式采用乱序取值（Random）时，会先对该参数进行乱序排序，然后再进行笛卡尔积组合。</p>
-<h3 id="_4">数据源准备<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>约定采用<code>.csv</code>文件格式来存储参数列表，独立参数存放在独立的<code>.csv</code>文件中，多个具有关联性的参数存放在一个<code>.csv</code>文件中；文件名称需要与参数名称保持一致，多个具有关联性的参数采用短横线（<code>-</code>）进行连接。</p>
-<p>同时，约定在<code>.csv</code>文件中的第一行必须为参数名称；从第二行开始为参数值，每个值占一行；参数名称和数值之间采用逗号进行分隔。</p>
-<p>例如，<code>keyword</code>这种独立的参数就可以存放在<code>keyword.csv</code>中，内容形式如下：</p>
-<div class="codehilite"><pre><span></span>keyword
-hello
-world
-debugtalk
+<p>在这三种方式中，第一种方式最为简单易用，适合参数列表比较小的情况；第二种方式只需要准备 CSV 数据文件，即可实现复杂的数据驱动机制；第三种方式最为灵活，可在 debugtalk.py 通过自定义 Python 函数实现任意场景的数据驱动机制。</p>
+<p>三种方式可根据实际项目需求进行灵活选择，同时支持多种方式的组合使用。假如测试用例中定义了多个参数，那么测试用例在运行时会对参数进行笛卡尔积组合，覆盖所有参数组合情况。</p>
+<h2 id="_4">数据源准备<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>针对数据源的不同指定方式，参数的准备方式也各不相同。</p>
+<h3 id="_5">直接指定参数列表<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>对于参数列表比较小的情况，最简单的方式是直接在 YAML/JSON 中指定参数列表内容。</p>
+<p>例如，对于独立参数 user_agent，参数列表为 <code>["iOS/10.1", "iOS/10.2", "iOS/10.3"]</code>，那么就可以按照如下方式进行配置：</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;iOS/10.1&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;iOS/10.2&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;iOS/10.3&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 
 
-<p><code>username</code>和<code>password</code>这种具有关联性的参数就可以存放在<code>username-password.csv</code>中，内容形式如下：</p>
+<p>进行该配置后，测试用例集在运行时就会对 user_agent 实现数据驱动，即分别使用 "iOS/10.1"、"iOS/10.2"、"iOS/10.3" 三个值运行测试用例集。</p>
+<p>对于具有关联性的多个参数，例如 username 和 password，那么就可以按照如下方式进行配置：</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">[</span><span class="s">&quot;user1&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;111111&quot;</span><span class="p p-Indicator">]</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">[</span><span class="s">&quot;user2&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;222222&quot;</span><span class="p p-Indicator">]</span>
+            <span class="p p-Indicator">-</span> <span class="p p-Indicator">[</span><span class="s">&quot;user3&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;333333&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+
+
+<p>进行该配置后，测试用例集在运行时就会对 username 和 password 实现数据驱动，并且保证参数值总是成对使用。</p>
+<h3 id="csv">引用 CSV 数据文件<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h3>
+<p>对于已有参数列表，并且数据量比较大的情况，比较适合的方式是将参数列表值存储在 CSV 数据文件中。</p>
+<p>对于 CSV 数据文件，需要遵循如下几项约定的规则：</p>
+<ul>
+<li>文件需放置在与测试用例文件相同的目录中；</li>
+<li>CSV 文件中的第一行必须为参数名称，从第二行开始为参数值，每个（组）值占一行；</li>
+<li>若同一个 CSV 文件中具有多个参数，则参数名称和数值的间隔符需实用英文逗号。</li>
+</ul>
+<p>例如，user_id 的参数取值范围为 1001～2000，那么我们就可以创建 user_id.csv，并且在文件中按照如下形式进行描述。</p>
+<div class="codehilite"><pre><span></span>user_id
+1001
+1002
+...
+1999
+2000
+</pre></div>
+
+
+<p>然后在 YAML/JSON 测试用例文件中，就可以通过内置的 parameterize（可简写为P）函数引用 CSV 文件。</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${parameterize(user_id.csv)}</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${P(user_id.csv)}</span>    <span class="c1"># 简写方式</span>
+</pre></div>
+
+
+<p>对于具有关联性的多个参数，例如 username 和 password，那么就可以创建 <a href="../data/account.csv">account.csv</a>，并在文件中按照如下形式进行描述。</p>
 <div class="codehilite"><pre><span></span>username,password
 test1,111111
 test2,222222
@@ -629,7 +723,75 @@ test3,333333
 </pre></div>
 
 
-<h3 id="_5">参数化运行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>然后在 YAML/JSON 测试用例文件中，就可以通过内置的 parameterize（可简写为P）函数引用 CSV 文件。</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${parameterize(account.csv)}</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${P(account.csv)}</span>  <span class="c1"># 简写方式</span>
+</pre></div>
+
+
+<p>需要说明的是，在 parameters 中指定的参数名称必须与 CSV 文件中第一行的参数名称一致，顺序可以不一致，参数个数也可以不一致。</p>
+<p>例如，在 <a href="../data/account.csv">account.csv</a> 文件中可以包含多个参数，username、password、phone、age：</p>
+<div class="codehilite"><pre><span></span>username,password,phone,age
+test1,111111,18600000001,21
+test2,222222,18600000002,22
+test3,333333,18600000003,23
+</pre></div>
+
+
+<p>而在 YAML/JSON 测试用例文件中指定参数时，可以只使用部分参数，并且参数顺序无需与 CSV 文件中参数名称的顺序一致。</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">phone-username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${parameterize(account.csv)}</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">phone-username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${P(account.csv)}</span>  <span class="c1"># 简写方式</span>
+</pre></div>
+
+
+<h3 id="_6">自定义函数生成参数列表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>对于没有现成参数列表，或者需要更灵活的方式动态生成参数的情况，可以通过在 debugtalk.py 中自定义函数生成参数列表，并在 YAML/JSON 引用自定义函数的方式。</p>
+<p>例如，若需对 user_id 进行参数化数据驱动，参数取值范围为 1001～1004，那么就可以在 debugtalk.py 中定义一个函数，返回参数列表。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_user_id</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1001</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1002</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1003</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1004</span><span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+
+
+<p>然后，在 YAML/JSON 的 parameters 中就可以通过调用自定义函数的形式来指定数据源。</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${get_user_id()}</span>
+</pre></div>
+
+
+<p>另外，通过函数的传参机制，还可以实现更灵活的参数生成功能。</p>
+<p>例如，在 debugtalk.py 中定义函数 get_account，可生成指定数量的参数列表。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_account</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">accounts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">accounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;user</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">index</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span><span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">accounts</span>
+</pre></div>
+
+
+<p>那么在 YAML/JSON 的 parameters 中就可以调用自定义函数生成指定数量的参数列表。</p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">username-password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${get_account(10)}</span>
+</pre></div>
+
+
+<blockquote>
+<p>需要注意的是，在自定义函数中，生成的参数列表必须为 <code>list of dict</code> 的数据结构，该设计主要是为了与 CSV 文件的处理机制保持一致。</p>
+</blockquote>
+<h2 id="_7">参数化运行<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>完成以上参数定义和数据源准备工作之后，参数化运行与普通测试用例的运行完全一致。</p>
 <p>采用 hrun 命令运行自动化测试：</p>
 <div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
@@ -642,14 +804,15 @@ test3,333333
 
 
 <p>区别在于，测试用例集在运行时会分别运行每一种组合情况；自动化测试时遍历一遍后会终止执行，性能测试时每个用户都会循环遍历。</p>
-<h2 id="_6">案例演示<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_8">案例演示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>假设我们有一个获取token的接口，我们需要使用 user_agent 和 app_version 这两个参数来进行参数化数据驱动。</p>
 <p>YAML 测试用例的描述形式如下所示：</p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;user</span><span class="nv"> </span><span class="s">management</span><span class="nv"> </span><span class="s">testset.&quot;</span>
     <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Random</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Sequential</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;iOS/10.1&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;iOS/10.2&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;iOS/10.3&quot;</span><span class="p p-Indicator">]</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">app_version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${P(app_version.csv)}</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">os_platform</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${get_os_platform()}</span>
     <span class="l l-Scalar l-Scalar-Plain">variables</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user_agent</span><span class="p p-Indicator">:</span> <span class="s">&#39;iOS/10.3&#39;</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">device_sn</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${gen_random_string(15)}</span>
@@ -672,46 +835,78 @@ test3,333333
 </pre></div>
 
 
-<p>其中，user_agent 和 app_version 的数据源列表分别为：</p>
-<div class="codehilite"><pre><span></span>user_agent
-iOS/10.1
-iOS/10.2
-iOS/10.3
-</pre></div>
-
-
+<p>其中，<a href="../data/app_version.csv">app_version</a> 的数据源列表为：</p>
 <div class="codehilite"><pre><span></span>app_version
 2.8.5
 2.8.6
 </pre></div>
 
 
-<p>那么，经过笛卡尔积组合，应该总共有6种参数组合情况，并且 user_agent 为乱序取值，app_version 为顺序取值。</p>
+<p>获取 os_platform 的自定义函数为：</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_os_platform</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;ios&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;android&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+
+
+<p>那么，经过笛卡尔积组合，应该总共有 <code>3*2*2</code> 种参数组合情况。</p>
 <p>最终的测试结果如下所示：</p>
 <div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
+get token with iOS/10.1, ios, 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 12 ms, response_length: 46 bytes
+.
+get token with iOS/10.1, android, 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 5 ms, response_length: 46 bytes
+.
+get token with iOS/10.1, ios, 2.8.6
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 3 ms, response_length: 46 bytes
+.
+get token with iOS/10.1, android, 2.8.6
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 3 ms, response_length: 46 bytes
+.
+get token with iOS/10.2, ios, 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 3 ms, response_length: 46 bytes
+.
+get token with iOS/10.2, android, 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 3 ms, response_length: 46 bytes
+.
+get token with iOS/10.2, ios, 2.8.6
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 4 ms, response_length: 46 bytes
+.
+get token with iOS/10.2, android, 2.8.6
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 4 ms, response_length: 46 bytes
+.
+get token with iOS/10.3, ios, 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 20 ms, response_length: 46 bytes
+.
+get token with iOS/10.3, android, 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 5 ms, response_length: 46 bytes
+.
+get token with iOS/10.3, ios, 2.8.6
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 6 ms, response_length: 46 bytes
+.
+get token with iOS/10.3, android, 2.8.6
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 7 ms, response_length: 46 bytes
+.
 
-Running tests...
 ----------------------------------------------------------------------
- get token with iOS/10.2 and 2.8.5 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 13 ms, response_length: 46 bytes
-OK (0.014845)s
- get token with iOS/10.2 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 2 ms, response_length: 46 bytes
-OK (0.003909)s
- get token with iOS/10.1 and 2.8.5 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 3 ms, response_length: 46 bytes
-OK (0.004090)s
- get token with iOS/10.1 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 5 ms, response_length: 46 bytes
-OK (0.006673)s
- get token with iOS/10.3 and 2.8.5 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 3 ms, response_length: 46 bytes
-OK (0.004775)s
- get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 3 ms, response_length: 46 bytes
-OK (0.004846)s
-----------------------------------------------------------------------
-Ran 6 tests in 0.046s
+Ran 12 tests in 0.109s
+
+OK
 </pre></div>
                 
                   
