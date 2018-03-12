@@ -55,32 +55,148 @@ JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全
 
 ## config
 
+```json
+"config": {
+    "name": "testset description",
+    "parameters": [
+        {"user_agent": ["iOS/10.1", "iOS/10.2", "iOS/10.3"]},
+        {"app_version": "${P(app_version.csv)}"},
+        {"os_platform": "${get_os_platform()}"}
+    ],
+    "variables": [
+        {"user_agent": "iOS/10.3"},
+        {"device_sn": "${gen_random_string(15)}"},
+        {"os_platform": "ios"}
+    ],
+    "request": {
+        "base_url": "http://127.0.0.1:5000",
+        "headers": {
+            "Content-Type": "application/json",
+            "device_sn": "$device_sn"
+        }
+    },
+    "output": [
+        "token"
+    ]
+}
+```
+
 ### name
 
-- 必填：测试用例集的名称
+- required
+- 格式：string
+- 测试用例集的名称，在测试报告中将作为标题
 
 ### variables
+
+- optional
+- 格式：list of dict
+- 定义的全局变量，作用域为整个用例集
 
 ### parameters
 
+- optional
+- 格式：list of dict
+- 全局参数，用于实现数据化驱动，作用域为整个用例集
+
 ### request
 
-- base_url
-- headers
+- optional
+- 格式：dict of dict
+- request 的公共参数，作用域为整个用例集
+- 常用参数包括 base_url 和 headers
+
+#### base_url
+
+- optional
+- 格式：string
+- 测试用例集请求 URL 的公共 host，指定该参数后，test 中的 url 可以只描述 path 部分
+
+#### headers
+
+- optional
+- 格式：dict of dict
+- request 中 headers 的公共参数，作用域为整个用例集
 
 ### output
 
+- optional
+- 格式：list of string
+- 整个用例集输出的参数列表，可输出的参数包括公共的 variable 和 extract 的参数
+- 在 log-level 为 debug 模式下，会在 terminal 中打印出参数内容
+
 ## test
+
+```json
+"test": {
+    "name": "get token with $user_agent, $os_platform, $app_version",
+    "request": {
+        "url": "/api/get-token",
+        "method": "POST",
+        "headers": {
+            "app_version": "$app_version",
+            "os_platform": "$os_platform",
+            "user_agent": "$user_agent"
+        },
+        "json": {
+            "sign": "${get_sign($user_agent, $device_sn, $os_platform, $app_version)}"
+        },
+        "extract": [
+            {"token": "content.token"}
+        ],
+        "validate": [
+            {"eq": ["status_code", 200]},
+            {"eq": ["headers.Content-Type", "application/json"]},
+            {"eq": ["content.success", true]}
+        ]
+    }
+}
+```
 
 ### name
 
-- 必填：测试用例的名称
-
-### variables
+- required
+- 格式：string
+- 测试用例的名称，在测试报告中将作为每一项测试的标题
 
 ### request
 
+- required
+- 格式：dict of dict
+- HTTP 请求的详细内容
+- 可用参数详见 [python-requests][1] 官方文档
+
+### variables
+
+- optional
+- 格式：list of dict
+- 测试用例中定义的变量，作用域为当前测试用例
+
+### parameters
+
+- optional
+- 格式：list of dict
+- 测试用例中定义的参数列表，作用域为当前测试用例，用于实现对当前测试用例进行数据化驱动
+
 ### extract
+
+- optional
+- 格式：list of dict
+- 从当前 HTTP 请求的响应结果中提取参数，并保存到参数变量中（例如`token`），后续测试用例可通过`$token`的形式进行引用
+- 支持多种提取方式
+    - 响应结果为 JSON 结构，可采用`.`运算符的方式，例如`headers.Content-Type`、`content.success`；
+    - 响应结果为 text/html 结构，可采用正则表达式的方式，例如`blog-motto\">(.*)</h2>`
+    - 详情可阅读[《ApiTestEngine，不再局限于API的测试》][2]
 
 ### validate
 
+- optional
+- 格式：list of dict
+- 测试用例中定义的结果校验项，作用域为当前测试用例，用于实现对当前测试用例运行结果的校验
+- 支持两种格式：
+    - `{"comparator_name": [check_item, expect_value]}`
+    - `{"check": check_item, "comparator": comparator_name, "expect": expect_value}`
+
+
+[1]: http://docs.python-requests.org/en/master/api/#main-interface
+[2]: http://debugtalk.com/post/apitestengine-not-only-about-json-api/
