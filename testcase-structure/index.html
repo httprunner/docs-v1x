@@ -385,6 +385,26 @@
     request
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base_url" title="base_url" class="md-nav__link">
+    base_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headers" title="headers" class="md-nav__link">
+    headers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -415,6 +435,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#request_1" title="request" class="md-nav__link">
+    request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variables_1" title="variables" class="md-nav__link">
     variables
   </a>
@@ -422,8 +449,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#request_1" title="request" class="md-nav__link">
-    request
+  <a href="#parameters_1" title="parameters" class="md-nav__link">
+    parameters
   </a>
   
 </li>
@@ -632,6 +659,26 @@
     request
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base_url" title="base_url" class="md-nav__link">
+    base_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headers" title="headers" class="md-nav__link">
+    headers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -662,6 +709,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#request_1" title="request" class="md-nav__link">
+    request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variables_1" title="variables" class="md-nav__link">
     variables
   </a>
@@ -669,8 +723,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#request_1" title="request" class="md-nav__link">
-    request
+  <a href="#parameters_1" title="parameters" class="md-nav__link">
+    parameters
   </a>
   
 </li>
@@ -762,27 +816,151 @@
 <li>如需在多个测试用例（test）中传递参数值，则需要使用 extract 关键字，并且只能从前往后传递</li>
 </ul>
 <h2 id="config">config<a class="headerlink" href="#config" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;config&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;iOS/10.1&quot;</span><span class="p">,</span> <span class="s2">&quot;iOS/10.2&quot;</span><span class="p">,</span> <span class="s2">&quot;iOS/10.3&quot;</span><span class="p">]},</span>
+        <span class="p">{</span><span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;${P(app_version.csv)}&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;${get_os_platform()}&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;iOS/10.3&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;${gen_random_string(15)}&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;ios&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;$device_sn&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;token&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <h3 id="name">name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h3>
 <ul>
-<li>必填：测试用例集的名称</li>
+<li>required</li>
+<li>格式：string</li>
+<li>测试用例集的名称，在测试报告中将作为标题</li>
 </ul>
 <h3 id="variables">variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of dict</li>
+<li>定义的全局变量，作用域为整个用例集</li>
+</ul>
 <h3 id="parameters">parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of dict</li>
+<li>全局参数，用于实现数据化驱动，作用域为整个用例集</li>
+</ul>
 <h3 id="request">request<a class="headerlink" href="#request" title="Permanent link">&para;</a></h3>
 <ul>
-<li>base_url</li>
-<li>headers</li>
+<li>optional</li>
+<li>格式：dict of dict</li>
+<li>request 的公共参数，作用域为整个用例集</li>
+<li>常用参数包括 base_url 和 headers</li>
+</ul>
+<h4 id="base_url">base_url<a class="headerlink" href="#base_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li>optional</li>
+<li>格式：string</li>
+<li>测试用例集请求 URL 的公共 host，指定该参数后，test 中的 url 可以只描述 path 部分</li>
+</ul>
+<h4 id="headers">headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h4>
+<ul>
+<li>optional</li>
+<li>格式：dict of dict</li>
+<li>request 中 headers 的公共参数，作用域为整个用例集</li>
 </ul>
 <h3 id="output">output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of string</li>
+<li>整个用例集输出的参数列表，可输出的参数包括公共的 variable 和 extract 的参数</li>
+<li>在 log-level 为 debug 模式下，会在 terminal 中打印出参数内容</li>
+</ul>
 <h2 id="test">test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;test&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get token with $user_agent, $os_platform, $app_version&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;$app_version&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;$os_platform&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;$user_agent&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;${get_sign($user_agent, $device_sn, $os_platform, $app_version)}&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;extract&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;content.token&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
+            <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
+            <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <h3 id="name_1">name<a class="headerlink" href="#name_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>必填：测试用例的名称</li>
+<li>required</li>
+<li>格式：string</li>
+<li>测试用例的名称，在测试报告中将作为每一项测试的标题</li>
+</ul>
+<h3 id="request_1">request<a class="headerlink" href="#request_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>required</li>
+<li>格式：dict of dict</li>
+<li>HTTP 请求的详细内容</li>
+<li>可用参数详见 <a href="http://docs.python-requests.org/en/master/api/#main-interface">python-requests</a> 官方文档</li>
 </ul>
 <h3 id="variables_1">variables<a class="headerlink" href="#variables_1" title="Permanent link">&para;</a></h3>
-<h3 id="request_1">request<a class="headerlink" href="#request_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of dict</li>
+<li>测试用例中定义的变量，作用域为当前测试用例</li>
+</ul>
+<h3 id="parameters_1">parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of dict</li>
+<li>测试用例中定义的参数列表，作用域为当前测试用例，用于实现对当前测试用例进行数据化驱动</li>
+</ul>
 <h3 id="extract">extract<a class="headerlink" href="#extract" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of dict</li>
+<li>从当前 HTTP 请求的响应结果中提取参数，并保存到参数变量中（例如<code>token</code>），后续测试用例可通过<code>$token</code>的形式进行引用</li>
+<li>支持多种提取方式<ul>
+<li>响应结果为 JSON 结构，可采用<code>.</code>运算符的方式，例如<code>headers.Content-Type</code>、<code>content.success</code>；</li>
+<li>响应结果为 text/html 结构，可采用正则表达式的方式，例如<code>blog-motto\"&gt;(.*)&lt;/h2&gt;</code></li>
+<li>详情可阅读<a href="http://debugtalk.com/post/apitestengine-not-only-about-json-api/">《ApiTestEngine，不再局限于API的测试》</a></li>
+</ul>
+</li>
+</ul>
 <h3 id="validate">validate<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of dict</li>
+<li>测试用例中定义的结果校验项，作用域为当前测试用例，用于实现对当前测试用例运行结果的校验</li>
+<li>支持两种格式：<ul>
+<li><code>{"comparator_name": [check_item, expect_value]}</code></li>
+<li><code>{"check": check_item, "comparator": comparator_name, "expect": expect_value}</code></li>
+</ul>
+</li>
+</ul>
                 
                   
                 
