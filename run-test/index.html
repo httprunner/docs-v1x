@@ -551,47 +551,54 @@
 <h2 id="_2">日志级别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
 <div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
+INFO     Loading environment variables from /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/.env
+get token with iOS/10.1 and 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 11 ms, response_length: 46 bytes
+.
 
-Running tests...
 ----------------------------------------------------------------------
- get token with iOS/10.3 and 2.8.6 ... INFO:root: Start to POST http://127.0.0.1:5000/api/get-token
-INFO:root: status_code: 200, response_time: 12 ms, response_length: 46 bytes
-OK (0.014408)s
+Ran 1 test in 0.013s
 
-----------------------------------------------------------------------
-Ran 1 test in 0.015s
+OK
+INFO     Start to render Html report ...
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-03-12-19-12-56.html
 </pre></div>
 
 
 <p>若需要查看到更详尽的信息，例如请求的参数和响应的详细内容，可以将日志级别设置为<code>DEBUG</code>，即在命令中添加<code>--log-level debug</code>。</p>
 <div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml --log-level debug
-
-Running tests...
-----------------------------------------------------------------------
- get token with iOS/10.3 and 2.8.6 ... INFO     POST http://127.0.0.1:5000/api/get-token
-DEBUG    request kwargs: {&#39;headers&#39;: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;fK6Jxb5QJKYkN5G&#39;, &#39;user_agent&#39;: &#39;iOS/10.3&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.6&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;2b2eb00a06bf35623efe55a79118ac29df2f88ee&#39;}}
+get token with iOS/10.1 and 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+DEBUG    request kwargs(raw): {&#39;headers&#39;: {&#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&#39;}}
+DEBUG    request kwargs(processed): {&#39;headers&#39;: {&#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&#39;}, &#39;timeout&#39;: 120}
 DEBUG    Starting new HTTP connection (1): 127.0.0.1
-DEBUG    http://127.0.0.1:5000 &quot;POST /api/get-token HTTP/1.1&quot; 200 46
+DEBUG    http://127.0.0.1:8888 &quot;POST http://127.0.0.1:5000/api/get-token HTTP/1.1&quot; 200 46
 DEBUG    response status_code: 200
-DEBUG    response headers: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Thu, 22 Feb 201814:58:13 GMT&#39;}
-DEBUG    response body: {&quot;success&quot;: true, &quot;token&quot;: &quot;b23c6mVM5oMzD03K&quot;}
-INFO     status_code: 200, response_time: 11 ms, response_length: 46 bytes
-OK (0.015256)s
+DEBUG    response headers: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Mon, 12 Mar 2018 11:11:48 GMT&#39;,&#39;Proxy-Connection&#39;: &#39;Close&#39;}
+DEBUG    response body: {&quot;success&quot;: true, &quot;token&quot;: &quot;3DFzZen272dbS7qh&quot;}
+INFO     status_code: 200, response_time: 21 ms, response_length: 46 bytes
+.
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.015s
+Ran 1 test in 0.023s
 
 OK
-
-Generating HTML reports...
-Template is not specified, load default template instead.
-Reports generated: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-02-22-22-58-13.html
+DEBUG    No html report template specified, use default.
+INFO     Start to render Html report ...
+DEBUG    render data: {&#39;success&#39;: True, &#39;stat&#39;: {&#39;testsRun&#39;: 1, &#39;failures&#39;: 0, &#39;errors&#39;: 0, &#39;skipped&#39;: 0, &#39;expectedFailures&#39;: 0, &#39;unexpectedSuccesses&#39;: 0, &#39;successes&#39;: 1}, &#39;platform&#39;: {&#39;httprunner_version&#39;: &#39;1.1.0&#39;, &#39;python_version&#39;: &#39;CPython 3.6.4&#39;, &#39;platform&#39;: &#39;Darwin-17.4.0-x86_64-i386-64bit&#39;}, &#39;time&#39;: {&#39;start_at&#39;: datetime.datetime(2018, 3, 12, 19, 11, 48, 588562), &#39;duration&#39;: 0.04852795600891113}, &#39;records&#39;: [{&#39;name&#39;: &#39;get token with iOS/10.1 and 2.8.5&#39;, &#39;status&#39;: &#39;success&#39;, &#39;response_time&#39;: 21, &#39;attachment&#39;: &#39;&#39;, &#39;meta_data&#39;: {&#39;method&#39;: &#39;POST&#39;, &#39;request_time&#39;: 1520853108.589503, &#39;response_time&#39;: 21, &#39;elapsed&#39;: 0.00506, &#39;url&#39;: &#39;/api/get-token&#39;, &#39;request_headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;, &#39;Content-Length&#39;: &#39;52&#39;}, &#39;request_body&#39;: &#39;{&quot;sign&quot;: &quot;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&quot;}&#39;, &#39;status_code&#39;: 200, &#39;response_headers&#39;: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Mon, 12 Mar 2018 11:11:48 GMT&#39;, &#39;Proxy-Connection&#39;: &#39;Close&#39;}, &#39;response_body&#39;: &#39;{&quot;success&quot;: true, &quot;token&quot;: &quot;3DFzZen272dbS7qh&quot;}&#39;, &#39;content_size&#39;: 46}}]}
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-03-12-19-11-48.html
 DEBUG
-================== Output ==================
-Variable        :  Value
---------        :  -----
-token           :  b23c6mVM5oMzD03K
-============================================
+================== Variables &amp; Output ==================
+Type   | Variable         :  Value
+------ | ---------------- :  ---------------------------
+Var    | user_agent       :  iOS/10.1
+Var    | device_sn        :  ${gen_random_string(15)}
+Var    | os_platform      :  ios
+Var    | app_version      :  2.8.5
+
+Out    | token            :  3DFzZen272dbS7qh
+--------------------------------------------------------
 </pre></div>
                 
                   
