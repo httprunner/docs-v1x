@@ -40,7 +40,7 @@
     
     
       
-        <title>测试用例分层 - HttpRunner 中文使用手册</title>
+        <title>hook 机制 - HttpRunner 中文使用手册</title>
       
     
     
@@ -96,6 +96,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -118,7 +122,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                测试用例分层
+                hook 机制
               </span>
             
           
@@ -314,11 +318,79 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../request-hook/" title="hook 机制" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        hook 机制
+      </label>
+    
+    <a href="./" title="hook 机制" class="md-nav__link md-nav__link--active">
       hook 机制
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="概述" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="用例描述形式" class="md-nav__link">
+    用例描述形式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook" title="编写 hook 函数" class="md-nav__link">
+    编写 hook 函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup_hooks" title="setup_hooks" class="md-nav__link">
+    setup_hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown_hooks" title="teardown_hooks" class="md-nav__link">
+    teardown_hooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -338,18 +410,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-    <a href="./" title="测试用例分层" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../testcase-layer/" title="测试用例分层" class="md-nav__link">
       测试用例分层
     </a>
-    
   </li>
 
         
@@ -437,15 +502,161 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="概述" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="用例描述形式" class="md-nav__link">
+    用例描述形式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook" title="编写 hook 函数" class="md-nav__link">
+    编写 hook 函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup_hooks" title="setup_hooks" class="md-nav__link">
+    setup_hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown_hooks" title="teardown_hooks" class="md-nav__link">
+    teardown_hooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>测试用例分层</h1>
+                  <h1>hook 机制</h1>
                 
-                
+                <h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>HttpRunner 从 1.2.0 版本开始支持 hook 机制，可以在请求前和请求后调用钩子函数。</p>
+<p>具体可实现如下目的：</p>
+<ul>
+<li>请求前：调用钩子函数对请求的 kwargs 进行处理</li>
+<li>请求后：调用钩子函数对响应实例进行处理</li>
+</ul>
+<h2 id="_2">用例描述形式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在 YAML/JSON 测试用例的 request 部分新增关键字 <code>setup_hooks</code> 和 <code>teardown_hooks</code>。</p>
+<ul>
+<li>setup_hooks: 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作，特别是对请求的 kwargs 进行预处理。</li>
+<li>teardown_hooks: 在 HTTP 请求发送后执行 hook 函数，主要用于测试后的清理工作。</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;test&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get token with $user_agent, $os_platform, $app_version&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;$app_version&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;$os_platform&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;$user_agent&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;${get_sign($user_agent, $device_sn, $os_platform, $app_version)}&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;setup_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;setup_hook_prepare_kwargs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;setup_hook_httpntlmauth&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;teardown_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;teardown_hook_sleep_1_secs&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>需要注意的是，在 setup_hooks 和 teardown_hooks 中只需指定 hook 函数的名称，参数部分无需指定，但需要在编写 hook 函数时遵循规范要求。</p>
+<h2 id="hook">编写 hook 函数<a class="headerlink" href="#hook" title="Permanent link">&para;</a></h2>
+<h3 id="setup_hooks">setup_hooks<a class="headerlink" href="#setup_hooks" title="Permanent link">&para;</a></h3>
+<p>hook 函数放置于 debugtalk.py 中，并且必须包含三个参数：</p>
+<ul>
+<li>method: 请求方法，e.g. GET, POST, PUT</li>
+<li>url: 请求 URL</li>
+<li>kwargs: request 的参数字典</li>
+</ul>
+<p>e.g.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">setup_hook_prepare_kwargs</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;headers&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">content_type</span> <span class="ow">and</span> <span class="s2">&quot;data&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="c1"># if request content-type is application/json, request data should be dumped</span>
+            <span class="k">if</span> <span class="n">content_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;application/json&quot;</span><span class="p">):</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+
+            <span class="c1"># if charset is specified in content-type, request data should be encoded with charset encoding</span>
+            <span class="n">charset</span> <span class="o">=</span> <span class="n">get_charset_from_content_type</span><span class="p">(</span><span class="n">content_type</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">charset</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">charset</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">setup_hook_httpntlmauth</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s2">&quot;httpntlmauth&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">requests_ntlm</span> <span class="kn">import</span> <span class="n">HttpNtlmAuth</span>
+        <span class="n">auth_account</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;httpntlmauth&quot;</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">HttpNtlmAuth</span><span class="p">(</span>
+            <span class="n">auth_account</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">],</span> <span class="n">auth_account</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">])</span>
+</pre></div>
+
+
+<h3 id="teardown_hooks">teardown_hooks<a class="headerlink" href="#teardown_hooks" title="Permanent link">&para;</a></h3>
+<p>teardown_hooks 函数放置于 debugtalk.py 中，并且必须包含一个参数：</p>
+<ul>
+<li>resp_obj: requests.Response 实例</li>
+</ul>
+<p>e.g.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">teardown_hook_sleep_1_secs</span><span class="p">(</span><span class="n">resp_obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; sleep 1 seconds after request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
                 
                   
                 
@@ -464,7 +675,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../data-driven/" title="数据驱动" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../testcase-structure/" title="测试用例结构" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -473,19 +684,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                数据驱动
+                测试用例结构
               </span>
             </div>
           </a>
         
         
-          <a href="../run-test/" title="运行测试" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../data-driven/" title="数据驱动" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                运行测试
+                数据驱动
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

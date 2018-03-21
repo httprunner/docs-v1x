@@ -469,6 +469,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#setup_hooks" title="setup_hooks" class="md-nav__link">
+    setup_hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown_hooks" title="teardown_hooks" class="md-nav__link">
+    teardown_hooks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -482,6 +496,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../request-hook/" title="hook 机制" class="md-nav__link">
+      hook 机制
+    </a>
   </li>
 
         
@@ -743,6 +769,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#setup_hooks" title="setup_hooks" class="md-nav__link">
+    setup_hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown_hooks" title="teardown_hooks" class="md-nav__link">
+    teardown_hooks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -907,7 +947,9 @@
             <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]},</span>
             <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;headers.Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">]},</span>
             <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;content.success&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">]}</span>
-        <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;setup_hooks&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;teardown_hooks&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -961,6 +1003,29 @@
 </ul>
 </li>
 </ul>
+<h3 id="setup_hooks">setup_hooks<a class="headerlink" href="#setup_hooks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of string</li>
+<li>在 HTTP 请求发送前执行 hook 函数，主要用于准备工作</li>
+<li>hook 函数放置于 debugtalk.py 中，并且必须包含三个参数：<ul>
+<li>method: 请求方法，e.g. GET, POST, PUT</li>
+<li>url: 请求 URL</li>
+<li>kwargs: request 的参数字典</li>
+</ul>
+</li>
+</ul>
+<h3 id="teardown_hooks">teardown_hooks<a class="headerlink" href="#teardown_hooks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>optional</li>
+<li>格式：list of string</li>
+<li>在 HTTP 请求发送后执行 hook 函数，主要用户测试后的清理工作</li>
+<li>hook 函数放置于 debugtalk.py 中，并且必须包含一个参数：<ul>
+<li>resp_obj: requests.Response 实例</li>
+</ul>
+</li>
+</ul>
+<p>关于 <code>setup_hooks</code> 和 <code>teardown_hooks</code> 的更多内容，请参考<a href="../request-hook/">《hook 机制》</a>。</p>
                 
                   
                 
@@ -994,13 +1059,13 @@
           </a>
         
         
-          <a href="../data-driven/" title="数据驱动" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../request-hook/" title="hook 机制" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                数据驱动
+                hook 机制
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
