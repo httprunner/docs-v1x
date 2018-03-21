@@ -53,6 +53,7 @@ pages:
     - 进阶手册:
         - 录制生成用例: record-testcase.md
         - 测试用例结构: testcase-structure.md
+        - hook 机制: request-hook.md
         - 数据驱动: data-driven.md
         - 测试用例分层: testcase-layer.md
         - 运行测试: run-test.md

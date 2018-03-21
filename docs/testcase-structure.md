@@ -148,7 +148,9 @@ JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全
             {"eq": ["status_code", 200]},
             {"eq": ["headers.Content-Type", "application/json"]},
             {"eq": ["content.success", true]}
-        ]
+        ],
+        "setup_hooks": [],
+        "teardown_hooks": []
     }
 }
 ```
@@ -197,6 +199,27 @@ JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全
     - `{"comparator_name": [check_item, expect_value]}`
     - `{"check": check_item, "comparator": comparator_name, "expect": expect_value}`
 
+### setup_hooks
+
+- optional
+- 格式：list of string
+- 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作
+- hook 函数放置于 debugtalk.py 中，并且必须包含三个参数：
+    - method: 请求方法，e.g. GET, POST, PUT
+    - url: 请求 URL
+    - kwargs: request 的参数字典
+
+### teardown_hooks
+
+- optional
+- 格式：list of string
+- 在 HTTP 请求发送后执行 hook 函数，主要用户测试后的清理工作
+- hook 函数放置于 debugtalk.py 中，并且必须包含一个参数：
+    - resp_obj: requests.Response 实例
+
+关于 `setup_hooks` 和 `teardown_hooks` 的更多内容，请参考[《hook 机制》][3]。
+
 
 [1]: http://docs.python-requests.org/en/master/api/#main-interface
 [2]: http://debugtalk.com/post/apitestengine-not-only-about-json-api/
+[3]: /request-hook/
