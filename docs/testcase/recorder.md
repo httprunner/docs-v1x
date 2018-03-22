@@ -7,9 +7,9 @@
 
 在转换生成测试用例之前，需要先将抓取得到的数据包导出为 HAR 格式的文件。在`Charles Proxy`中的操作方式为，选中需要转换的接口（可多选或全选），点击右键，在悬浮的菜单目录中点击【Export...】，格式选择`HTTP Archive(.har)`后保存即可；假设我们保存的文件名称为 demo.har。
 
-![](images/charles-export.jpg)
+![](/images/charles-export.jpg)
 
-![](images/charles-save-har.jpg)
+![](/images/charles-save-har.jpg)
 
 ## 转换生成测试用例
 

@@ -50,15 +50,17 @@ pages:
     - 介绍: index.md
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
-    - 进阶手册:
-        - 录制生成用例: record-testcase.md
-        - 测试用例结构: testcase-structure.md
-        - hook 机制: request-hook.md
-        - 数据驱动: data-driven.md
-        - 测试用例分层: testcase-layer.md
-        - 运行测试: run-test.md
-        - 测试报告: report.md
+    - 测试用例:
+        - 录制生成用例: testcase/recorder.md
+        - 测试用例结构: testcase/structure.md
+        - Validate & Prettify: testcase/validate-pretty.md
+    - 运行测试: run-test.md
+    - 测试报告: report.md
+    - 高级特性:
+        - hook 机制: advanced/request-hook.md
+        - 数据驱动: advanced/data-driven.md
+        - 测试用例分层: advanced/testcase-layer.md
+        - 信息安全: advanced/security.md
     - 性能测试: load-test.md
-    - 信息安全: security.md
     - 开发扩展: development.md
     - 常见问题: FAQ.md

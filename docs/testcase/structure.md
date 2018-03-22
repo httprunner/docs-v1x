@@ -5,7 +5,7 @@ HttpRunner 的测试用例支持两种文件格式：YAML 和 JSON。
 
 JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全相同。
 
-- 对于新手来说，推荐使用 JSON 格式，虽然描述形式上稍显累赘，但是不容易出错（大多编辑器都具有 JSON 格式的检测功能）；
+- 对于新手来说，推荐使用 JSON 格式，虽然描述形式上稍显累赘，但是不容易出错（大多编辑器都具有 JSON 格式的检测功能）；同时，HttpRunner 也内置了 JSON 格式正确性检测和样式美化功能，详情可查看[《Validate & Prettify》](/testcase//validate-pretty.md)。
 - 对于熟悉 YAML 格式的人来说，编写维护 YAML 格式的测试用例会更简洁，但前提是要保证 YAML 格式没有语法错误。
 
 对于两种格式的展示差异，可以对比查看 [demo-quickstart-6.json](data/demo-quickstart-6.json) 和 [demo-quickstart-6.yml](data/demo-quickstart-6.yml) 获取初步的印象。

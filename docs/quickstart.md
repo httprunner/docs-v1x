@@ -30,9 +30,9 @@ $ flask run
 
 例如，在本案例中，我们先进行权限校验，然后成功创建一个用户，对应的网络抓包内容如下图所示：
 
-![](images/demo-quickstart-http-1.jpg)
+![](/images/demo-quickstart-http-1.jpg)
 
-![](images/demo-quickstart-http-2.jpg)
+![](/images/demo-quickstart-http-2.jpg)
 
 通过抓包，我们可以看到具体的接口信息，包括请求的URL、Method、headers、参数和响应内容等内容，基于这些信息，我们就可以开始编写测试用例了。
 
@@ -49,7 +49,7 @@ $ har2case /path/to/demo-quickstart.har
 INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 ```
 
-关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/record-testcase/)。
+关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/testcase/recorder/)。
 
 经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 [demo-quickstart.json](data/demo-quickstart.json)，其内容如下：
 
@@ -125,7 +125,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 如上便是 HttpRunner 测试用例的基本结构。
 
-关于测试用例的更多内容，请查看[《测试用例结构描述》](/testcase-structure/)。
+关于测试用例的更多内容，请查看[《测试用例结构描述》](/testcase/structure/)。
 
 ### 首次运行测试用例
 
@@ -354,7 +354,7 @@ def get_sign(*args):
 
 可以看出，测试用例集总共运行了 4 次，并且每次运行时都是采用的不同 user_id。
 
-关于数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读[《数据驱动使用手册》](/data-driven/)。
+关于数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读[《数据驱动使用手册》](/advanced/data-driven/)。
 
 [har2case]: https://github.com/HttpRunner/har2case
 
@@ -370,7 +370,7 @@ def get_sign(*args):
 
 ![](/images/report-demo-quickstart-1-traceback.jpg)
 
-关于测试报告的详细内容，请查看进阶手册的[《测试报告》](/report/)部分。
+关于测试报告的详细内容，请查看[《测试报告》](/report/)部分。
 
 ## 总结
 

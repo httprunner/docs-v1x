@@ -52,10 +52,47 @@ httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，�
 
 ```bash
 $ hrun -V
-0.9.7
+1.3.1
 
 $ har2case -V
-0.1.4
+0.1.6
+```
+
+```bash
+$ hrun -h
+usage: hrun [-h] [-V] [--html-report-name HTML_REPORT_NAME]
+            [--html-report-template HTML_REPORT_TEMPLATE]
+            [--log-level LOG_LEVEL] [--dot-env-path DOT_ENV_PATH] [--failfast]
+            [--startproject STARTPROJECT]
+            [--validate [VALIDATE [VALIDATE ...]]]
+            [--prettify [PRETTIFY [PRETTIFY ...]]]
+            [testset_paths [testset_paths ...]]
+
+HTTP test runner, not just about api test and load test.
+
+positional arguments:
+  testset_paths         testset file path
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -V, --version         show version
+  --html-report-name HTML_REPORT_NAME
+                        specify html report name, only effective when
+                        generating html report.
+  --html-report-template HTML_REPORT_TEMPLATE
+                        specify html report template path.
+  --log-level LOG_LEVEL
+                        Specify logging level, default is INFO.
+  --dot-env-path DOT_ENV_PATH
+                        Specify .env file path, which is useful for keeping
+                        production credentials.
+  --failfast            Stop the test run on the first error or failure.
+  --startproject STARTPROJECT
+                        Specify new project name.
+  --validate [VALIDATE [VALIDATE ...]]
+                        Validate JSON testset format.
+  --prettify [PRETTIFY [PRETTIFY ...]]
+                        Prettify JSON testset format.
 ```
 
 ## 开发者模式
