@@ -416,11 +416,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      进阶手册
+      测试用例
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        进阶手册
+        测试用例
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -431,7 +431,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../record-testcase/" title="录制生成用例" class="md-nav__link">
+    <a href="../testcase/recorder/" title="录制生成用例" class="md-nav__link">
       录制生成用例
     </a>
   </li>
@@ -443,7 +443,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testcase-structure/" title="测试用例结构" class="md-nav__link">
+    <a href="../testcase/structure/" title="测试用例结构" class="md-nav__link">
       测试用例结构
     </a>
   </li>
@@ -455,7 +455,67 @@
 
 
   <li class="md-nav__item">
-    <a href="../request-hook/" title="hook 机制" class="md-nav__link">
+    <a href="../testcase/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
+      Validate & Prettify
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../run-test/" title="运行测试" class="md-nav__link">
+      运行测试
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../report/" title="测试报告" class="md-nav__link">
+      测试报告
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      高级特性
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        高级特性
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../advanced/request-hook/" title="hook 机制" class="md-nav__link">
       hook 机制
     </a>
   </li>
@@ -467,7 +527,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../data-driven/" title="数据驱动" class="md-nav__link">
+    <a href="../advanced/data-driven/" title="数据驱动" class="md-nav__link">
       数据驱动
     </a>
   </li>
@@ -479,7 +539,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testcase-layer/" title="测试用例分层" class="md-nav__link">
+    <a href="../advanced/testcase-layer/" title="测试用例分层" class="md-nav__link">
       测试用例分层
     </a>
   </li>
@@ -491,20 +551,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../run-test/" title="运行测试" class="md-nav__link">
-      运行测试
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../report/" title="测试报告" class="md-nav__link">
-      测试报告
+    <a href="../advanced/security/" title="信息安全" class="md-nav__link">
+      信息安全
     </a>
   </li>
 
@@ -522,18 +570,6 @@
   <li class="md-nav__item">
     <a href="../load-test/" title="性能测试" class="md-nav__link">
       性能测试
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../security/" title="信息安全" class="md-nav__link">
-      信息安全
     </a>
   </li>
 
@@ -743,7 +779,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 </pre></div>
 
 
-<p>关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="../record-testcase/">《录制生成测试用例》</a>。</p>
+<p>关于 <a href="https://github.com/HttpRunner/har2case">har2case</a> 的详细使用说明，请查看<a href="../testcase/recorder/">《录制生成测试用例》</a>。</p>
 <p>经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 <a href="../data/demo-quickstart.json">demo-quickstart.json</a>，其内容如下：</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
@@ -815,7 +851,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <li><code>test</code>对应单个接口的测试用例，作用域仅限于本身</li>
 </ul>
 <p>如上便是 HttpRunner 测试用例的基本结构。</p>
-<p>关于测试用例的更多内容，请查看<a href="../testcase-structure/">《测试用例结构描述》</a>。</p>
+<p>关于测试用例的更多内容，请查看<a href="../testcase/structure/">《测试用例结构描述》</a>。</p>
 <h3 id="_5">首次运行测试用例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>既然现在已经有了测试用例文件，那么我们先尝试运行下吧。</p>
 <p>为了演示测试用例文件的迭代优化过程，我们先将 demo-quickstart.json 重命名为 <a href="../data/demo-quickstart-0.json">demo-quickstart-0.json</a>（对应的 YAML 格式：<a href="../data/demo-quickstart-0.yml">demo-quickstart-0.yml</a>）。</p>
@@ -975,14 +1011,14 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>将经过调整的测试用例另存为 <a href="../data/demo-quickstart-6.json">demo-quickstart-6.json</a>（对应的 YAML 格式：<a href="../data/demo-quickstart-6.yml">demo-quickstart-6.yml</a>），重启 flask 应用服务后再次运行测试用例，测试用例运行情况如下所示：</p>
 <p><img alt="" src="../images/run-demo-quickstart-6.jpg" /></p>
 <p>可以看出，测试用例集总共运行了 4 次，并且每次运行时都是采用的不同 user_id。</p>
-<p>关于数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读<a href="../data-driven/">《数据驱动使用手册》</a>。</p>
+<p>关于数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读<a href="../advanced/data-driven/">《数据驱动使用手册》</a>。</p>
 <h2 id="_13">查看测试报告<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>在每次使用 hrun 命令运行测试用例后，均会生成一份 HTML 格式的测试报告。报告文件位于 reports 目录下，文件名称为测试用例的开始运行时间。</p>
 <p>例如，在运行完 <a href="../data/demo-quickstart-1.json">demo-quickstart-1.json</a> 后，将生成如下形式的测试报告：</p>
 <p><img alt="" src="../images/report-demo-quickstart-1-overview.jpg" /></p>
 <p><img alt="" src="../images/report-demo-quickstart-1-log.jpg" /></p>
 <p><img alt="" src="../images/report-demo-quickstart-1-traceback.jpg" /></p>
-<p>关于测试报告的详细内容，请查看进阶手册的<a href="../report/">《测试报告》</a>部分。</p>
+<p>关于测试报告的详细内容，请查看<a href="../report/">《测试报告》</a>部分。</p>
 <h2 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>到此为止，HttpRunner 的核心功能就介绍完了，掌握本文中的功能特性，足以帮助你应对日常项目工作中至少 80% 的自动化测试需求。</p>
 <p>当然，HttpRunner 不止于此，如需挖掘 HttpRunner 的更多特性，实现更复杂场景的自动化测试需求，可继续阅读后续文档。</p>
@@ -1019,7 +1055,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
           </a>
         
         
-          <a href="../record-testcase/" title="录制生成用例" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../testcase/recorder/" title="录制生成用例" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">

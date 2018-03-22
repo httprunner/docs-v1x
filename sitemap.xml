@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/Installation/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>/quickstart/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,44 +28,64 @@
     
         
     <url>
-     <loc>/record-testcase/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <loc>/testcase/recorder/</loc>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/testcase-structure/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <loc>/testcase/structure/</loc>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/request-hook/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <loc>/testcase/validate-pretty/</loc>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>/data-driven/</loc>
-     <lastmod>2018-03-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/testcase-layer/</loc>
-     <lastmod>2018-03-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
+    
+
+    
     <url>
      <loc>/run-test/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/report/</loc>
+     <lastmod>2018-03-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/advanced/request-hook/</loc>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/report/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <loc>/advanced/data-driven/</loc>
+     <lastmod>2018-03-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/advanced/testcase-layer/</loc>
+     <lastmod>2018-03-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/advanced/security/</loc>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -74,15 +94,7 @@
     
     <url>
      <loc>/load-test/</loc>
-     <lastmod>2018-03-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/security/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -90,7 +102,7 @@
     
     <url>
      <loc>/development/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -98,7 +110,7 @@
     
     <url>
      <loc>/FAQ/</loc>
-     <lastmod>2018-03-21</lastmod>
+     <lastmod>2018-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
