@@ -27,18 +27,18 @@ HttpRunner 从 `1.2.3` 版本开始支持 hook 机制，可以在请求前和请
         },
         "json": {
             "sign": "${get_sign($user_agent, $device_sn, $os_platform, $app_version)}"
-        },
-        "validate": [
-            {"eq": ["status_code", 200]}
-        ],
-        "setup_hooks": [
-            "setup_hook_prepare_kwargs",
-            "setup_hook_httpntlmauth"
-        ],
-        "teardown_hooks": [
-            "teardown_hook_sleep_1_secs"
-        ]
-    }
+        }
+    },
+    "validate": [
+        {"eq": ["status_code", 200]}
+    ],
+    "setup_hooks": [
+        "setup_hook_prepare_kwargs",
+        "setup_hook_httpntlmauth"
+    ],
+    "teardown_hooks": [
+        "teardown_hook_sleep_1_secs"
+    ]
 }
 ```
 
