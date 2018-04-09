@@ -634,18 +634,18 @@
         <span class="p">},</span>
         <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;${get_sign($user_agent, $device_sn, $os_platform, $app_version)}&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;setup_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;setup_hook_prepare_kwargs&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;setup_hook_httpntlmauth&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;teardown_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;teardown_hook_sleep_1_secs&quot;</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;validate&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;setup_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;setup_hook_prepare_kwargs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;setup_hook_httpntlmauth&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;teardown_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;teardown_hook_sleep_1_secs&quot;</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 
