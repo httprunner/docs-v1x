@@ -451,9 +451,72 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        开发扩展
+      </label>
+    
     <a href="./" title="开发扩展" class="md-nav__link md-nav__link--active">
       开发扩展
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="运行方式" class="md-nav__link">
+    运行方式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="传入测试用例文件路径" class="md-nav__link">
+    传入测试用例文件路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="传入标准的测试用例结构体" class="md-nav__link">
+    传入标准的测试用例结构体
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="返回详细测试结果数据" class="md-nav__link">
+    返回详细测试结果数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" title="生成 HTML 测试报告" class="md-nav__link">
+    生成 HTML 测试报告
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -487,6 +550,56 @@
     
   
   
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="运行方式" class="md-nav__link">
+    运行方式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="传入测试用例文件路径" class="md-nav__link">
+    传入测试用例文件路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="传入标准的测试用例结构体" class="md-nav__link">
+    传入标准的测试用例结构体
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="返回详细测试结果数据" class="md-nav__link">
+    返回详细测试结果数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" title="生成 HTML 测试报告" class="md-nav__link">
+    生成 HTML 测试报告
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -501,20 +614,109 @@
                 <h1 id="_1">开发扩展<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>HttpRunner 除了作为命令行工具使用外，还可以作为软件包集成到你自己的项目中。</p>
 <p>简单来说，HttpRunner 提供了运行 YAML/JSON 格式测试用例的能力，并能返回详细的测试结果信息。</p>
-<p>典型的调用方式如下：</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">httprunner</span> <span class="kn">import</span> <span class="n">HttpRunner</span>
 
 <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;failfast&quot;</span><span class="p">:</span> <span class="bp">False</span>
 <span class="p">}</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">HttpRunner</span><span class="p">(</span><span class="s2">&quot;docs/data/demo-quickstart-2.yml&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">html_report_name</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span>
-    <span class="n">html_report_template</span><span class="o">=</span><span class="s2">&quot;/path/to/custom_report_template&quot;</span>
-<span class="p">)</span>
+<span class="n">runner</span> <span class="o">=</span> <span class="n">HttpRunner</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 
 
-<p>调用完成后，在返回值（result）中包含详尽的运行结果数据，其数据结构为：</p>
+<h2 id="_2">运行方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>HttpRunner 的 run 方法有两个参数：</p>
+<ul>
+<li>path_or_testsets：支持传入两类参数，YAML/JSON 格式测试用例文件路径，或者标准的测试用例结构体；</li>
+<li>mapping（可选）：变量映射，可用于对传入测试用例集中的变量进行替换。</li>
+</ul>
+<h3 id="_3">传入测试用例文件路径<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>指定测试用例文件路径支持三种形式：</p>
+<ul>
+<li>YAML/JSON 文件路径，支持绝对路径和相对路径</li>
+<li>包含 YAML/JSON 文件的文件夹，支持绝对路径和相对路径</li>
+<li>文件路径和文件夹路径的混合情况（list/set）</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># 文件路径</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;docs/data/demo-quickstart-2.yml&quot;</span><span class="p">)</span>
+
+<span class="c1"># 文件夹路径</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;docs/data/&quot;</span><span class="p">)</span>
+
+<span class="c1"># 混合情况</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;docs/data/&quot;</span><span class="p">,</span> <span class="s2">&quot;files/demo-quickstart-2.yml&quot;</span><span class="p">])</span>
+</pre></div>
+
+
+<h3 id="_4">传入标准的测试用例结构体<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>除了传入测试用例文件路径，还可以直接传入标准的测试用例结构体。</p>
+<p>以 <a href="../data/demo-quickstart-2.yml">demo-quickstart-2.yml</a> 为例，对应的数据结构体如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="err">&#39;name&#39;:</span> <span class="err">&#39;testset</span> <span class="err">description&#39;,</span>
+  <span class="err">&#39;config&#39;:</span> <span class="err">{</span>
+    <span class="err">&#39;path&#39;:</span> <span class="err">&#39;docs/data/demo-quickstart-2.yml&#39;,</span>
+    <span class="err">&#39;name&#39;:</span> <span class="err">&#39;testset</span> <span class="err">description&#39;,</span>
+    <span class="err">&#39;request&#39;:</span> <span class="err">{</span>
+      <span class="err">&#39;base_url&#39;:</span> <span class="err">&#39;&#39;,</span>
+      <span class="err">&#39;headers&#39;:</span> <span class="err">{&#39;User-Agent&#39;:</span> <span class="err">&#39;python-requests/2.18.4&#39;</span><span class="p">}</span>
+    <span class="err">},</span>
+    <span class="err">&#39;variables&#39;:</span> <span class="p">[]</span><span class="err">,</span>
+    <span class="err">&#39;output&#39;:</span> <span class="p">[</span><span class="err">&#39;token&#39;</span><span class="p">]</span>
+  <span class="err">},</span>
+  <span class="err">&#39;api&#39;:</span> <span class="p">{}</span><span class="err">,</span>
+  <span class="err">&#39;testcases&#39;:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="err">&#39;name&#39;:</span> <span class="err">&#39;/api/get-token&#39;,</span>
+      <span class="err">&#39;request&#39;:</span> <span class="err">{</span>
+        <span class="err">&#39;url&#39;:</span> <span class="err">&#39;http://127.0.0.1:5000/api/get-token&#39;,</span>
+        <span class="err">&#39;method&#39;:</span> <span class="err">&#39;POST&#39;,</span>
+        <span class="err">&#39;headers&#39;:</span> <span class="err">{&#39;Content-Type&#39;:</span> <span class="err">&#39;application/json&#39;,</span> <span class="err">&#39;app_version&#39;:</span> <span class="err">&#39;2.8.6&#39;,</span> <span class="err">&#39;device_sn&#39;:</span> <span class="err">&#39;FwgRiO7CNA50DSU&#39;,</span> <span class="err">&#39;os_platform&#39;:</span> <span class="err">&#39;ios&#39;,</span> <span class="err">&#39;user_agent&#39;:</span> <span class="err">&#39;iOS/10.3&#39;</span><span class="p">},</span>
+        <span class="err">&#39;json&#39;:</span> <span class="p">{</span><span class="err">&#39;sign&#39;:</span> <span class="err">&#39;958a05393efef0ac7c0fb80a7eac45e24fd40c27&#39;</span><span class="p">}</span>
+      <span class="err">}</span><span class="p">,</span>
+      <span class="err">&#39;extract&#39;:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="err">&#39;token&#39;:</span> <span class="err">&#39;content.token&#39;</span><span class="p">}</span>
+      <span class="p">],</span>
+      <span class="err">&#39;validate&#39;:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;status_code&#39;,</span> <span class="err">200]</span><span class="p">},</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;headers.Content-Type&#39;,</span> <span class="err">&#39;application/json&#39;]</span><span class="p">},</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;content.success&#39;,</span> <span class="err">True]</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="err">}</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="err">&#39;name&#39;:</span> <span class="err">&#39;/api/users/1000&#39;,</span>
+      <span class="err">&#39;request&#39;:</span> <span class="err">{</span>
+        <span class="err">&#39;url&#39;:</span> <span class="err">&#39;http://127.0.0.1:5000/api/users/1000&#39;,</span>
+        <span class="err">&#39;method&#39;:</span> <span class="err">&#39;POST&#39;,</span>
+        <span class="err">&#39;headers&#39;:</span> <span class="err">{&#39;Content-Type&#39;:</span> <span class="err">&#39;application/json&#39;,</span> <span class="err">&#39;device_sn&#39;:</span> <span class="err">&#39;FwgRiO7CNA50DSU&#39;,&#39;token&#39;:</span> <span class="err">&#39;$token&#39;</span><span class="p">},</span> <span class="err">&#39;json&#39;:</span> <span class="p">{</span><span class="err">&#39;name&#39;:</span> <span class="err">&#39;user1&#39;,</span> <span class="err">&#39;password&#39;:</span> <span class="err">&#39;123456&#39;</span><span class="p">}</span>
+      <span class="err">}</span><span class="p">,</span>
+      <span class="err">&#39;validate&#39;:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;status_code&#39;,</span> <span class="err">201]</span><span class="p">},</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;headers.Content-Type&#39;,</span> <span class="err">&#39;application/json&#39;]</span><span class="p">},</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;content.success&#39;,</span> <span class="err">True]</span><span class="p">},</span>
+        <span class="p">{</span><span class="err">&#39;eq&#39;:</span> <span class="err">[&#39;content.msg&#39;,</span> <span class="err">&#39;user</span> <span class="err">created</span> <span class="err">successfully.&#39;]</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="err">}</span>
+  <span class="p">]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>传入测试用例结构体时，支持传入单个结构体（dict），以及多个结构体（list of dict）。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 运行单个结构体</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">testset</span><span class="p">)</span>
+
+<span class="c1"># 运行多个结构体</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">testset1</span><span class="p">,</span> <span class="n">testset2</span><span class="p">])</span>
+</pre></div>
+
+
+<h2 id="_5">返回详细测试结果数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>运行完成后，runner 的 summary 属性中包含详尽的运行结果数据。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># get result summary</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">summary</span>
+</pre></div>
+
+
+<p>其数据结构为：</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="err">True</span><span class="p">,</span>
   <span class="nt">&quot;stat&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -527,56 +729,70 @@
     <span class="nt">&quot;successes&quot;</span><span class="p">:</span> <span class="mi">2</span>
   <span class="p">},</span>
   <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;python_version&quot;</span><span class="p">:</span> <span class="s2">&quot;CPython_3.6.4&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;httprunner_version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.3.8.beta.3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;python_version&quot;</span><span class="p">:</span> <span class="s2">&quot;CPython 3.6.4&quot;</span><span class="p">,</span>
     <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;Darwin-17.4.0-x86_64-i386-64bit&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;start_at&quot;</span><span class="p">:</span> <span class="err">datetime.datetime(</span><span class="mi">2018</span><span class="p">,</span> <span class="err">2,</span> <span class="err">27,</span> <span class="err">17,</span> <span class="err">8,</span> <span class="err">42,</span> <span class="err">194945),</span>
-    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">0.02808094024658203</span>
+    <span class="nt">&quot;start_at&quot;</span><span class="p">:</span> <span class="err">datetime.datetime(</span><span class="mi">2018</span><span class="p">,</span> <span class="err">4,</span> <span class="err">16,</span> <span class="err">22,</span> <span class="err">11,</span> <span class="err">55,</span> <span class="err">420941),</span>
+    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">0.035871028900146484</span>
   <span class="p">},</span>
   <span class="nt">&quot;records&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
       <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="nt">&quot;response_time_ms&quot;</span><span class="p">:</span> <span class="mf">13.15</span><span class="p">,</span>
       <span class="nt">&quot;attachment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1519722522.195414</span><span class="p">,</span>
-        <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="nt">&quot;elapsed&quot;</span><span class="p">:</span> <span class="mf">0.002336</span><span class="p">,</span>
-        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
-        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">sign</span><span class="s2">&quot;: &quot;</span><span class="mi">958</span><span class="err">a</span><span class="mi">05393</span><span class="err">efef</span><span class="mi">0</span><span class="err">ac</span><span class="mi">7</span><span class="err">c</span><span class="mi">0</span><span class="err">fb</span><span class="mi">80</span><span class="err">a</span><span class="mi">7</span><span class="err">eac</span><span class="mf">45e24</span><span class="err">fd</span><span class="mi">40</span><span class="err">c</span><span class="mi">27</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1523887915.4214551</span><span class="p">,</span>
+        <span class="nt">&quot;response_time(ms)&quot;</span><span class="p">:</span> <span class="mf">13.15</span><span class="p">,</span>
+        <span class="nt">&quot;elapsed(ms)&quot;</span><span class="p">:</span> <span class="mf">4.081</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000/api/get-token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;user-agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span> <span class="nt">&quot;Connection&quot;</span><span class="p">:</span> <span class="s2">&quot;keep-alive&quot;</span><span class="p">,</span> <span class="nt">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.8.6&quot;</span><span class="p">,</span> <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span> <span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;ios&quot;</span><span class="p">,</span> <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;iOS/10.3&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;52&quot;</span><span class="p">},</span>
+        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="err">b&#39;</span><span class="p">{</span><span class="nt">&quot;sign&quot;</span><span class="p">:</span> <span class="s2">&quot;958a05393efef0ac7c0fb80a7eac45e24fd40c27&quot;</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
         <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
-        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">success</span><span class="s2">&quot;: true, &quot;</span><span class="err">token</span><span class="s2">&quot;: &quot;</span><span class="err">yf</span><span class="mi">7</span><span class="err">zUuLBIUD</span><span class="mi">1</span><span class="err">nYXt</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;46&quot;</span><span class="p">,</span> <span class="nt">&quot;Server&quot;</span><span class="p">:</span> <span class="s2">&quot;Werkzeug/0.14.1 Python/3.6.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Date&quot;</span><span class="p">:</span> <span class="s2">&quot;Mon, 16 Apr 2018 14:11:55 GMT&quot;</span><span class="p">},</span>
+        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="err">True</span><span class="p">,</span> <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;GEilyOTo30WzUpFt&quot;</span><span class="p">},</span>
         <span class="nt">&quot;content_size&quot;</span><span class="p">:</span> <span class="mi">46</span>
       <span class="p">}</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
       <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;response_time_ms&quot;</span><span class="p">:</span> <span class="mf">3.1</span><span class="p">,</span>
       <span class="nt">&quot;attachment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1519722522.2067862</span><span class="p">,</span>
-        <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="nt">&quot;elapsed&quot;</span><span class="p">:</span> <span class="mf">0.001785</span><span class="p">,</span>
-        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
-        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">name</span><span class="s2">&quot;: &quot;</span><span class="err">user</span><span class="mi">1</span><span class="s2">&quot;, &quot;</span><span class="err">password</span><span class="s2">&quot;: &quot;</span><span class="mi">123456</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1523887915.4355829</span><span class="p">,</span>
+        <span class="nt">&quot;response_time(ms)&quot;</span><span class="p">:</span> <span class="mf">3.1</span><span class="p">,</span>
+        <span class="nt">&quot;elapsed(ms)&quot;</span><span class="p">:</span> <span class="mf">1.903</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000/api/users/1000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;user-agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span><span class="nt">&quot;Connection&quot;</span><span class="p">:</span> <span class="s2">&quot;keep-alive&quot;</span><span class="p">,</span> <span class="nt">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span> <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;GEilyOTo30WzUpFt&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;39&quot;</span><span class="p">},</span>
+        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="err">b&#39;</span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span> <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">}</span><span class="err">&#39;</span><span class="p">,</span>
         <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
-        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">...</span><span class="p">},</span>
-        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">success</span><span class="s2">&quot;: true, &quot;</span><span class="err">msg</span><span class="s2">&quot;: &quot;</span><span class="err">user</span> <span class="err">created</span> <span class="err">successfully.</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;54&quot;</span><span class="p">,</span> <span class="nt">&quot;Server&quot;</span><span class="p">:</span> <span class="s2">&quot;Werkzeug/0.14.1 Python/3.6.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Date&quot;</span><span class="p">:</span> <span class="s2">&quot;Mon, 16 Apr 2018 14:11:55 GMT&quot;</span><span class="p">},</span>
+        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="err">True</span><span class="p">,</span> <span class="nt">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;user created successfully.&quot;</span><span class="p">},</span>
         <span class="nt">&quot;content_size&quot;</span><span class="p">:</span> <span class="mi">54</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">],</span>
-  <span class="nt">&quot;report_path&quot;</span><span class="p">:</span> <span class="s2">&quot;reports/demo/demo-2018-02-27-17-08-42.html&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;Yfkzr0t3qdTAU7AD&quot;</span><span class="p">}</span>
+  <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;in&quot;</span><span class="p">:</span> <span class="err">OrderedDict()</span><span class="p">,</span> <span class="nt">&quot;out&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;9PArqHp37FmHNoQw&quot;</span><span class="p">}}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="html">生成 HTML 测试报告<a class="headerlink" href="#html" title="Permanent link">&para;</a></h2>
+<p>如需生成 HTML 测试报告，可调用 runner 的 gen_html_report 方法。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># generate html report</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">gen_html_report</span><span class="p">(</span>
+    <span class="n">html_report_name</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+    <span class="n">html_report_template</span><span class="o">=</span><span class="s2">&quot;/path/to/custom_report_template&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># =&gt; reports/demo/demo-2018-04-16-22-22-17.html</span>
 </pre></div>
                 
                   
