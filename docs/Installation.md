@@ -50,25 +50,26 @@ httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，�
 
 运行如下命令，若正常显示版本号，则说明 HttpRunner 安装成功。
 
-```bash
+```text
 $ hrun -V
-1.3.1
+1.3.9
 
 $ har2case -V
-0.1.6
+0.1.8
 ```
 
-```bash
+```text
 $ hrun -h
-usage: hrun [-h] [-V] [--html-report-name HTML_REPORT_NAME]
-            [--html-report-template HTML_REPORT_TEMPLATE]
-            [--log-level LOG_LEVEL] [--dot-env-path DOT_ENV_PATH] [--failfast]
-            [--startproject STARTPROJECT]
-            [--validate [VALIDATE [VALIDATE ...]]]
-            [--prettify [PRETTIFY [PRETTIFY ...]]]
-            [testset_paths [testset_paths ...]]
+usage: main-debug.py [-h] [-V] [--no-html-report]
+                     [--html-report-name HTML_REPORT_NAME]
+                     [--html-report-template HTML_REPORT_TEMPLATE]
+                     [--log-level LOG_LEVEL] [--dot-env-path DOT_ENV_PATH]
+                     [--failfast] [--startproject STARTPROJECT]
+                     [--validate [VALIDATE [VALIDATE ...]]]
+                     [--prettify [PRETTIFY [PRETTIFY ...]]]
+                     [testset_paths [testset_paths ...]]
 
-HTTP test runner, not just about api test and load test.
+One-stop solution for HTTP(S) testing.
 
 positional arguments:
   testset_paths         testset file path
@@ -76,6 +77,7 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   -V, --version         show version
+  --no-html-report      do not generate html report.
   --html-report-name HTML_REPORT_NAME
                         specify html report name, only effective when
                         generating html report.
