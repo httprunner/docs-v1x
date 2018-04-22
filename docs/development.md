@@ -141,7 +141,6 @@ summary = runner.summary
     {
       "name": "/api/get-token",
       "status": "success",
-      "response_time_ms": 13.15,
       "attachment": "",
       "meta_data": {
         "method": "POST",
@@ -160,7 +159,6 @@ summary = runner.summary
     {
       "name": "/api/users/1000",
       "status": "success",
-      "response_time_ms": 3.1,
       "attachment": "",
       "meta_data": {
         "method": "POST",
