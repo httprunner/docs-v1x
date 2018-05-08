@@ -222,4 +222,4 @@ JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全
 
 [1]: http://docs.python-requests.org/en/master/api/#main-interface
 [2]: http://debugtalk.com/post/apitestengine-not-only-about-json-api/
-[3]: /request-hook/
+[3]: /advanced/request-hook/
