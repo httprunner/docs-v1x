@@ -4,11 +4,20 @@ HttpRunner 除了作为命令行工具使用外，还可以作为软件包集成
 
 简单来说，HttpRunner 提供了运行 YAML/JSON 格式测试用例的能力，并能返回详细的测试结果信息。
 
+## 初始化参数
+
+初始化 HttpRunner 时可传入 3 个参数：
+
+- resultclass: HtmlTestResult/TextTestResult，默认值为 HtmlTestResult
+- failfast: 设置为 True 时，测试在首次遇到错误或失败时会停止运行；默认值为 False
+- dot_env_path: 指定加载环境变量文件（.env）的路径，默认值为当前工作目录下的 .env 文件
+
 ```python
 from httprunner import HttpRunner
 
 kwargs = {
-    "failfast": False
+    "failfast": False,
+    "dot_env_path": "/path/to/.env"
 }
 runner = HttpRunner(**kwargs)
 ```
