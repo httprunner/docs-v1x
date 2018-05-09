@@ -52,7 +52,7 @@ httprunner、hrun、ate 三个命令完全等价，功能特性完全相同，�
 
 ```text
 $ hrun -V
-1.3.9
+1.4.2
 
 $ har2case -V
 0.1.8
@@ -63,8 +63,9 @@ $ hrun -h
 usage: main-debug.py [-h] [-V] [--no-html-report]
                      [--html-report-name HTML_REPORT_NAME]
                      [--html-report-template HTML_REPORT_TEMPLATE]
-                     [--log-level LOG_LEVEL] [--dot-env-path DOT_ENV_PATH]
-                     [--failfast] [--startproject STARTPROJECT]
+                     [--log-level LOG_LEVEL] [--log-file LOG_FILE]
+                     [--dot-env-path DOT_ENV_PATH] [--failfast]
+                     [--startproject STARTPROJECT]
                      [--validate [VALIDATE [VALIDATE ...]]]
                      [--prettify [PRETTIFY [PRETTIFY ...]]]
                      [testset_paths [testset_paths ...]]
@@ -85,6 +86,7 @@ optional arguments:
                         specify html report template path.
   --log-level LOG_LEVEL
                         Specify logging level, default is INFO.
+  --log-file LOG_FILE   Write logs to specified file path.
   --dot-env-path DOT_ENV_PATH
                         Specify .env file path, which is useful for keeping
                         production credentials.
@@ -99,9 +101,9 @@ optional arguments:
 
 ## 开发者模式
 
-默认情况下，安装 HttpRunner 的时候只会获取到核心代码，没有将单元测试代码（tests）和示例代码（examples）包含进来，也没有安装运行示例代码所依赖的库（flask）。
+默认情况下，安装 HttpRunner 的时候只会安装运行 HttpRunner 的必要依赖库。
 
-如果你不仅仅是使用 HttpRunner，还需要在本地调试运行（debug），或者需要运行用户使用说明文档中的示例，那么就需要进行如下操作。
+如果你不仅仅是使用 HttpRunner，还需要对 HttpRunner 进行开发调试（debug），那么就需要进行如下操作。
 
 HttpRunner 使用 [pipenv][pipenv] 对依赖包进行管理，若你还没有安装 pipenv，需要先执行如下命令进行按照：
 
@@ -132,19 +134,25 @@ $ pipenv run python -m unittest discover
 ```text
 $ pipenv graph
 
-HttpRunner==0.9.7
+HttpRunner==1.4.2
   - colorama [required: Any, installed: 0.3.9]
-  - colorlog [required: Any, installed: 3.1.2]
-  - har2case [required: Any, installed: 0.1.4]
+  - colorlog [required: Any, installed: 3.1.4]
+  - har2case [required: Any, installed: 0.1.8]
     - PyYAML [required: Any, installed: 3.12]
   - Jinja2 [required: Any, installed: 2.10]
     - MarkupSafe [required: >=0.23, installed: 1.0]
   - PyYAML [required: Any, installed: 3.12]
   - requests [required: Any, installed: 2.18.4]
-    - certifi [required: >=2017.4.17, installed: 2018.1.18]
-    - chardet [required: <3.1.0,>=3.0.2, installed: 3.0.4]
-    - idna [required: <2.7,>=2.5, installed: 2.6]
+    - certifi [required: >=2017.4.17, installed: 2018.4.16]
+    - chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
+    - idna [required: >=2.5,<2.7, installed: 2.6]
     - urllib3 [required: <1.23,>=1.21.1, installed: 1.22]
+  - requests-toolbelt [required: Any, installed: 0.8.0]
+    - requests [required: >=2.0.1,<3.0.0, installed: 2.18.4]
+      - certifi [required: >=2017.4.17, installed: 2018.4.16]
+      - chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
+      - idna [required: >=2.5,<2.7, installed: 2.6]
+      - urllib3 [required: <1.23,>=1.21.1, installed: 1.22]
 ```
 
 调试运行方式：
