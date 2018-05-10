@@ -611,16 +611,11 @@
                   <h1>hook 机制</h1>
                 
                 <h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>HttpRunner 从 <code>1.2.3</code> 版本开始支持 hook 机制，可以在请求前和请求后调用钩子函数。</p>
-<p>具体可实现如下目的：</p>
-<ul>
-<li>请求前：调用钩子函数对请求的 kwargs 进行处理</li>
-<li>请求后：调用钩子函数对响应实例进行处理</li>
-</ul>
+<p>HttpRunner 从 <code>1.4.3</code> 版本开始实现了全新的 hook 机制，可以在请求前和请求后调用钩子函数。</p>
 <h2 id="_2">用例描述形式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在 YAML/JSON 测试用例的 request 部分新增关键字 <code>setup_hooks</code> 和 <code>teardown_hooks</code>。</p>
+<p>在 YAML/JSON 测试用例中新增关键字 <code>setup_hooks</code> 和 <code>teardown_hooks</code>。</p>
 <ul>
-<li>setup_hooks: 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作，特别是对请求的 kwargs 进行预处理。</li>
+<li>setup_hooks: 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作；甚至可以实现对请求的 request 内容进行预处理。</li>
 <li>teardown_hooks: 在 HTTP 请求发送后执行 hook 函数，主要用于测试后的清理工作。</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;test&quot;</span><span class="err">:</span> <span class="p">{</span>
@@ -641,58 +636,51 @@
         <span class="p">{</span><span class="nt">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">]}</span>
     <span class="p">],</span>
     <span class="nt">&quot;setup_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;setup_hook_prepare_kwargs&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;setup_hook_httpntlmauth&quot;</span>
+        <span class="s2">&quot;${setup_hook_prepare_kwargs($request)}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;${setup_hook_httpntlmauth($request)}&quot;</span>
     <span class="p">],</span>
     <span class="nt">&quot;teardown_hooks&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;teardown_hook_sleep_1_secs&quot;</span>
+        <span class="s2">&quot;${teardown_hook_sleep_N_secs($response, 2)}&quot;</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<p>需要注意的是，在 setup_hooks 和 teardown_hooks 中只需指定 hook 函数的名称，参数部分无需指定，但需要在编写 hook 函数时遵循规范要求。</p>
+<p>hook 函数的定义放置在项目的 debugtalk.py 中，在 YAML/JSON 中调用 hook 函数仍然是采用 ${func()} 的形式。</p>
 <h2 id="hook">编写 hook 函数<a class="headerlink" href="#hook" title="Permanent link">&para;</a></h2>
 <h3 id="setup_hooks">setup_hooks<a class="headerlink" href="#setup_hooks" title="Permanent link">&para;</a></h3>
-<p>hook 函数放置于 debugtalk.py 中，并且必须包含三个参数：</p>
-<ul>
-<li>method: 请求方法，e.g. GET, POST, PUT</li>
-<li>url: 请求 URL</li>
-<li>kwargs: request 的参数字典</li>
-</ul>
+<p>setup_hooks 函数除了可传入自定义参数外，还可以传入 <code>$request</code>，该参数对应着当前测试用例的 request 全部内容。因为 request 是可变参数类型（dict），因此该函数参数为引用传递，当我们需要对请求参数进行预处理时尤其有用。</p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">setup_hook_prepare_kwargs</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
-        <span class="n">content_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;headers&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">content_type</span> <span class="ow">and</span> <span class="s2">&quot;data&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">setup_hook_prepare_kwargs</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;headers&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">content_type</span> <span class="ow">and</span> <span class="s2">&quot;data&quot;</span> <span class="ow">in</span> <span class="n">request</span><span class="p">:</span>
             <span class="c1"># if request content-type is application/json, request data should be dumped</span>
-            <span class="k">if</span> <span class="n">content_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;application/json&quot;</span><span class="p">):</span>
-                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">content_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;application/json&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+                <span class="n">request</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 
-            <span class="c1"># if charset is specified in content-type, request data should be encoded with charset encoding</span>
-            <span class="n">charset</span> <span class="o">=</span> <span class="n">get_charset_from_content_type</span><span class="p">(</span><span class="n">content_type</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">charset</span><span class="p">:</span>
-                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">charset</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">request</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">setup_hook_httpntlmauth</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="s2">&quot;httpntlmauth&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">setup_hook_httpntlmauth</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s2">&quot;httpntlmauth&quot;</span> <span class="ow">in</span> <span class="n">request</span><span class="p">:</span>
         <span class="kn">from</span> <span class="nn">requests_ntlm</span> <span class="kn">import</span> <span class="n">HttpNtlmAuth</span>
-        <span class="n">auth_account</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;httpntlmauth&quot;</span><span class="p">)</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">HttpNtlmAuth</span><span class="p">(</span>
+        <span class="n">auth_account</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;httpntlmauth&quot;</span><span class="p">)</span>
+        <span class="n">request</span><span class="p">[</span><span class="s2">&quot;auth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">HttpNtlmAuth</span><span class="p">(</span>
             <span class="n">auth_account</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">],</span> <span class="n">auth_account</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">])</span>
 </pre></div>
 
 
 <h3 id="teardown_hooks">teardown_hooks<a class="headerlink" href="#teardown_hooks" title="Permanent link">&para;</a></h3>
-<p>teardown_hooks 函数放置于 debugtalk.py 中，并且必须包含一个参数：</p>
-<ul>
-<li>resp_obj: requests.Response 实例</li>
-</ul>
+<p>teardown_hooks 函数除了可传入自定义参数外，还可以传入 <code>$response</code>，该参数对应着当前 request 的响应实例（requests.Response）。</p>
 <p>e.g.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">teardown_hook_sleep_1_secs</span><span class="p">(</span><span class="n">resp_obj</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; sleep 1 seconds after request</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">teardown_hook_sleep_N_secs</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">n_secs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; sleep n seconds after request</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">n_secs</span><span class="p">)</span>
 </pre></div>
                 
                   
