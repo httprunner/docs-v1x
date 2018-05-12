@@ -6,11 +6,14 @@ HttpRunner 除了作为命令行工具使用外，还可以作为软件包集成
 
 ## 初始化参数
 
-初始化 HttpRunner 时可传入 3 个参数：
+HttpRunner 继承自 `unittest.TextTestRunner`，因此 TextTestRunner 可用的初始化参数 HttpRunner 都可以用，参数详情可阅读[官方文档](https://docs.python.org/3.6/library/unittest.html#unittest.TextTestRunner)。除此之外，HttpRunner 还有一个额外的参数，`dot_env_path`。
+
+通常情况下，初始化 HttpRunner 时常用的参数有如下几个：
 
 - `resultclass`: HtmlTestResult/TextTestResult，默认值为 HtmlTestResult
 - `failfast`: 设置为 True 时，测试在首次遇到错误或失败时会停止运行；默认值为 False
 - `dot_env_path`: 指定加载环境变量文件（.env）的路径，默认值为当前工作目录下的 `.env` 文件
+- `stream`
 
 ```python
 from httprunner import HttpRunner
