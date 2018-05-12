@@ -630,11 +630,13 @@
 <p>HttpRunner 除了作为命令行工具使用外，还可以作为软件包集成到你自己的项目中。</p>
 <p>简单来说，HttpRunner 提供了运行 YAML/JSON 格式测试用例的能力，并能返回详细的测试结果信息。</p>
 <h2 id="_2">初始化参数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>初始化 HttpRunner 时可传入 3 个参数：</p>
+<p>HttpRunner 继承自 <code>unittest.TextTestRunner</code>，因此 TextTestRunner 可用的初始化参数 HttpRunner 都可以用，参数详情可阅读<a href="https://docs.python.org/3.6/library/unittest.html#unittest.TextTestRunner">官方文档</a>。除此之外，HttpRunner 还有一个额外的参数，<code>dot_env_path</code>。</p>
+<p>通常情况下，初始化 HttpRunner 时常用的参数有如下几个：</p>
 <ul>
 <li><code>resultclass</code>: HtmlTestResult/TextTestResult，默认值为 HtmlTestResult</li>
 <li><code>failfast</code>: 设置为 True 时，测试在首次遇到错误或失败时会停止运行；默认值为 False</li>
 <li><code>dot_env_path</code>: 指定加载环境变量文件（.env）的路径，默认值为当前工作目录下的 <code>.env</code> 文件</li>
+<li><code>stream</code></li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">httprunner</span> <span class="kn">import</span> <span class="n">HttpRunner</span>
 
