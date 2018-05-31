@@ -1,6 +1,6 @@
 ## 概述
 
-HttpRunner 从 `1.4.3` 版本开始实现了全新的 hook 机制，可以在请求前和请求后调用钩子函数。
+HttpRunner 从 `1.4.5` 版本开始实现了全新的 hook 机制，可以在请求前和请求后调用钩子函数。
 
 hook 机制分为两个层级：
 
@@ -29,8 +29,8 @@ hook 机制分为两个层级：
 
 在 YAML/JSON 测试用例的 `test` 中新增关键字 `setup_hooks` 和 `teardown_hooks`。
 
-- setup_hooks: 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作；甚至可以实现对请求的 request 内容进行预处理。
-- teardown_hooks: 在 HTTP 请求发送后执行 hook 函数，主要用于测试后的清理工作。
+- setup_hooks: 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作；也可以实现对请求的 request 内容进行预处理。
+- teardown_hooks: 在 HTTP 请求发送后执行 hook 函数，主要用于测试后的清理工作；也可以实现对响应的 response 进行修改，例如进行加解密等处理。
 
 ```json
 "test": {
@@ -62,7 +62,7 @@ hook 机制分为两个层级：
 
 ## 编写 hook 函数
 
-hook 函数的定义放置在项目的 debugtalk.py 中，在 YAML/JSON 中调用 hook 函数仍然是采用 ${func()} 的形式。
+hook 函数的定义放置在项目的 debugtalk.py 中，在 YAML/JSON 中调用 hook 函数仍然是采用 ${func($a, $b)} 的形式。
 
 对于测试用例集层面的 hook 函数，与 YAML/JSON 中自定义的函数完全相同，可通过自定义参数传参的形式来实现灵活应用。
 
@@ -75,7 +75,7 @@ def hook_print(msg):
 
 ### setup_hooks
 
-在单个测试用例层面的 setup_hooks 函数中，除了可传入自定义参数外，还可以传入 `$request`，该参数对应着当前测试用例的 request 全部内容。因为 request 是可变参数类型（dict），因此该函数参数为引用传递，当我们需要对请求参数进行预处理时尤其有用。
+在单个测试用例层面的 setup_hooks 函数中，除了可传入自定义参数外，还可以传入 `$request`，该参数对应着当前测试用例 request 的全部内容。因为 request 是可变参数类型（dict），因此该函数参数为引用传递，当我们需要对请求参数进行预处理时尤其有用。
 
 e.g.
 
@@ -103,7 +103,7 @@ def setup_hook_httpntlmauth(request):
 
 ### teardown_hooks
 
-在单个测试用例层面的 teardown_hooks 函数中，除了可传入自定义参数外，还可以传入 `$response`，该参数对应着当前 request 的响应实例（requests.Response）。
+在单个测试用例层面的 teardown_hooks 函数中，除了可传入自定义参数外，还可以传入 `$response`，该参数对应着当前请求的响应实例（requests.Response）。
 
 e.g.
 
@@ -118,3 +118,26 @@ def teardown_hook_sleep_N_secs(response, n_secs):
 ```
 
 通过上述的 `teardown_hook_sleep_N_secs` 函数，可以根据接口响应的状态码来进行不同时间的延迟等待。
+
+另外，在 teardown_hooks 函数中还可以对 response 进行修改。当我们需要先对响应内容进行处理（例如加解密、参数运算），再进行参数提取（extract）和校验（validate）时尤其有用。
+
+例如在下面的测试用例中，在执行测试后，通过 teardown_hooks 函数将响应结果的状态码和 headers 进行了修改，然后再进行了校验。
+
+```yaml
+- test:
+    name: alter response
+    request:
+        url: /headers
+        method: GET
+    teardown_hooks:
+        - ${alter_response($response)}
+    validate:
+        - eq: ["status_code", 500]
+        - eq: ["headers.content-type", "html/text"]
+```
+
+```python
+def alter_response(response):
+    response.status_code = 500
+    response.headers["Content-Type"] = "html/text"
+```
