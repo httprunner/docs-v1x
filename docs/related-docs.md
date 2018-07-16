@@ -9,4 +9,4 @@
 
 
 [MTSC2018]: https://www.bagevent.com/event/1193113
-[dji-httprunner]: attachments/大疆互联网的一站式自动化测试解决方案（基于HttpRunner）.pdf
+[dji-httprunner]: /attachments/DJI-HttpRunner.pdf
