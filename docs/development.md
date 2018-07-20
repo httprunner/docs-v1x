@@ -59,10 +59,9 @@ runner.run(["docs/data/", "files/demo-quickstart-2.yml"])
 
 ```json
 {
-  'name': 'testset description',
   'config': {
-    'path': 'docs/data/demo-quickstart-2.yml',
     'name': 'testset description',
+    'path': 'docs/data/demo-quickstart-2.yml',
     'request': {
       'base_url': '',
       'headers': {'User-Agent': 'python-requests/2.18.4'}
@@ -130,7 +129,7 @@ summary = runner.summary
 
 ```json
 {
-  "success": True,
+  "success": true,
   "stat": {
     "testsRun": 2,
     "failures": 0,
@@ -140,55 +139,154 @@ summary = runner.summary
     "unexpectedSuccesses": 0,
     "successes": 2
   },
-  "platform": {
-    "httprunner_version": "1.3.8.beta.3",
-    "python_version": "CPython 3.6.4",
-    "platform": "Darwin-17.4.0-x86_64-i386-64bit"
-  },
   "time": {
-    "start_at": datetime.datetime(2018, 4, 16, 22, 11, 55, 420941),
-    "duration": 0.035871028900146484
+    "start_at": 1532065478.200753,
+    "duration": 0.022025108337402344
   },
-  "records": [
+  "platform": {
+    "httprunner_version": "1.5.2",
+    "python_version": "CPython 3.6.5+",
+    "platform": "Darwin-17.6.0-x86_64-i386-64bit"
+  },
+  "details": [
     {
-      "name": "/api/get-token",
-      "status": "success",
-      "attachment": "",
-      "meta_data": {
-        "method": "POST",
-        "request_time": 1523887915.4214551,
-        "response_time(ms)": 13.15,
-        "elapsed(ms)": 4.081,
-        "url": "http://127.0.0.1:5000/api/get-token",
-        "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "content-type": "application/json", "app_version": "2.8.6", "device_sn": "FwgRiO7CNA50DSU", "os_platform": "ios", "user_agent": "iOS/10.3", "Content-Length": "52"},
-        "request_body": b'{"sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"}',
-        "status_code": 200,
-        "response_headers": {"Content-Type": "application/json", "Content-Length": "46", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Mon, 16 Apr 2018 14:11:55 GMT"},
-        "response_body": {"success": True, "token": "GEilyOTo30WzUpFt"},
-        "content_size": 46
-      }
+      "success": true,
+      "name": "testset description",
+      "base_url": "",
+      "stat": {
+        "testsRun": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expectedFailures": 0,
+        "unexpectedSuccesses": 0,
+        "successes": 2
+      },
+      "time": {
+        "start_at": 1532065478.200753,
+        "duration": 0.022025108337402344
+      },
+      "records": [
+        {
+          "name": "/api/get-token",
+          "status": "success",
+          "attachment": "",
+          "meta_data": {
+            "url": "http://127.0.0.1:5000/api/get-token",
+            "method": "POST",
+            "request_time": 1532065478.2021492,
+            "request_headers": {
+              "user-agent": "python-requests/2.18.4",
+              "Accept-Encoding": "gzip,deflate",
+              "Accept": "*/*",
+              "Connection": "keep-alive",
+              "content-type": "application/json",
+              "app_version": "2.8.6",
+              "device_sn": "FwgRiO7CNA50DSU",
+              "os_platform": "ios",
+              "user_agent": "iOS/10.3",
+              "Content-Length": "52"
+            },
+            "request_body": {
+              "sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"
+            },
+            "status_code": 200,
+            "response_headers": {
+              "Content-Type": "application/json",
+              "Content-Length": "46",
+              "Server": "Werkzeug/0.14.1 Python/3.6.5+",
+              "Date": "Fri, 20 Jul 2018 05:44:38 GMT"
+            },
+            "response_body": {
+              "success": true,
+              "token": "V968SAirRRZW8cs5"
+            },
+            "content_size": 46,
+            "response_time_ms": 14.18,
+            "elapsed_ms": 5.366,
+            "validators": [
+              {
+                "check": "status_code",
+                "expect": 200,
+                "comparator": "eq",
+                "check_value": 200,
+                "check_result": "passed"
+              },
+              {
+                "check": "content.success",
+                "expect": true,
+                "comparator": "eq",
+                "check_value": true,
+                "check_result": "passed"
+              }
+            ]
+          }
+        },
+        {
+          "name": "/api/users/1000",
+          "status": "success",
+          "attachment": "",
+          "meta_data": {
+            "url": "http://127.0.0.1:5000/api/users/1000",
+            "method": "POST",
+            "request_time": 1532065478.218334,
+            "request_headers": {
+              "user-agent": "python-requests/2.18.4",
+              "Accept-Encoding": "gzip, deflate",
+              "Accept": "*/*",
+              "Connection": "keep-alive",
+              "content-type": "application/json",
+              "device_sn": "FwgRiO7CNA50DSU",
+              "token": "V968SAirRRZW8cs5",
+              "Content-Length": "39"
+            },
+            "request_body": {
+              "name": "user1",
+              "password": "123456"
+            },
+            "status_code": 201,
+            "response_headers": {
+              "Content-Type": "application/json",
+              "Content-Length": "54",
+              "Server": "Werkzeug/0.14.1 Python/3.6.5+",
+              "Date": "Fri, 20 Jul 2018 05:44:38 GMT"
+            },
+            "response_body": {
+              "success": true,
+              "msg": "user created successfully."
+            },
+            "content_size": 54,
+            "response_time_ms": 3.43,
+            "elapsed_ms": 2.178,
+            "validators": [
+              {
+                "check": "status_code",
+                "expect": 201,
+                "comparator": "eq",
+                "check_value": 201,
+                "check_result": "passed"
+              },
+              {
+                "check": "headers.Content-Type",
+                "expect": "application/json",
+                "comparator": "eq",
+                "check_value": "application/json",
+                "check_result": "passed"
+              }
+            ]
+          }
+        }
+      ],
+      "output": [
+        {
+          "in": {},
+          "out": {
+            "token": "V968SAirRRZW8cs5"
+          }
+        }
+      ]
     },
-    {
-      "name": "/api/users/1000",
-      "status": "success",
-      "attachment": "",
-      "meta_data": {
-        "method": "POST",
-        "request_time": 1523887915.4355829,
-        "response_time(ms)": 3.1,
-        "elapsed(ms)": 1.903,
-        "url": "http://127.0.0.1:5000/api/users/1000",
-        "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding": "gzip, deflate", "Accept": "*/*","Connection": "keep-alive", "content-type": "application/json", "device_sn": "FwgRiO7CNA50DSU", "token": "GEilyOTo30WzUpFt", "Content-Length": "39"},
-        "request_body": b'{"name": "user1", "password": "123456"}',
-        "status_code": 201,
-        "response_headers": {"Content-Type": "application/json", "Content-Length": "54", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Mon, 16 Apr 2018 14:11:55 GMT"},
-        "response_body": {"success": True, "msg": "user created successfully."},
-        "content_size": 54
-      }
-    }
-  ],
-  "output": [
-    {"in": OrderedDict(), "out": {"token": "9PArqHp37FmHNoQw"}}
+    {...}
   ]
 }
 ```
@@ -204,5 +302,5 @@ runner.gen_html_report(
     html_report_template="/path/to/custom_report_template"
 )
 
-# => reports/demo/demo-2018-04-16-22-22-17.html
+# => reports/demo/demo-1532078874.html
 ```

@@ -3,7 +3,7 @@
 
 ## 默认情况
 
-默认情况下，生成的测试报告文件会位于 reports 根目录下，文件名称为测试开始的时间。
+默认情况下，生成的测试报告文件会位于 reports 根目录下，文件名称为测试开始的时间戳。
 
 ```bash
 $ hrun docs/data/demo-quickstart-2.yml
@@ -22,7 +22,7 @@ Ran 2 tests in 0.031s
 OK
 INFO     Start to render Html report ...
 INFO     Generated Html report:
-reports/2018-02-27-18-20-11.html
+reports/1532078874.html
 ```
 
 ## 指定报告名称
@@ -36,7 +36,7 @@ $ hrun docs/data/demo-quickstart-2.yml --html-report-name demo
 
 INFO     Start to render Html report ...
 INFO     Generated Html report:
-reports/demo/demo-2018-02-27-18-22-53.html
+reports/demo/demo-1532078874.html
 ```
 
 在 reports 目录下，将会创建一个与指定报告名称相同的文件夹，生成的 HTML 报告将位于该目录中，并且测试报告名称中也会包含测试开始的时间。
@@ -67,71 +67,7 @@ reports/demo/demo-2018-02-27-18-22-53.html
 
 ### 编写自定义模板
 
-自定义模板需要采用 [Jinja2][Jinja2] 的格式，里面可以使用如下数据信息：
-
-```json
-{
-  "success": False,
-  "stat": {
-    "testsRun": 2,
-    "failures": 0,
-    "errors": 1,
-    "skipped": 0,
-    "expectedFailures": 0,
-    "unexpectedSuccesses": 0,
-    "successes": 1
-  },
-  "platform": {
-    "python_version": "CPython_3.6.4",
-    "platform": "Darwin-17.4.0-x86_64-i386-64bit"
-  },
-  "time": {
-    "start_at": datetime.datetime(2018, 2, 27, 19, 13, 33, 376820),
-    "duration": 0.03526616096496582
-  },
-  "records": [
-    {
-      "name": "/api/get-token",
-      "status": "success",
-      "response_time": 13,
-      "attachment": "",
-      "meta_data": {
-        "method": "POST",
-        "request_time": 1519730013.377347,
-        "response_time": 13,
-        "elapsed": 0.002855,
-        "url": "/api/get-token",
-        "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding":"gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "device_sn": "FwgRiO7CNA50DSU", "user_agent": "iOS/10.3", "os_platform": "ios", "app_version": "2.8.6", "content-type": "application/json", "Content-Length": "52"},
-        "request_body": "{"sign": "958a05393efef0ac7c0fb80a7eac45e24fd40c27"}",
-        "status_code": 200,
-        "response_headers": {"Content-Type": "application/json", "Content-Length": "46", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Tue, 27 Feb 2018 11:13:33 GMT"},
-        "response_body": "{"success": true, "token": "WD2NntPTcjGkITfp"}",
-        "content_size": 46
-      }
-    },
-    {
-      "name": "/api/users/1000",
-      "status": "error",
-      "response_time": 3,
-      "attachment": "Traceback (most recent call last):\nAssertionError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\nhttprunner.exception.ValidationError: \n\tcheck item name: status_code;\n\tcheck item value: 403 (int);\n\tcomparator: equals;\n\texpected value: 201 (int).\n",
-      "meta_data": {
-        "method": "POST",
-        "request_time": 1519730013.39279,
-        "response_time": 3,
-        "elapsed": 0.002066,
-        "url": "/api/users/1000",
-        "request_headers": {"user-agent": "python-requests/2.18.4", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "device_sn": "FwgRiO7CNA50DSU", "token": "baNLX1zhFYP11Seb", "content-type": "application/json", "Content-Length": "39"},
-        "request_body": "{"name": "user1", "password": "123456"}",
-        "status_code": 403,
-        "response_headers": {"Content-Type": "application/json", "Content-Length": "50", "Server": "Werkzeug/0.14.1 Python/3.6.4", "Date": "Tue, 27 Feb 2018 11:13:33 GMT"},
-        "response_body": "{"success": false, "msg": "Authorization failed!"}",
-        "content_size": 50
-      }
-    }
-  ],
-  "html_report_name": "demo-quickstart-1"
-}
-```
+自定义模板需要采用 [Jinja2][Jinja2] 的格式，其中可以使用的数据可参考[数据结构示例][summary_data]。
 
 例如，我们需要在自定义模板中展示测试结果的统计数据，就可以采用如下方式进行描述：
 
@@ -166,8 +102,9 @@ $ hrun docs/data/demo-quickstart-2.yml --html-report-template /path/to/custom_re
 INFO     render with html report template: /path/to/custom_report_template
 INFO     Start to render Html report ...
 INFO     Generated Html report:
-reports/2018-02-27-19-06-27.html
+reports/1532078874.html
 ```
 
 [Jinja2]: http://jinja.pocoo.org/docs/latest
 [default_report]: https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/default_report_template.html
+[summary_data]: /development/#_6
