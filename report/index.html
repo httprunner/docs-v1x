@@ -636,7 +636,7 @@
                 
                 <p>使用 HttpRunner 执行完自动化测试后，会在当前路径的 reports 目录下生成一份 HTML 格式的测试报告。</p>
 <h2 id="_1">默认情况<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>默认情况下，生成的测试报告文件会位于 reports 根目录下，文件名称为测试开始的时间。</p>
+<p>默认情况下，生成的测试报告文件会位于 reports 根目录下，文件名称为测试开始的时间戳。</p>
 <div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-2.yml
 /api/get-token
 INFO     POST http://127.0.0.1:5000/api/get-token
@@ -653,7 +653,7 @@ Ran <span class="m">2</span> tests in <span class="m">0</span>.031s
 OK
 INFO     Start to render Html report ...
 INFO     Generated Html report:
-reports/2018-02-27-18-20-11.html
+reports/1532078874.html
 </pre></div>
 
 
@@ -665,7 +665,7 @@ reports/2018-02-27-18-20-11.html
 
 INFO     Start to render Html report ...
 INFO     Generated Html report:
-reports/demo/demo-2018-02-27-18-22-53.html
+reports/demo/demo-1532078874.html
 </pre></div>
 
 
@@ -683,71 +683,7 @@ reports/demo/demo-2018-02-27-18-22-53.html
 <h2 id="jinja2">自定义报告模板（Jinja2格式）<a class="headerlink" href="#jinja2" title="Permanent link">&para;</a></h2>
 <p>除了默认的报告样式，HttpRunner 还支持使用自定义的报告模板。</p>
 <h3 id="_4">编写自定义模板<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>自定义模板需要采用 <a href="http://jinja.pocoo.org/docs/latest">Jinja2</a> 的格式，里面可以使用如下数据信息：</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="err">False</span><span class="p">,</span>
-  <span class="nt">&quot;stat&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;testsRun&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nt">&quot;failures&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;skipped&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;expectedFailures&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;unexpectedSuccesses&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;successes&quot;</span><span class="p">:</span> <span class="mi">1</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;python_version&quot;</span><span class="p">:</span> <span class="s2">&quot;CPython_3.6.4&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;Darwin-17.4.0-x86_64-i386-64bit&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;start_at&quot;</span><span class="p">:</span> <span class="err">datetime.datetime(</span><span class="mi">2018</span><span class="p">,</span> <span class="err">2,</span> <span class="err">27,</span> <span class="err">19,</span> <span class="err">13,</span> <span class="err">33,</span> <span class="err">376820),</span>
-    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">0.03526616096496582</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;records&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
-      <span class="nt">&quot;attachment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1519730013.377347</span><span class="p">,</span>
-        <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
-        <span class="nt">&quot;elapsed&quot;</span><span class="p">:</span> <span class="mf">0.002855</span><span class="p">,</span>
-        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/get-token&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;user-agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept-Encoding&quot;</span><span class="p">:</span><span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span> <span class="nt">&quot;Connection&quot;</span><span class="p">:</span> <span class="s2">&quot;keep-alive&quot;</span><span class="p">,</span> <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span> <span class="nt">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;iOS/10.3&quot;</span><span class="p">,</span> <span class="nt">&quot;os_platform&quot;</span><span class="p">:</span> <span class="s2">&quot;ios&quot;</span><span class="p">,</span> <span class="nt">&quot;app_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.8.6&quot;</span><span class="p">,</span> <span class="nt">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;52&quot;</span><span class="p">},</span>
-        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">sign</span><span class="s2">&quot;: &quot;</span><span class="mi">958</span><span class="err">a</span><span class="mi">05393</span><span class="err">efef</span><span class="mi">0</span><span class="err">ac</span><span class="mi">7</span><span class="err">c</span><span class="mi">0</span><span class="err">fb</span><span class="mi">80</span><span class="err">a</span><span class="mi">7</span><span class="err">eac</span><span class="mf">45e24</span><span class="err">fd</span><span class="mi">40</span><span class="err">c</span><span class="mi">27</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;46&quot;</span><span class="p">,</span> <span class="nt">&quot;Server&quot;</span><span class="p">:</span> <span class="s2">&quot;Werkzeug/0.14.1 Python/3.6.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Date&quot;</span><span class="p">:</span> <span class="s2">&quot;Tue, 27 Feb 2018 11:13:33 GMT&quot;</span><span class="p">},</span>
-        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">success</span><span class="s2">&quot;: true, &quot;</span><span class="err">token</span><span class="s2">&quot;: &quot;</span><span class="err">WD</span><span class="mi">2</span><span class="err">NntPTcjGkITfp</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;content_size&quot;</span><span class="p">:</span> <span class="mi">46</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-      <span class="nt">&quot;attachment&quot;</span><span class="p">:</span> <span class="s2">&quot;Traceback (most recent call last):\nAssertionError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\nhttprunner.exception.ValidationError: \n\tcheck item name: status_code;\n\tcheck item value: 403 (int);\n\tcomparator: equals;\n\texpected value: 201 (int).\n&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;meta_data&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="mf">1519730013.39279</span><span class="p">,</span>
-        <span class="nt">&quot;response_time&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="nt">&quot;elapsed&quot;</span><span class="p">:</span> <span class="mf">0.002066</span><span class="p">,</span>
-        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/users/1000&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;request_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;user-agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.18.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span> <span class="nt">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span> <span class="nt">&quot;Connection&quot;</span><span class="p">:</span> <span class="s2">&quot;keep-alive&quot;</span><span class="p">,</span> <span class="nt">&quot;device_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;FwgRiO7CNA50DSU&quot;</span><span class="p">,</span> <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;baNLX1zhFYP11Seb&quot;</span><span class="p">,</span> <span class="nt">&quot;content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;39&quot;</span><span class="p">},</span>
-        <span class="nt">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">name</span><span class="s2">&quot;: &quot;</span><span class="err">user</span><span class="mi">1</span><span class="s2">&quot;, &quot;</span><span class="err">password</span><span class="s2">&quot;: &quot;</span><span class="mi">123456</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">403</span><span class="p">,</span>
-        <span class="nt">&quot;response_headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="nt">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span> <span class="nt">&quot;Server&quot;</span><span class="p">:</span> <span class="s2">&quot;Werkzeug/0.14.1 Python/3.6.4&quot;</span><span class="p">,</span> <span class="nt">&quot;Date&quot;</span><span class="p">:</span> <span class="s2">&quot;Tue, 27 Feb 2018 11:13:33 GMT&quot;</span><span class="p">},</span>
-        <span class="nt">&quot;response_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="err">success</span><span class="s2">&quot;: false, &quot;</span><span class="err">msg</span><span class="s2">&quot;: &quot;</span><span class="err">Authorization</span> <span class="err">failed!</span><span class="s2">&quot;}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;content_size&quot;</span><span class="p">:</span> <span class="mi">50</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&quot;html_report_name&quot;</span><span class="p">:</span> <span class="s2">&quot;demo-quickstart-1&quot;</span>
-<span class="p">}</span>
-</pre></div>
-
-
+<p>自定义模板需要采用 <a href="http://jinja.pocoo.org/docs/latest">Jinja2</a> 的格式，其中可以使用的数据可参考<a href="../development/#_6">数据结构示例</a>。</p>
 <p>例如，我们需要在自定义模板中展示测试结果的统计数据，就可以采用如下方式进行描述：</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>TOTAL<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
@@ -776,7 +712,7 @@ reports/demo/demo-2018-02-27-18-22-53.html
 INFO     render with html report template: /path/to/custom_report_template
 INFO     Start to render Html report ...
 INFO     Generated Html report:
-reports/2018-02-27-19-06-27.html
+reports/1532078874.html
 </pre></div>
                 
                   
