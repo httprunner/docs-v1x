@@ -59,7 +59,7 @@ pages:
     - 高级特性:
         - hook机制: advanced/request-hook.md
         - 环境变量: advanced/dot-env.md
-        - 数据驱动: advanced/data-driven.md
+        - 参数化数据驱动: advanced/parameters.md
         - 测试用例分层: advanced/testcase-layer.md
     - 最佳实践:
         - 信息安全: best-practices/security.md

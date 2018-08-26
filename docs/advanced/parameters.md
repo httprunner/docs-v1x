@@ -20,18 +20,13 @@
 
 ## 数据驱动作用域
 
-在 HttpRunner 中，支持用例集（testset）和用例（testcase）两个层级的参数化驱动配置。
+从 1.5.11 版本开始，HttpRunner 不再支持测试步骤（teststep）层级的参数化数据驱动，只支持测试用例（testcase）层级的参数化驱动配置。
 
-两个层级的配置方式完全相同，差异仅在于配置的位置。
-
-- 在 config 模块中配置，实现对整个用例集（testset）的参数化数据驱动
-- 在 test 模块中配置，实现对当前用例（testcase）的参数化数据驱动
-
-配置方式均包括三个部分：参数定义、数据源指定、数据源准备。
+配置方式包括三个部分：参数定义、数据源指定、数据源准备。
 
 ## 参数定义 & 数据源指定
 
-在 YAML/JSON 测试用例的 config/test 模块中，新增一个`parameters`字段，参数化的定义均放置在该字段下。
+在 YAML/JSON 测试用例的 config 模块中，新增一个`parameters`字段，参数化的定义均放置在该字段下。
 
 定义内容包括参数名称和数据源指定。
 
@@ -235,7 +230,7 @@ YAML 测试用例的描述形式如下所示：
 
 ```yaml
 - config:
-    name: "user management testset."
+    name: "user management testcase."
     parameters:
         - user_agent: ["iOS/10.1", "iOS/10.2", "iOS/10.3"]
         - app_version: ${P(app_version.csv)}
