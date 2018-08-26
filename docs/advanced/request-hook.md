@@ -2,12 +2,14 @@
 
 HttpRunner 从 `1.4.5` 版本开始实现了全新的 hook 机制，可以在请求前和请求后调用钩子函数。
 
+## 调用 hook 函数
+
 hook 机制分为两个层级：
 
 - 测试用例层面（testcase）
 - 测试步骤层面（teststep）
 
-## 测试用例层面（testcase）
+### 测试用例层面（testcase）
 
 在 YAML/JSON 测试用例的 `config` 中新增关键字 `setup_hooks` 和 `teardown_hooks`。
 
@@ -25,7 +27,7 @@ hook 机制分为两个层级：
         - ${hook_print(teardown)}
 ```
 
-## 测试步骤层面（teststep）
+### 测试步骤层面（teststep）
 
 在 YAML/JSON 测试步骤的 `test` 中新增关键字 `setup_hooks` 和 `teardown_hooks`。
 
