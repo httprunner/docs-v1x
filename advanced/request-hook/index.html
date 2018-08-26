@@ -411,21 +411,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hook" title="调用 hook 函数" class="md-nav__link">
+    调用 hook 函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#testcase" title="测试用例层面（testcase）" class="md-nav__link">
     测试用例层面（testcase）
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#teststep" title="测试步骤层面（teststep）" class="md-nav__link">
     测试步骤层面（teststep）
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#hook" title="编写 hook 函数" class="md-nav__link">
+  <a href="#hook_1" title="编写 hook 函数" class="md-nav__link">
     编写 hook 函数
   </a>
   
@@ -613,21 +626,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hook" title="调用 hook 函数" class="md-nav__link">
+    调用 hook 函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#testcase" title="测试用例层面（testcase）" class="md-nav__link">
     测试用例层面（testcase）
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#teststep" title="测试步骤层面（teststep）" class="md-nav__link">
     测试步骤层面（teststep）
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#hook" title="编写 hook 函数" class="md-nav__link">
+  <a href="#hook_1" title="编写 hook 函数" class="md-nav__link">
     编写 hook 函数
   </a>
   
@@ -674,12 +700,13 @@
                 
                 <h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>HttpRunner 从 <code>1.4.5</code> 版本开始实现了全新的 hook 机制，可以在请求前和请求后调用钩子函数。</p>
+<h2 id="hook">调用 hook 函数<a class="headerlink" href="#hook" title="Permanent link">&para;</a></h2>
 <p>hook 机制分为两个层级：</p>
 <ul>
 <li>测试用例层面（testcase）</li>
 <li>测试步骤层面（teststep）</li>
 </ul>
-<h2 id="testcase">测试用例层面（testcase）<a class="headerlink" href="#testcase" title="Permanent link">&para;</a></h2>
+<h3 id="testcase">测试用例层面（testcase）<a class="headerlink" href="#testcase" title="Permanent link">&para;</a></h3>
 <p>在 YAML/JSON 测试用例的 <code>config</code> 中新增关键字 <code>setup_hooks</code> 和 <code>teardown_hooks</code>。</p>
 <ul>
 <li>setup_hooks: 在整个用例开始执行前触发 hook 函数，主要用于准备工作。</li>
@@ -696,7 +723,7 @@
 </pre></div>
 
 
-<h2 id="teststep">测试步骤层面（teststep）<a class="headerlink" href="#teststep" title="Permanent link">&para;</a></h2>
+<h3 id="teststep">测试步骤层面（teststep）<a class="headerlink" href="#teststep" title="Permanent link">&para;</a></h3>
 <p>在 YAML/JSON 测试步骤的 <code>test</code> 中新增关键字 <code>setup_hooks</code> 和 <code>teardown_hooks</code>。</p>
 <ul>
 <li>setup_hooks: 在 HTTP 请求发送前执行 hook 函数，主要用于准备工作；也可以实现对请求的 request 内容进行预处理。</li>
@@ -730,7 +757,7 @@
 </pre></div>
 
 
-<h2 id="hook">编写 hook 函数<a class="headerlink" href="#hook" title="Permanent link">&para;</a></h2>
+<h2 id="hook_1">编写 hook 函数<a class="headerlink" href="#hook_1" title="Permanent link">&para;</a></h2>
 <p>hook 函数的定义放置在项目的 debugtalk.py 中，在 YAML/JSON 中调用 hook 函数仍然是采用 ${func($a, $b)} 的形式。</p>
 <p>对于测试用例层面的 hook 函数，与 YAML/JSON 中自定义的函数完全相同，可通过自定义参数传参的形式来实现灵活应用。</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">hook_print</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
