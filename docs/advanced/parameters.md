@@ -117,7 +117,7 @@ user_id
         - user_id: ${P(user_id.csv)}    # 简写方式
 ```
 
-对于具有关联性的多个参数，例如 username 和 password，那么就可以创建 [account.csv](data/account.csv)，并在文件中按照如下形式进行描述。
+对于具有关联性的多个参数，例如 username 和 password，那么就可以创建 [account.csv](/data/account.csv)，并在文件中按照如下形式进行描述。
 
 ```csv
 username,password
@@ -137,7 +137,7 @@ test3,333333
 
 需要说明的是，在 parameters 中指定的参数名称必须与 CSV 文件中第一行的参数名称一致，顺序可以不一致，参数个数也可以不一致。
 
-例如，在 [account.csv](data/account.csv) 文件中可以包含多个参数，username、password、phone、age：
+例如，在 [account.csv](/data/account.csv) 文件中可以包含多个参数，username、password、phone、age：
 
 ```csv
 username,password,phone,age
@@ -265,7 +265,7 @@ YAML 测试用例的描述形式如下所示：
         - eq: [content.success, true]
 ```
 
-其中，[app_version](data/app_version.csv) 的数据源列表为：
+其中，[app_version](/data/app_version.csv) 的数据源列表为：
 
 ```csv
 app_version

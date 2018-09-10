@@ -1,3 +1,5 @@
+# require mkdocs-material 3.x
+
 # Project information
 site_name: HttpRunner 中文使用手册
 site_description: HttpRunner User Documentation
@@ -46,7 +48,7 @@ extra:
           link: 'https://github.com/httprunner'
 
 # index pages
-pages:
+nav:
     - 介绍: index.md
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
