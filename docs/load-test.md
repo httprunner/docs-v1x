@@ -1,5 +1,9 @@
 HttpRunner 通过复用 [`Locust`][Locust]，可以在无需对 YAML/JSON 进行任何修改的情况下，直接运行性能测试。
 
+## 原理图
+
+![](/images/loadtest-schematic-diagram.jpg)
+
 ## 安装依赖包
 
 安装完成 HttpRunner 后，系统中会新增`locusts`命令，但不会同时安装 Locust。
