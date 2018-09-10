@@ -50,6 +50,8 @@ extra:
 # index pages
 nav:
     - 介绍: index.md
+    - 核心概念:
+        - 架构图: concept/architecture.md
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
     - 测试用例:
