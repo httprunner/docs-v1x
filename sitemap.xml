@@ -1,136 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/Installation/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/quickstart/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
     <url>
-     <loc>/testcase/recorder/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/testcase/structure/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/testcase/validate-pretty/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
     <url>
-     <loc>/run-test/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/report/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
     <url>
-     <loc>/advanced/request-hook/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/advanced/dot-env/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/advanced/parameters/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/advanced/testcase-layer/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/best-practices/security/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
     <url>
-     <loc>/load-test/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/development/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/FAQ/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/related-docs/</loc>
-     <lastmod>2018-08-26</lastmod>
+     <loc>None</loc>
+     <lastmod>2018-09-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
 </urlset>
