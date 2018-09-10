@@ -275,21 +275,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="逻辑流程图" class="md-nav__link">
-    逻辑流程图
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="核心特性" class="md-nav__link">
+  <a href="#_2" title="核心特性" class="md-nav__link">
     核心特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="更多信息" class="md-nav__link">
+  <a href="#_3" title="更多信息" class="md-nav__link">
     更多信息
   </a>
   
@@ -303,6 +296,42 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      核心概念
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        核心概念
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="concept/architecture/" title="架构图" class="md-nav__link">
+      架构图
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -337,13 +366,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       测试用例
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         测试用例
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -421,13 +450,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-7">
+    <label class="md-nav__link" for="nav-8">
       高级特性
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
+      <label class="md-nav__title" for="nav-8">
         高级特性
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -493,13 +522,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       最佳实践
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         最佳实践
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -596,21 +625,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="逻辑流程图" class="md-nav__link">
-    逻辑流程图
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="核心特性" class="md-nav__link">
+  <a href="#_2" title="核心特性" class="md-nav__link">
     核心特性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="更多信息" class="md-nav__link">
+  <a href="#_3" title="更多信息" class="md-nav__link">
     更多信息
   </a>
   
@@ -639,12 +661,10 @@
 <h2 id="_1">设计理念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>充分复用优秀的开源项目，不追求重复造轮子，而是将强大的轮子组装成战车</li>
-<li>遵循<code>约定大于配置</code>的准则，在框架功能中融入最佳工程实践</li>
+<li>遵循<code>约定大于配置</code>的准则，在框架功能中融入自动化测试最佳工程实践</li>
 <li>追求投入产出比，一份投入即可实现多种测试需求</li>
 </ul>
-<h2 id="_2">逻辑流程图<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="/images/architecture-diagram.jpg" /></p>
-<h2 id="_3">核心特性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">核心特性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>继承 <a href="http://docs.python-requests.org/en/master/">Requests</a> 的全部特性，轻松实现 HTTP(S) 的各种测试需求</li>
 <li>测试用例与代码分离，采用<code>YAML/JSON</code>的形式描述测试场景，保障测试用例具备可维护性</li>
@@ -659,7 +679,7 @@
 <li>测试结果统计报告简洁清晰，附带详尽统计信息和日志记录</li>
 <li>具有可扩展性，便于扩展实现 Web 平台化（<a href="https://github.com/HttpRunner/HttpRunnerManager">HttpRunnerManager</a>）</li>
 </ul>
-<h2 id="_4">更多信息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">更多信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>关注 HttpRunner 的微信公众号，第一时间获得最新资讯。</p>
 <p><img alt="" src="/images/qrcode_for_httprunner.jpg" /></p>
                 
@@ -683,13 +703,13 @@
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="Installation/" title="安装说明" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="concept/architecture/" title="架构图" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                安装说明
+                架构图
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
