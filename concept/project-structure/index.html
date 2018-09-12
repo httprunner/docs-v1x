@@ -40,7 +40,7 @@
     
     
       
-        <title>项目文件类型 - HttpRunner 中文使用手册</title>
+        <title>项目文件组织 - HttpRunner 中文使用手册</title>
       
     
     
@@ -128,7 +128,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                项目文件类型
+                项目文件组织
               </span>
             
           
@@ -297,11 +297,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        项目文件类型
+        项目文件组织
       </label>
     
-    <a href="./" title="项目文件类型" class="md-nav__link md-nav__link--active">
-      项目文件类型
+    <a href="./" title="项目文件组织" class="md-nav__link md-nav__link--active">
+      项目文件组织
     </a>
     
       
@@ -313,16 +313,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="项目脚手架" class="md-nav__link">
-    项目脚手架
+  <a href="#_1" title="文件类型说明" class="md-nav__link">
+    文件类型说明
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="文件类型说明" class="md-nav__link">
-    文件类型说明
+  <a href="#_2" title="项目文件结构" class="md-nav__link">
+    项目文件结构
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="简单场景（非测试用例分层结构）" class="md-nav__link">
+    简单场景（非测试用例分层结构）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="测试用例分层结构" class="md-nav__link">
+    测试用例分层结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -334,6 +354,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testcase-structure/" title="测试用例组织" class="md-nav__link">
+      测试用例组织
+    </a>
   </li>
 
         
@@ -376,11 +408,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      测试用例
+      基础功能
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        测试用例
+        基础功能
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -391,7 +423,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../testcase/recorder/" title="录制生成用例" class="md-nav__link">
+    <a href="../../basic/record/" title="录制生成用例" class="md-nav__link">
       录制生成用例
     </a>
   </li>
@@ -403,8 +435,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../testcase/structure/" title="测试用例结构" class="md-nav__link">
-      测试用例结构
+    <a href="../../basic/run-test/" title="运行测试" class="md-nav__link">
+      运行测试
     </a>
   </li>
 
@@ -415,8 +447,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../testcase/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
-      Validate & Prettify
+    <a href="../../basic/report/" title="测试报告" class="md-nav__link">
+      测试报告
     </a>
   </li>
 
@@ -431,39 +463,15 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../run-test/" title="运行测试" class="md-nav__link">
-      运行测试
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../report/" title="测试报告" class="md-nav__link">
-      测试报告
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-6">
       高级特性
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-6">
         高级特性
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -517,29 +525,17 @@
   </li>
 
         
-      </ul>
-    </nav>
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
+      Validate & Prettify
+    </a>
   </li>
 
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      最佳实践
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        最佳实践
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
         
           
           
@@ -547,7 +543,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../best-practices/security/" title="信息安全" class="md-nav__link">
+    <a href="../../advanced/security/" title="信息安全" class="md-nav__link">
       信息安全
     </a>
   </li>
@@ -625,16 +621,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="项目脚手架" class="md-nav__link">
-    项目脚手架
+  <a href="#_1" title="文件类型说明" class="md-nav__link">
+    文件类型说明
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="文件类型说明" class="md-nav__link">
-    文件类型说明
+  <a href="#_2" title="项目文件结构" class="md-nav__link">
+    项目文件结构
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="简单场景（非测试用例分层结构）" class="md-nav__link">
+    简单场景（非测试用例分层结构）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="测试用例分层结构" class="md-nav__link">
+    测试用例分层结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -655,10 +671,66 @@
               
                 
                 
-                  <h1>项目文件类型</h1>
+                  <h1>项目文件组织</h1>
                 
-                <h2 id="_1">项目脚手架<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>创建项目时，可使用<code>--startproject</code>脚手架功能。</p>
+                <h2 id="_1">文件类型说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在 HttpRunner 自动化测试项目中，主要存在如下几类文件：</p>
+<ul>
+<li><code>YAML/JSON</code>（必须）：测试用例文件，一个文件对应一条测试用例</li>
+<li><code>debugtalk.py</code>（可选）：脚本函数，存储项目中逻辑运算函数<ul>
+<li>该文件存在时，将作为项目根目录定位标记，其所在目录即被视为项目工程的根目录（当前工作目录<code>CWD</code>）</li>
+<li>该文件不存在时，运行测试的路径将被视为当前工作目录<code>CWD</code></li>
+<li>测试用例文件中的相对路径（例如<code>.csv</code>）均需基于当前工作目录<code>CWD</code></li>
+<li>运行测试后，测试报告文件夹（<code>reports</code>）会生成在当前工作目录<code>CWD</code></li>
+</ul>
+</li>
+<li><code>.env</code>（可选）：存储项目环境变量</li>
+<li><code>.csv</code>（可选）：项目数据文件，用于进行数据驱动</li>
+</ul>
+<h2 id="_2">项目文件结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">简单场景（非测试用例分层结构）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>对于接口数比较少，或者测试场景比较简单的项目，组织测试用例时无需分层。在此种情况下，项目文件的目录结构没有任何要求，在项目中只需要一堆 <code>YAML/JSON</code> 文件即可，每一个文件单独对应一条测试用例；根据需要，项目中可能还会有 <code>debugtalk.py</code>、<code>.env</code>等文件。</p>
+<p>推荐的项目文件目录结构示例如下：</p>
+<div class="codehilite"><pre><span></span>$ tree demo -a
+demo
+├── .env
+├── debugtalk.py
+├── reports
+├── testcase1.yml
+└── testcase2.json
+</pre></div>
+
+
+<h3 id="_4">测试用例分层结构<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>对于接口数比较多，或者测试场景比较复杂的项目，为了使测试用例更便于组织和维护，推荐使用<code>测试用例分层机制</code>，即单独维护 API 描述、测试用例和测试场景。</p>
+<p>在此种情况下，项目文件的目录结构需要遵循一些规范：</p>
+<ul>
+<li><code>debugtalk.py</code>：该文件所在目录将作为项目工程的根目录，api 和 testcases 文件夹都必须与其放置在相同目录；若没有该文件，</li>
+<li>api 文件夹：存储接口定义描述</li>
+<li>testcases 文件夹：存储测试用例定义描述，可用于组装形成复杂的测试场景</li>
+<li>reports 文件夹：存储 HTML 测试报告</li>
+</ul>
+<p>对应的项目文件目录结构示例如下：</p>
+<div class="codehilite"><pre><span></span>$ tree demo -a
+demo
+├── .env
+├── api
+│   └── user.yml
+├── debugtalk.py
+├── reports
+│   └── <span class="m">1535713039</span>.html
+├── testcases
+│   ├── login.yml
+│   └── logout.yml
+└── testsuites
+    └── login_and_logout.yml
+
+<span class="m">4</span> directories, <span class="m">7</span> files
+</pre></div>
+
+
+<p><strong>项目脚手架</strong></p>
+<p>新建项目时，可使用 <code>--startproject</code> 脚手架功能快速创建项目目录结构；模式是采用<code>测试用例分层机制</code>。</p>
 <div class="codehilite"><pre><span></span>$ hrun --startproject demo
 Start to create new project: demo
 CWD: /Users/debugtalk/MyProjects/examples
@@ -670,28 +742,7 @@ created folder: demo/testsuites
 created folder: demo/reports
 created file: demo/debugtalk.py
 created file: demo/.env
-
-$ tree demo -a
-demo
-├── .env
-├── api
-├── debugtalk.py
-├── reports
-├── testcases
-└── testsuites
-
-<span class="m">4</span> directories, <span class="m">2</span> files
 </pre></div>
-
-
-<h2 id="_2">文件类型说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在自动化测试项目中，主要存在如下几类文件：</p>
-<ul>
-<li><code>YAML/JSON</code>：测试用例文件，一个文件对应一条测试用例</li>
-<li><code>debugtalk.py</code>：脚本函数，存储项目中逻辑运算函数</li>
-<li><code>.env</code>：项目环境变量</li>
-<li><code>.csv</code>：项目数据文件，用于进行数据驱动</li>
-</ul>
                 
                   
                 
@@ -727,13 +778,13 @@ demo
           </a>
         
         
-          <a href="../../Installation/" title="安装说明" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../testcase-structure/" title="测试用例组织" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                安装说明
+                测试用例组织
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

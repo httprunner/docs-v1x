@@ -40,7 +40,7 @@
     
     
       
-        <title>信息安全 - HttpRunner 中文使用手册</title>
+        <title>运行测试 - HttpRunner 中文使用手册</title>
       
     
     
@@ -128,7 +128,7 @@
                 HttpRunner 中文使用手册
               </span>
               <span class="md-header-nav__topic">
-                信息安全
+                运行测试
               </span>
             
           
@@ -288,8 +288,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../concept/filetype/" title="项目文件类型" class="md-nav__link">
-      项目文件类型
+    <a href="../../concept/project-structure/" title="项目文件组织" class="md-nav__link">
+      项目文件组织
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concept/testcase-structure/" title="测试用例组织" class="md-nav__link">
+      测试用例组织
     </a>
   </li>
 
@@ -327,17 +339,19 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
-      测试用例
+      基础功能
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        测试用例
+        基础功能
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -348,7 +362,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../testcase/recorder/" title="录制生成用例" class="md-nav__link">
+    <a href="../record/" title="录制生成用例" class="md-nav__link">
       录制生成用例
     </a>
   </li>
@@ -358,11 +372,59 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../testcase/structure/" title="测试用例结构" class="md-nav__link">
-      测试用例结构
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        运行测试
+      </label>
+    
+    <a href="./" title="运行测试" class="md-nav__link md-nav__link--active">
+      运行测试
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failfast" title="failfast" class="md-nav__link">
+    failfast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="日志级别" class="md-nav__link">
+    日志级别
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -372,8 +434,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../testcase/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
-      Validate & Prettify
+    <a href="../report/" title="测试报告" class="md-nav__link">
+      测试报告
     </a>
   </li>
 
@@ -388,39 +450,15 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../run-test/" title="运行测试" class="md-nav__link">
-      运行测试
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../report/" title="测试报告" class="md-nav__link">
-      测试报告
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-6">
       高级特性
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-6">
         高级特性
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -474,82 +512,27 @@
   </li>
 
         
-      </ul>
-    </nav>
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced/validate-pretty/" title="Validate & Prettify" class="md-nav__link">
+      Validate & Prettify
+    </a>
   </li>
 
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
-    
-    <label class="md-nav__link" for="nav-9">
-      最佳实践
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        最佳实践
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
         
           
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        信息安全
-      </label>
-    
-    <a href="./" title="信息安全" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../advanced/security/" title="信息安全" class="md-nav__link">
       信息安全
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="背景" class="md-nav__link">
-    背景
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="解决方案" class="md-nav__link">
-    解决方案
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -625,15 +608,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="背景" class="md-nav__link">
-    背景
+  <a href="#_1" title="指定用例集路径" class="md-nav__link">
+    指定用例集路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="解决方案" class="md-nav__link">
-    解决方案
+  <a href="#failfast" title="failfast" class="md-nav__link">
+    failfast
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="日志级别" class="md-nav__link">
+    日志级别
   </a>
   
 </li>
@@ -655,23 +645,87 @@
               
                 
                 
-                  <h1>信息安全</h1>
+                  <h1>运行测试</h1>
                 
-                <h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>很多时候项目代码在运行时需要使用到账号、密码、key等敏感数据信息，但是从信息安全的角度考虑，我们是不能将这些敏感数据提交到代码仓库的，主要原因有两个：</p>
-<ul>
-<li>加强权限管控：参与项目的开发人员可能会有很多，大家都有读取代码仓库的权限，但是像 key 这类极度敏感的信息不应该所有人都有权限获取；</li>
-<li>减少代码泄漏的危害性：假如代码出现泄漏，敏感数据信息不应该也同时泄漏。</li>
-</ul>
-<h2 id="_2">解决方案<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>那代码部署到服务器或 Jenkins 执行机后，运行时要使用到这些敏感数据信息，该怎么操作呢？</p>
-<p>推荐的操作方式为：</p>
-<ul>
-<li>对服务器进行权限管控，只有运维人员（或者核心开发人员）才有登录服务器的权限；</li>
-<li>运维人员（或者核心开发人员）：在运行的机器上将敏感数据设置到系统的环境变量中；</li>
-<li>普通开发人员：只需要知道敏感信息的变量名称，在代码中通过读取环境变量的方式获取敏感数据。</li>
-</ul>
-<p>存储敏感数据（设置环境变量）和使用敏感数据（引用环境变量）的具体方法，可参考<a href="/advanced/dot-env/">环境变量</a>使用说明文档。</p>
+                <h2 id="_1">指定用例集路径<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>使用 HttpRunner 指定用例集路径时，支持多种方式。</p>
+<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例集：</p>
+<div class="codehilite"><pre><span></span>$ hrun filepath/testcase.yml
+</pre></div>
+
+
+<p>使用 hrun 命令外加多个测试用例文件的路径，即可运行多个测试用例集：</p>
+<div class="codehilite"><pre><span></span>$ hrun filepath1/testcase1.yml filepath2/testcase2.yml
+</pre></div>
+
+
+<p>使用 hrun 命令外加文件夹的路径，即可运行指定文件夹下所有的测试用例集：</p>
+<div class="codehilite"><pre><span></span>$ hrun testcases_folder_path
+</pre></div>
+
+
+<h2 id="failfast">failfast<a class="headerlink" href="#failfast" title="Permanent link">&para;</a></h2>
+<p>默认情况下，HttpRunner 会运行指定用例集中的所有测试用例，并统计测试结果。</p>
+<blockquote>
+<p>对于某些依赖于执行顺序的测试用例集，例如需要先登录成功才能执行后续接口请求的场景，当前面的测试用例执行失败后，后续的测试用例也都必将失败，因此没有继续执行的必要了。</p>
+</blockquote>
+<p>若希望测试用例集在运行过程中，遇到失败时不再继续运行后续用例，则可通过在命令中添加<code>--failfast</code>实现。</p>
+<div class="codehilite"><pre><span></span>$ hrun filepath/testcase.yml --failfast
+</pre></div>
+
+
+<h2 id="_2">日志级别<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>默认情况下，HttpRunner 运行时的日志级别为<code>INFO</code>，只会包含最基本的信息，包括用例名称、请求的URL和Method、响应结果的状态码、耗时和内容大小。</p>
+<div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml
+INFO     Loading environment variables from /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/.env
+get token with iOS/10.1 and 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+INFO     status_code: 200, response_time: 11 ms, response_length: 46 bytes
+.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+OK
+INFO     Start to render Html report ...
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-03-12-19-12-56.html
+</pre></div>
+
+
+<p>若需要查看到更详尽的信息，例如请求的参数和响应的详细内容，可以将日志级别设置为<code>DEBUG</code>，即在命令中添加<code>--log-level debug</code>。</p>
+<div class="codehilite"><pre><span></span>$ hrun tests/data/demo_parameters.yml --log-level debug
+get token with iOS/10.1 and 2.8.5
+INFO     POST http://127.0.0.1:5000/api/get-token
+DEBUG    request kwargs(raw): {&#39;headers&#39;: {&#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&#39;}}
+DEBUG    request kwargs(processed): {&#39;headers&#39;: {&#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;}, &#39;json&#39;: {&#39;sign&#39;: &#39;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&#39;}, &#39;timeout&#39;: 120}
+DEBUG    Starting new HTTP connection (1): 127.0.0.1
+DEBUG    http://127.0.0.1:8888 &quot;POST http://127.0.0.1:5000/api/get-token HTTP/1.1&quot; 200 46
+DEBUG    response status_code: 200
+DEBUG    response headers: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Mon, 12 Mar 2018 11:11:48 GMT&#39;,&#39;Proxy-Connection&#39;: &#39;Close&#39;}
+DEBUG    response body: {&quot;success&quot;: true, &quot;token&quot;: &quot;3DFzZen272dbS7qh&quot;}
+INFO     status_code: 200, response_time: 21 ms, response_length: 46 bytes
+.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.023s
+
+OK
+DEBUG    No html report template specified, use default.
+INFO     Start to render Html report ...
+DEBUG    render data: {&#39;success&#39;: True, &#39;stat&#39;: {&#39;testsRun&#39;: 1, &#39;failures&#39;: 0, &#39;errors&#39;: 0, &#39;skipped&#39;: 0, &#39;expectedFailures&#39;: 0, &#39;unexpectedSuccesses&#39;: 0, &#39;successes&#39;: 1}, &#39;platform&#39;: {&#39;httprunner_version&#39;: &#39;1.1.0&#39;, &#39;python_version&#39;: &#39;CPython 3.6.4&#39;, &#39;platform&#39;: &#39;Darwin-17.4.0-x86_64-i386-64bit&#39;}, &#39;time&#39;: {&#39;start_at&#39;: datetime.datetime(2018, 3, 12, 19, 11, 48, 588562), &#39;duration&#39;: 0.04852795600891113}, &#39;records&#39;: [{&#39;name&#39;: &#39;get token with iOS/10.1 and 2.8.5&#39;, &#39;status&#39;: &#39;success&#39;, &#39;response_time&#39;: 21, &#39;attachment&#39;: &#39;&#39;, &#39;meta_data&#39;: {&#39;method&#39;: &#39;POST&#39;, &#39;request_time&#39;: 1520853108.589503, &#39;response_time&#39;: 21, &#39;elapsed&#39;: 0.00506, &#39;url&#39;: &#39;/api/get-token&#39;, &#39;request_headers&#39;: {&#39;User-Agent&#39;: &#39;python-requests/2.18.4&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;content-type&#39;: &#39;application/json&#39;, &#39;device_sn&#39;: &#39;9LLPuda32cEj6BE&#39;, &#39;user_agent&#39;: &#39;iOS/10.1&#39;, &#39;os_platform&#39;: &#39;ios&#39;, &#39;app_version&#39;: &#39;2.8.5&#39;, &#39;Content-Length&#39;: &#39;52&#39;}, &#39;request_body&#39;: &#39;{&quot;sign&quot;: &quot;49566bce2bbf3a577a2a97bd95ca1dd5bd4af5b3&quot;}&#39;, &#39;status_code&#39;: 200, &#39;response_headers&#39;: {&#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;46&#39;, &#39;Server&#39;: &#39;Werkzeug/0.14.1 Python/3.6.4&#39;, &#39;Date&#39;: &#39;Mon, 12 Mar 2018 11:11:48 GMT&#39;, &#39;Proxy-Connection&#39;: &#39;Close&#39;}, &#39;response_body&#39;: &#39;{&quot;success&quot;: true, &quot;token&quot;: &quot;3DFzZen272dbS7qh&quot;}&#39;, &#39;content_size&#39;: 46}}]}
+INFO     Generated Html report: /Users/debugtalk/MyProjects/HttpRunner-dev/HttpRunner/reports/2018-03-12-19-11-48.html
+DEBUG
+================== Variables &amp; Output ==================
+Type   | Variable         :  Value
+------ | ---------------- :  ---------------------------
+Var    | user_agent       :  iOS/10.1
+Var    | device_sn        :  ${gen_random_string(15)}
+Var    | os_platform      :  ios
+Var    | app_version      :  2.8.5
+
+Out    | token            :  3DFzZen272dbS7qh
+--------------------------------------------------------
+</pre></div>
                 
                   
                 
@@ -692,7 +746,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../advanced/testcase-layer/" title="测试用例分层" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../record/" title="录制生成用例" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -701,19 +755,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                测试用例分层
+                录制生成用例
               </span>
             </div>
           </a>
         
         
-          <a href="../../load-test/" title="性能测试" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../report/" title="测试报告" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                性能测试
+                测试报告
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
