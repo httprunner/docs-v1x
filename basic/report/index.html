@@ -738,7 +738,7 @@ reports/demo/demo-1532078874.html
 
 <p>在 reports 目录下，将会创建一个与指定报告名称相同的文件夹，生成的 HTML 报告将位于该目录中，并且测试报告名称中也会包含测试开始的时间。</p>
 <h2 id="_3">默认报告样式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在 HttpRunner 中自带了一个 Jinja2 格式的报告模版，默认情况下，生成的报告样式均基于该模版（<a href="https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/default_report_template.html">httprunner/templates/default_report_template.html</a>）。</p>
+<p>在 HttpRunner 中自带了一个 Jinja2 格式的报告模版，默认情况下，生成的报告样式均基于该模版（<a href="https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/report_template.html">httprunner/templates/default_report_template.html</a>）。</p>
 <p>测试报告形式如下：</p>
 <p>在 Summary 中，会罗列本次测试的整体信息，包括测试开始时间、总运行时长、运行的Python版本和系统环境、运行结果统计数据。</p>
 <p><img alt="" src="/images/report-demo-quickstart-1-overview.jpg" /></p>
@@ -769,7 +769,7 @@ reports/demo/demo-1532078874.html
 </pre></div>
 
 
-<p>在自定义报告模板时，可以参考 HttpRunner 的<a href="https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/default_report_template.html">默认报告模板</a>，要实现更复杂的模版功能，可参考 <a href="http://jinja.pocoo.org/docs/latest">Jinja2</a> 的使用文档。</p>
+<p>在自定义报告模板时，可以参考 HttpRunner 的<a href="https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/report_template.html">默认报告模板</a>，要实现更复杂的模版功能，可参考 <a href="http://jinja.pocoo.org/docs/latest">Jinja2</a> 的使用文档。</p>
 <h3 id="_5">使用自定义模板<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>使用自定义模版时，需要通过 <code>--html-report-template</code> 指定报告模板的路径，然后测试运行完成后，就会采用自定义的模板生成测试报告。</p>
 <div class="codehilite"><pre><span></span>$ hrun docs/data/demo-quickstart-2.yml --html-report-template /path/to/custom_report_template
