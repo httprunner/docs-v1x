@@ -30,7 +30,7 @@ runner = HttpRunner(**kwargs)
 HttpRunner 的 run 方法有两个参数：
 
 - path_or_testsets：支持传入两类参数，YAML/JSON 格式测试用例文件路径，或者标准的测试用例结构体；
-- mapping（可选）：变量映射，可用于对传入测试用例集中的变量进行替换。
+- mapping（可选）：变量映射，可用于对传入测试用例中的变量进行替换。
 
 ### 传入测试用例文件路径
 
