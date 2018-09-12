@@ -49,7 +49,7 @@ $ har2case /path/to/demo-quickstart.har
 INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 ```
 
-关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/testcase/recorder/)。
+关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/basic/record/)。
 
 经过转换，在源 demo-quickstart.har 文件的同级目录下生成了相同文件名称的 JSON 格式测试用例文件 [demo-quickstart.json](data/demo-quickstart.json)，其内容如下：
 
@@ -118,14 +118,14 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 现在我们只需要知道如下几点：
 
-- 每个 YAML/JSON 文件对应一个测试用例集（testset）
-- 每个测试用例集为一个`list of dict`结构，其中可能包含全局配置项（config）和若干个测试用例（test）
-- `config`为全局配置项，作用域为整个测试用例集
-- `test`对应单个接口的测试用例，作用域仅限于本身
+- 每个 YAML/JSON 文件对应一个测试用例（testcase）
+- 每个测试用例为一个`list of dict`结构，其中可能包含全局配置项（config）和若干个测试步骤（test）
+- `config` 为全局配置项，作用域为整个测试用例
+- `test` 对应单个测试步骤，作用域仅限于本身
 
 如上便是 HttpRunner 测试用例的基本结构。
 
-关于测试用例的更多内容，请查看[《测试用例结构描述》](/testcase/structure/)。
+关于测试用例的更多内容，请查看[《测试用例结构描述》](/concept/testcase-structure/)。
 
 ### 首次运行测试用例
 
@@ -141,7 +141,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ## 优化测试用例
 
-从两个测试用例的报错信息和堆栈信息（Traceback）可以看出，第一个用例失败的原因是获取的 token 与预期值不一致，第二个用例失败的原因是请求权限校验失败（403）。
+从两个测试步骤的报错信息和堆栈信息（Traceback）可以看出，第一个步骤失败的原因是获取的 token 与预期值不一致，第二个步骤失败的原因是请求权限校验失败（403）。
 
 接下来我们将逐步进行进行优化。
 
@@ -149,7 +149,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 默认情况下，[har2case][har2case] 生成用例时，若 HTTP 请求的响应内容为 JSON 格式，则会将第一层级中的所有`key-value`转换为 validator。
 
-例如上面的第一个测试用例，生成的 validator 为：
+例如上面的第一个测试步骤，生成的 validator 为：
 
 ```json
 "validate": [
@@ -164,7 +164,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 问题在于，请求`/api/get-token`接口时，每次生成的 token 都会是不同的，因此将生成的 token 作为校验项的话，校验自然就无法通过了。
 
-正确的做法是，在测试用例的 validate 中应该去掉这类动态变化的值。
+正确的做法是，在测试步骤的 validate 中应该去掉这类动态变化的值。
 
 去除该项后，将用例另存为 [demo-quickstart-1.json](data/demo-quickstart-1.json)（对应的 YAML 格式：[demo-quickstart-1.yml](data/demo-quickstart-1.yml)）。
 
@@ -172,17 +172,17 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ![](/images/run-demo-quickstart-1.jpg)
 
-经过修改，第一个测试用例已经运行成功了，第二个用例仍然运行失败（403），还是因为权限校验的原因。
+经过修改，第一个测试步骤已经运行成功了，第二个步骤仍然运行失败（403），还是因为权限校验的原因。
 
 ### 参数关联
 
-我们继续查看 [demo-quickstart-1.json](data/demo-quickstart-1.json)，会发现第二个测试用例的请求 headers 中的 token 仍然是硬编码的，即抓包时获取到的值。在我们再次运行测试用例时，这个 token 已经失效了，所以会出现 403 权限校验失败的问题。
+我们继续查看 [demo-quickstart-1.json](data/demo-quickstart-1.json)，会发现第二个测试步骤的请求 headers 中的 token 仍然是硬编码的，即抓包时获取到的值。在我们再次运行测试用例时，这个 token 已经失效了，所以会出现 403 权限校验失败的问题。
 
-正确的做法是，我们应该在每次运行测试用例的时候，先动态获取到第一个测试用例中的 token，然后在后续测试用例的请求中使用前面获取到的 token。
+正确的做法是，我们应该在每次运行测试用例的时候，先动态获取到第一个测试步骤中的 token，然后在后续测试步骤的请求中使用前面获取到的 token。
 
 在 HttpRunner 中，支持参数提取（`extract`）和参数引用的功能（`$var`）。
 
-在测试用例（test）中，若需要从响应结果中提取参数，则可使用 extract 关键字。extract 的列表中可指定一个或多个需要提取的参数。
+在测试步骤（test）中，若需要从响应结果中提取参数，则可使用 extract 关键字。extract 的列表中可指定一个或多个需要提取的参数。
 
 在提取参数时，当 HTTP 的请求响应结果为 JSON 格式，则可以采用`.`运算符的方式，逐级往下获取到参数值；响应结果的整体内容引用方式为 content 或者 body。
 
@@ -216,15 +216,15 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 ![](/images/run-demo-quickstart-2.jpg)
 
-经过修改，第二个测试用例也运行成功了。
+经过修改，第二个测试步骤也运行成功了。
 
 ### 公共配置全局化
 
-虽然测试用例运行都成功了，但是仍然有继续优化的地方。
+虽然测试步骤运行都成功了，但是仍然有继续优化的地方。
 
-继续查看 [demo-quickstart-2.json](data/demo-quickstart-2.json)，我们会发现测试用例中仍然存在重复描述的地方。例如，在两个测试用例的 headers 中都存在 device_sn 和 Content-Type 字段，并且它们的值都相同；在每条测试用例的 URL 中，都采用的是完整的描述（host+path），但大多数情况下同一个用例集中的 host 都是相同的，区别仅在于 path 部分。
+继续查看 [demo-quickstart-2.json](data/demo-quickstart-2.json)，我们会发现测试步骤中仍然存在重复描述的地方。例如，在两个测试步骤的 headers 中都存在 device_sn 和 Content-Type 字段，并且它们的值都相同；在每条测试步骤的 URL 中，都采用的是完整的描述（host+path），但大多数情况下同一个用例中的 host 都是相同的，区别仅在于 path 部分。
 
-因此，我们可以将各个测试用例（test）中公共的部分抽取出来，放到全局配置模块（config）中进行描述。
+因此，我们可以将各个测试步骤（test）中公共的部分抽取出来，放到全局配置模块（config）中进行描述。
 
 将 device_sn、Content-Type 字段以及 host 抽取出来放置到 config 中后，config如下所示：
 
@@ -247,19 +247,19 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 
 其中，host 部分对应 config 中的 base_url。调整后的测试用例另存为 [demo-quickstart-3.json](data/demo-quickstart-3.json)（对应的 YAML 格式：[demo-quickstart-3.yml](data/demo-quickstart-3.yml)）。
 
-重启 flask 应用服务后再次运行测试用例，所有的测试用例仍然运行成功。
+重启 flask 应用服务后再次运行测试用例，所有的测试步骤仍然运行成功。
 
 ### 变量的申明和引用
 
-继续查看 [demo-quickstart-3.json](data/demo-quickstart-3.json)，我们会发现测试用例中存在较多硬编码的参数，例如 config 模块中的 device_sn，第一条测试用例中的 user_agent、os_platform、app_version，第二条测试用例中的 user_id 等。
+继续查看 [demo-quickstart-3.json](data/demo-quickstart-3.json)，我们会发现测试用例中存在较多硬编码的参数，例如 config 模块中的 device_sn，第一条测试步骤中的 user_agent、os_platform、app_version，第二条测试步骤中的 user_id 等。
 
-大多数情况下，我们可以不用修改这些硬编码的参数，测试用例也能正常运行。但是为了更好地维护测试用例，例如同一个参数值在测试用例中出现多次，那么比较好的做法是，将这些参数定义为变量，然后在需要参数的地方进行引用。
+大多数情况下，我们可以不用修改这些硬编码的参数，测试用例也能正常运行。但是为了更好地维护测试用例，例如同一个参数值在测试步骤中出现多次，那么比较好的做法是，将这些参数定义为变量，然后在需要参数的地方进行引用。
 
-在 HttpRunner 中，支持变量申明（`variables`）和引用（`$var`）的机制。在 config 和 test 中均可以通过 variables 关键字定义变量，然后在测试用例中可以通过 `$ + 变量名称` 的方式引用变量。区别在于，在 config 中定义的变量为全局的，整个测试用例集（testset）的所有地方均可以引用；在 test 中定义的变量作用域仅局限于当前测试用例（testcase）。
+在 HttpRunner 中，支持变量申明（`variables`）和引用（`$var`）的机制。在 config 和 test 中均可以通过 variables 关键字定义变量，然后在测试步骤中可以通过 `$ + 变量名称` 的方式引用变量。区别在于，在 config 中定义的变量为全局的，整个测试用例（testcase）的所有地方均可以引用；在 test 中定义的变量作用域仅局限于当前测试步骤（teststep）。
 
-对上述硬编码的参数进行变量申请和引用调整后，新的测试用例集另存为 [demo-quickstart-4.json](data/demo-quickstart-4.json)（对应的 YAML 格式：[demo-quickstart-4.yml](data/demo-quickstart-4.yml)）。
+对上述硬编码的参数进行变量申请和引用调整后，新的测试用例另存为 [demo-quickstart-4.json](data/demo-quickstart-4.json)（对应的 YAML 格式：[demo-quickstart-4.yml](data/demo-quickstart-4.yml)）。
 
-重启 flask 应用服务后再次运行测试用例，所有的测试用例仍然运行成功。
+重启 flask 应用服务后再次运行测试用例，所有的测试步骤仍然运行成功。
 
 ### 数据参数化
 
@@ -319,7 +319,7 @@ def get_sign(*args):
 
 对测试用例进行上述调整后，另存为 [demo-quickstart-5.json](data/demo-quickstart-5.json)（对应的 YAML 格式：[demo-quickstart-5.yml](data/demo-quickstart-5.yml)）。
 
-重启 flask 应用服务后再次运行测试用例，所有的测试用例仍然运行成功。
+重启 flask 应用服务后再次运行测试用例，所有的测试步骤仍然运行成功。
 
 ### 数据驱动
 
@@ -352,7 +352,7 @@ def get_sign(*args):
 ![](/images/run-demo-quickstart-6.jpg)
 
 
-可以看出，测试用例集总共运行了 4 次，并且每次运行时都是采用的不同 user_id。
+可以看出，测试用例总共运行了 4 次，并且每次运行时都是采用的不同 user_id。
 
 关于数据驱动，这里只描述了最简单的场景和使用方式，如需了解更多，请进一步阅读[《数据驱动使用手册》](/advanced/data-driven/)。
 
@@ -370,7 +370,7 @@ def get_sign(*args):
 
 ![](/images/report-demo-quickstart-1-traceback.jpg)
 
-关于测试报告的详细内容，请查看[《测试报告》](/report/)部分。
+关于测试报告的详细内容，请查看[《测试报告》](/basic/report/)部分。
 
 ## 总结
 

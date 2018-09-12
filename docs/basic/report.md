@@ -106,5 +106,5 @@ reports/1532078874.html
 ```
 
 [Jinja2]: http://jinja.pocoo.org/docs/latest
-[default_report]: https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/default_report_template.html
+[default_report]: https://github.com/HttpRunner/HttpRunner/blob/master/httprunner/templates/report_template.html
 [summary_data]: /development/#_6
