@@ -649,17 +649,17 @@
                 
                 <h2 id="_1">指定用例集路径<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>使用 HttpRunner 指定用例集路径时，支持多种方式。</p>
-<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例集：</p>
+<p>使用 hrun 命令外加单个测试用例文件的路径，运行单个测试用例：</p>
 <div class="codehilite"><pre><span></span>$ hrun filepath/testcase.yml
 </pre></div>
 
 
-<p>使用 hrun 命令外加多个测试用例文件的路径，即可运行多个测试用例集：</p>
+<p>使用 hrun 命令外加多个测试用例文件的路径，即可运行多个测试用例：</p>
 <div class="codehilite"><pre><span></span>$ hrun filepath1/testcase1.yml filepath2/testcase2.yml
 </pre></div>
 
 
-<p>使用 hrun 命令外加文件夹的路径，即可运行指定文件夹下所有的测试用例集：</p>
+<p>使用 hrun 命令外加文件夹的路径，即可运行指定文件夹下所有的测试用例：</p>
 <div class="codehilite"><pre><span></span>$ hrun testcases_folder_path
 </pre></div>
 
@@ -667,9 +667,9 @@
 <h2 id="failfast">failfast<a class="headerlink" href="#failfast" title="Permanent link">&para;</a></h2>
 <p>默认情况下，HttpRunner 会运行指定用例集中的所有测试用例，并统计测试结果。</p>
 <blockquote>
-<p>对于某些依赖于执行顺序的测试用例集，例如需要先登录成功才能执行后续接口请求的场景，当前面的测试用例执行失败后，后续的测试用例也都必将失败，因此没有继续执行的必要了。</p>
+<p>对于某些依赖于执行顺序的测试用例，例如需要先登录成功才能执行后续接口请求的场景，当前面的测试用例执行失败后，后续的测试用例也都必将失败，因此没有继续执行的必要了。</p>
 </blockquote>
-<p>若希望测试用例集在运行过程中，遇到失败时不再继续运行后续用例，则可通过在命令中添加<code>--failfast</code>实现。</p>
+<p>若希望测试用例在运行过程中，遇到失败时不再继续运行后续用例，则可通过在命令中添加<code>--failfast</code>实现。</p>
 <div class="codehilite"><pre><span></span>$ hrun filepath/testcase.yml --failfast
 </pre></div>
 

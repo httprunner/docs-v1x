@@ -798,7 +798,7 @@
 </pre></div>
 
 
-<p>进行该配置后，测试用例集在运行时就会对 user_agent 实现数据驱动，即分别使用 "iOS/10.1"、"iOS/10.2"、"iOS/10.3" 三个值运行测试用例集。</p>
+<p>进行该配置后，测试用例在运行时就会对 user_agent 实现数据驱动，即分别使用 "iOS/10.1"、"iOS/10.2"、"iOS/10.3" 三个值运行测试用例。</p>
 <p>对于具有关联性的多个参数，例如 username 和 password，那么就可以按照如下方式进行配置：</p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
@@ -809,7 +809,7 @@
 </pre></div>
 
 
-<p>进行该配置后，测试用例集在运行时就会对 username 和 password 实现数据驱动，并且保证参数值总是成对使用。</p>
+<p>进行该配置后，测试用例在运行时就会对 username 和 password 实现数据驱动，并且保证参数值总是成对使用。</p>
 <h3 id="csv">引用 CSV 数据文件<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h3>
 <p>对于已有参数列表，并且数据量比较大的情况，比较适合的方式是将参数列表值存储在 CSV 数据文件中。</p>
 <p>对于 CSV 数据文件，需要遵循如下几项约定的规则：</p>
@@ -924,7 +924,7 @@ test3,333333,18600000003,23
 </pre></div>
 
 
-<p>区别在于，测试用例集在运行时会分别运行每一种组合情况；自动化测试时遍历一遍后会终止执行，性能测试时每个用户都会循环遍历。</p>
+<p>区别在于，测试用例在运行时会分别运行每一种组合情况；自动化测试时遍历一遍后会终止执行，性能测试时每个用户都会循环遍历。</p>
 <h2 id="_8">案例演示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>假设我们有一个获取token的接口，我们需要使用 user_agent 和 app_version 这两个参数来进行参数化数据驱动。</p>
 <p>YAML 测试用例的描述形式如下所示：</p>
