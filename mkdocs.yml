@@ -52,22 +52,21 @@ nav:
     - 介绍: index.md
     - 核心概念:
         - 架构图: concept/architecture.md
-        - 项目文件类型: concept/filetype.md
+        - 项目文件组织: concept/project-structure.md
+        - 测试用例组织: concept/testcase-structure.md
     - 安装说明: Installation.md
     - 快速上手: quickstart.md
-    - 测试用例:
-        - 录制生成用例: testcase/recorder.md
-        - 测试用例结构: testcase/structure.md
-        - Validate & Prettify: testcase/validate-pretty.md
-    - 运行测试: run-test.md
-    - 测试报告: report.md
+    - 基础功能:
+        - 录制生成用例: basic/record.md
+        - 运行测试: basic/run-test.md
+        - 测试报告: basic/report.md
     - 高级特性:
         - hook机制: advanced/request-hook.md
         - 环境变量: advanced/dot-env.md
         - 参数化数据驱动: advanced/parameters.md
         - 测试用例分层: advanced/testcase-layer.md
-    - 最佳实践:
-        - 信息安全: best-practices/security.md
+        - Validate & Prettify: advanced/validate-pretty.md
+        - 信息安全: advanced/security.md
     - 性能测试: load-test.md
     - 开发扩展: development.md
     - 常见问题: FAQ.md

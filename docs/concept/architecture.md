@@ -1,2 +1,2 @@
 
-![](/images/HttpRunner-architecture-diagram.svg)
+![](../images/HttpRunner-architecture-diagram.svg)

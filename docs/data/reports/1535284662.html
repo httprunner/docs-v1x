@@ -1,0 +1,2536 @@
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> - TestReport</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0 auto;
+      width: 960px;
+    }
+    #summary {
+      width: 960px;
+      margin-bottom: 20px;
+    }
+    #summary th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    #summary td {
+      background-color: lightblue;
+      text-align: center;
+      padding: 4px 8px;
+    }
+    .details {
+      width: 960px;
+      margin-bottom: 20px;
+    }
+    .details th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    .details tr .passed {
+      background-color: lightgreen;
+    }
+    .details tr .failed {
+      background-color: red;
+    }
+    .details tr .unchecked {
+      background-color: gray;
+    }
+    .details td {
+      background-color: lightblue;
+      padding: 5px 12px;
+    }
+    .details .detail {
+      background-color: lightgrey;
+      font-size: smaller;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    .details .success {
+      background-color: greenyellow;
+    }
+    .details .error {
+      background-color: red;
+    }
+    .details .failure {
+      background-color: salmon;
+    }
+    .details .skipped {
+      background-color: gray;
+    }
+
+    .button {
+      font-size: 1em;
+      padding: 6px;
+      width: 4em;
+      text-align: center;
+      background-color: #06d85f;
+      border-radius: 20px/50px;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+    }
+    a.button{
+      color: gray;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #2cffbd;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup {
+      margin: 70px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      width: 50%;
+      position: relative;
+      transition: all 3s ease-in-out;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+    .popup .close:hover {
+      color: #06d85f;
+    }
+    .popup .content {
+      max-height: 80%;
+      overflow: auto;
+      text-align: left;
+    }
+
+    @media screen and (max-width: 700px) {
+      .box {
+        width: 70%;
+      }
+      .popup {
+        width: 70%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Test Report: </h1>
+
+  <h2>Summary</h2>
+  <table id="summary">
+
+    <tr>
+      <th>START AT</th>
+      <td colspan="4">2018-08-26 19:57:42</td>
+    </tr>
+    <tr>
+      <th>DURATION</th>
+      <td colspan="4">0.257 seconds</td>
+    </tr>
+    <tr>
+      <th>PLATFORM</th>
+      <td>HttpRunner 1.5.11 </td>
+      <td>CPython 3.6.5+ </td>
+      <td colspan="2">Darwin-17.6.0-x86_64-i386-64bit</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <th>SUCCESS</th>
+      <th>FAILED</th>
+      <th>ERROR</th>
+      <th>SKIPPED</th>
+      <!-- <th>ExpectedFailure</th>
+      <th>UnexpectedSuccess</th> -->
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <!-- <td>0</td>
+      <td>0</td> -->
+    </tr>
+  </table>
+
+  <h2>Details</h2>
+
+  
+  
+  <h3>testset description</h3>
+  <table id="suite_1" class="details">
+    <tr>
+      <th>base_url</th>
+      <td colspan="2">http://127.0.0.1:5000</td>
+      <th colspan="2" class="detail">
+        <a class="button" href="#suite_output_1">parameters & output</a>
+        <div id="suite_output_1" class="overlay">
+            <div class="popup">
+                <h2>Parameters and Output</h2>
+                <a class="close" href="#suite_1">&times;</a>
+                <div class="content">
+                  <div style="overflow: auto">
+                      <table>
+                        <tr>
+                          <th>variables</th>
+                          <th>output</th>
+                        </tr>
+                        <tr>
+                          <td>{'device_sn': '7EkFNC8A2Yrn7me', 'user_id': 1004, 'basestring': (<class 'str'>, <class 'bytes'>), 'integer_types': (<class 'int'>,), 'SECRET_KEY': 'DebugTalk'}</td>
+                          <td>{}</td>
+                        </tr>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>TOTAL: 2</td>
+      <td>SUCCESS: 0</td>
+      <td>FAILED: 1</td>
+      <td>ERROR: 1</td>
+      <td>SKIPPED: 0</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <th colspan="2">Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+
+    
+    
+    <tr id="record_1_1">
+      <th class="failure" style="width:5em;">failure</td>
+      <td colspan="2">/api/get-token</td>
+      <td style="text-align:center;width:6em;">21.82 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_1">log</a>
+        <div id="popup_log_1_1" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_1">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://127.0.0.1:5000/api/get-token
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>user-agent</strong>: python-requests/2.18.4
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>device_sn</strong>: 7EkFNC8A2Yrn7me
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>app_version</strong>: 2.8.6
+                          </div>
+                          
+                          <div>
+                            <strong>os_platform</strong>: ios
+                          </div>
+                          
+                          <div>
+                            <strong>user_agent</strong>: iOS/10.3
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 52
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1535284662.183251
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'sign': '55931c55edb5f95334653d108b8317aec2c1d423'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;sign&#34;: &#34;55931c55edb5f95334653d108b8317aec2c1d423&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            503
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>Server</strong>: Charles
+                            </div>
+                            
+                            <div>
+                              <strong>Cache-Control</strong>: must-revalidate,no-cache,no-store
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Type</strong>: text/html;charset=ISO-8859-1
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 942
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: close
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            ISO-8859-1
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Charles Error Report&lt;/title&gt;
+    &lt;style type=&#34;text/css&#34;&gt;
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Charles Error Report&lt;/h1&gt;
+&lt;h2&gt;Failed to connect to remote host&lt;/h2&gt;
+&lt;p&gt;Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.&lt;/p&gt;
+&lt;p&gt;The actual exception reported was:&lt;/p&gt;
+&lt;pre&gt;
+java.net.ConnectException: Connection refused (Connection refused)
+&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;i&gt;Charles Proxy, &lt;a href=&#34;http://www.charlesproxy.com/&#34;&gt;http://www.charlesproxy.com/&lt;/a&gt;&lt;/i&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            False
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://127.0.0.1:5000/api/get-token
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            Error
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>942</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>21.82</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>13.488</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_1_1">traceback</a>
+          <div id="popup_attachment_1_1" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_1_1">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 264, in test
+    test_runner.run_test(teststep_dict)
+httprunner.exceptions.ExtractFailure: Failed to extract attribute from response body! => content.token
+response body: <html>
+<head>
+    <title>Charles Error Report</title>
+    <style type="text/css">
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<h1>Charles Error Report</h1>
+<h2>Failed to connect to remote host</h2>
+<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>
+<p>The actual exception reported was:</p>
+<pre>
+java.net.ConnectException: Connection refused (Connection refused)
+</pre>
+
+<p>
+<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>
+</p>
+</body>
+</html>
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 266, in test
+    self.fail(repr(ex))
+AssertionError: ExtractFailure('Failed to extract attribute from response body! => content.token\nresponse body: <html>\n<head>\n    <title>Charles Error Report</title>\n    <style type="text/css">\nbody {\n    font-family: Arial,Helvetica,Sans-serif;\n    font-size: 12px;\n    color: #333333;\n    background-color: #ffffff;\n}\n\nh1 {\n    font-size: 24px;\n    font-weight: bold;\n}\n\nh2 {\n    font-size: 18px;\n    font-weight: bold;\n}\n    </style>\n</head>\n<body>\n\n<h1>Charles Error Report</h1>\n<h2>Failed to connect to remote host</h2>\n<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>\n<p>The actual exception reported was:</p>\n<pre>\njava.net.ConnectException: Connection refused (Connection refused)\n</pre>\n\n<p>\n<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>\n</p>\n</body>\n</html>\n',)
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_2">
+      <th class="error" style="width:5em;">error</td>
+      <td colspan="2">/api/users/$user_id</td>
+      <td style="text-align:center;width:6em;">N/A ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_2">log</a>
+        <div id="popup_log_1_2" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_2">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          None
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            N/A
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            None
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>N/A</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_1_2">traceback</a>
+          <div id="popup_attachment_1_2" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_1_2">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+KeyError: 'token'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+httprunner.exceptions.VariableNotFound: token is not found.
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+  </table>
+  
+  
+  <h3>testset description</h3>
+  <table id="suite_2" class="details">
+    <tr>
+      <th>base_url</th>
+      <td colspan="2">http://127.0.0.1:5000</td>
+      <th colspan="2" class="detail">
+        <a class="button" href="#suite_output_2">parameters & output</a>
+        <div id="suite_output_2" class="overlay">
+            <div class="popup">
+                <h2>Parameters and Output</h2>
+                <a class="close" href="#suite_2">&times;</a>
+                <div class="content">
+                  <div style="overflow: auto">
+                      <table>
+                        <tr>
+                          <th>variables</th>
+                          <th>output</th>
+                        </tr>
+                        <tr>
+                          <td>{'device_sn': '7EkFNC8A2Yrn7me', 'user_id': 1004, 'basestring': (<class 'str'>, <class 'bytes'>), 'integer_types': (<class 'int'>,), 'SECRET_KEY': 'DebugTalk'}</td>
+                          <td>{}</td>
+                        </tr>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>TOTAL: 2</td>
+      <td>SUCCESS: 0</td>
+      <td>FAILED: 1</td>
+      <td>ERROR: 1</td>
+      <td>SKIPPED: 0</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <th colspan="2">Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+
+    
+    
+    <tr id="record_2_1">
+      <th class="failure" style="width:5em;">failure</td>
+      <td colspan="2">/api/get-token</td>
+      <td style="text-align:center;width:6em;">3.34 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_2_1">log</a>
+        <div id="popup_log_2_1" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_2_1">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://127.0.0.1:5000/api/get-token
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>user-agent</strong>: python-requests/2.18.4
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>device_sn</strong>: 7EkFNC8A2Yrn7me
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>app_version</strong>: 2.8.6
+                          </div>
+                          
+                          <div>
+                            <strong>os_platform</strong>: ios
+                          </div>
+                          
+                          <div>
+                            <strong>user_agent</strong>: iOS/10.3
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 52
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1535284662.258145
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'sign': '55931c55edb5f95334653d108b8317aec2c1d423'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;sign&#34;: &#34;55931c55edb5f95334653d108b8317aec2c1d423&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            503
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>Server</strong>: Charles
+                            </div>
+                            
+                            <div>
+                              <strong>Cache-Control</strong>: must-revalidate,no-cache,no-store
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Type</strong>: text/html;charset=ISO-8859-1
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 942
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: close
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            ISO-8859-1
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Charles Error Report&lt;/title&gt;
+    &lt;style type=&#34;text/css&#34;&gt;
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Charles Error Report&lt;/h1&gt;
+&lt;h2&gt;Failed to connect to remote host&lt;/h2&gt;
+&lt;p&gt;Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.&lt;/p&gt;
+&lt;p&gt;The actual exception reported was:&lt;/p&gt;
+&lt;pre&gt;
+java.net.ConnectException: Connection refused (Connection refused)
+&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;i&gt;Charles Proxy, &lt;a href=&#34;http://www.charlesproxy.com/&#34;&gt;http://www.charlesproxy.com/&lt;/a&gt;&lt;/i&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            False
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://127.0.0.1:5000/api/get-token
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            Error
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>942</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>3.34</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>1.974</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_2_1">traceback</a>
+          <div id="popup_attachment_2_1" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_2_1">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 264, in test
+    test_runner.run_test(teststep_dict)
+httprunner.exceptions.ExtractFailure: Failed to extract attribute from response body! => content.token
+response body: <html>
+<head>
+    <title>Charles Error Report</title>
+    <style type="text/css">
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<h1>Charles Error Report</h1>
+<h2>Failed to connect to remote host</h2>
+<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>
+<p>The actual exception reported was:</p>
+<pre>
+java.net.ConnectException: Connection refused (Connection refused)
+</pre>
+
+<p>
+<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>
+</p>
+</body>
+</html>
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 266, in test
+    self.fail(repr(ex))
+AssertionError: ExtractFailure('Failed to extract attribute from response body! => content.token\nresponse body: <html>\n<head>\n    <title>Charles Error Report</title>\n    <style type="text/css">\nbody {\n    font-family: Arial,Helvetica,Sans-serif;\n    font-size: 12px;\n    color: #333333;\n    background-color: #ffffff;\n}\n\nh1 {\n    font-size: 24px;\n    font-weight: bold;\n}\n\nh2 {\n    font-size: 18px;\n    font-weight: bold;\n}\n    </style>\n</head>\n<body>\n\n<h1>Charles Error Report</h1>\n<h2>Failed to connect to remote host</h2>\n<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>\n<p>The actual exception reported was:</p>\n<pre>\njava.net.ConnectException: Connection refused (Connection refused)\n</pre>\n\n<p>\n<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>\n</p>\n</body>\n</html>\n',)
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_2_2">
+      <th class="error" style="width:5em;">error</td>
+      <td colspan="2">/api/users/$user_id</td>
+      <td style="text-align:center;width:6em;">N/A ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_2_2">log</a>
+        <div id="popup_log_2_2" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_2_2">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          None
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            N/A
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            None
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>N/A</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_2_2">traceback</a>
+          <div id="popup_attachment_2_2" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_2_2">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+KeyError: 'token'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+httprunner.exceptions.VariableNotFound: token is not found.
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+  </table>
+  
+  
+  <h3>testset description</h3>
+  <table id="suite_3" class="details">
+    <tr>
+      <th>base_url</th>
+      <td colspan="2">http://127.0.0.1:5000</td>
+      <th colspan="2" class="detail">
+        <a class="button" href="#suite_output_3">parameters & output</a>
+        <div id="suite_output_3" class="overlay">
+            <div class="popup">
+                <h2>Parameters and Output</h2>
+                <a class="close" href="#suite_3">&times;</a>
+                <div class="content">
+                  <div style="overflow: auto">
+                      <table>
+                        <tr>
+                          <th>variables</th>
+                          <th>output</th>
+                        </tr>
+                        <tr>
+                          <td>{'device_sn': '7EkFNC8A2Yrn7me', 'user_id': 1004, 'basestring': (<class 'str'>, <class 'bytes'>), 'integer_types': (<class 'int'>,), 'SECRET_KEY': 'DebugTalk'}</td>
+                          <td>{}</td>
+                        </tr>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>TOTAL: 2</td>
+      <td>SUCCESS: 0</td>
+      <td>FAILED: 1</td>
+      <td>ERROR: 1</td>
+      <td>SKIPPED: 0</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <th colspan="2">Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+
+    
+    
+    <tr id="record_3_1">
+      <th class="failure" style="width:5em;">failure</td>
+      <td colspan="2">/api/get-token</td>
+      <td style="text-align:center;width:6em;">3.15 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_3_1">log</a>
+        <div id="popup_log_3_1" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_3_1">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://127.0.0.1:5000/api/get-token
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>user-agent</strong>: python-requests/2.18.4
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>device_sn</strong>: 7EkFNC8A2Yrn7me
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>app_version</strong>: 2.8.6
+                          </div>
+                          
+                          <div>
+                            <strong>os_platform</strong>: ios
+                          </div>
+                          
+                          <div>
+                            <strong>user_agent</strong>: iOS/10.3
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 52
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1535284662.343833
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'sign': '55931c55edb5f95334653d108b8317aec2c1d423'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;sign&#34;: &#34;55931c55edb5f95334653d108b8317aec2c1d423&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            503
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>Server</strong>: Charles
+                            </div>
+                            
+                            <div>
+                              <strong>Cache-Control</strong>: must-revalidate,no-cache,no-store
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Type</strong>: text/html;charset=ISO-8859-1
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 942
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: close
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            ISO-8859-1
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Charles Error Report&lt;/title&gt;
+    &lt;style type=&#34;text/css&#34;&gt;
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Charles Error Report&lt;/h1&gt;
+&lt;h2&gt;Failed to connect to remote host&lt;/h2&gt;
+&lt;p&gt;Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.&lt;/p&gt;
+&lt;p&gt;The actual exception reported was:&lt;/p&gt;
+&lt;pre&gt;
+java.net.ConnectException: Connection refused (Connection refused)
+&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;i&gt;Charles Proxy, &lt;a href=&#34;http://www.charlesproxy.com/&#34;&gt;http://www.charlesproxy.com/&lt;/a&gt;&lt;/i&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            False
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://127.0.0.1:5000/api/get-token
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            Error
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>942</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>3.15</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>2.005</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_3_1">traceback</a>
+          <div id="popup_attachment_3_1" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_3_1">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 264, in test
+    test_runner.run_test(teststep_dict)
+httprunner.exceptions.ExtractFailure: Failed to extract attribute from response body! => content.token
+response body: <html>
+<head>
+    <title>Charles Error Report</title>
+    <style type="text/css">
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<h1>Charles Error Report</h1>
+<h2>Failed to connect to remote host</h2>
+<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>
+<p>The actual exception reported was:</p>
+<pre>
+java.net.ConnectException: Connection refused (Connection refused)
+</pre>
+
+<p>
+<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>
+</p>
+</body>
+</html>
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 266, in test
+    self.fail(repr(ex))
+AssertionError: ExtractFailure('Failed to extract attribute from response body! => content.token\nresponse body: <html>\n<head>\n    <title>Charles Error Report</title>\n    <style type="text/css">\nbody {\n    font-family: Arial,Helvetica,Sans-serif;\n    font-size: 12px;\n    color: #333333;\n    background-color: #ffffff;\n}\n\nh1 {\n    font-size: 24px;\n    font-weight: bold;\n}\n\nh2 {\n    font-size: 18px;\n    font-weight: bold;\n}\n    </style>\n</head>\n<body>\n\n<h1>Charles Error Report</h1>\n<h2>Failed to connect to remote host</h2>\n<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>\n<p>The actual exception reported was:</p>\n<pre>\njava.net.ConnectException: Connection refused (Connection refused)\n</pre>\n\n<p>\n<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>\n</p>\n</body>\n</html>\n',)
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_3_2">
+      <th class="error" style="width:5em;">error</td>
+      <td colspan="2">/api/users/$user_id</td>
+      <td style="text-align:center;width:6em;">N/A ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_3_2">log</a>
+        <div id="popup_log_3_2" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_3_2">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          None
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            N/A
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            None
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>N/A</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_3_2">traceback</a>
+          <div id="popup_attachment_3_2" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_3_2">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+KeyError: 'token'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+httprunner.exceptions.VariableNotFound: token is not found.
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+  </table>
+  
+  
+  <h3>testset description</h3>
+  <table id="suite_4" class="details">
+    <tr>
+      <th>base_url</th>
+      <td colspan="2">http://127.0.0.1:5000</td>
+      <th colspan="2" class="detail">
+        <a class="button" href="#suite_output_4">parameters & output</a>
+        <div id="suite_output_4" class="overlay">
+            <div class="popup">
+                <h2>Parameters and Output</h2>
+                <a class="close" href="#suite_4">&times;</a>
+                <div class="content">
+                  <div style="overflow: auto">
+                      <table>
+                        <tr>
+                          <th>variables</th>
+                          <th>output</th>
+                        </tr>
+                        <tr>
+                          <td>{'device_sn': '7EkFNC8A2Yrn7me', 'user_id': 1004, 'basestring': (<class 'str'>, <class 'bytes'>), 'integer_types': (<class 'int'>,), 'SECRET_KEY': 'DebugTalk'}</td>
+                          <td>{}</td>
+                        </tr>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>TOTAL: 2</td>
+      <td>SUCCESS: 0</td>
+      <td>FAILED: 1</td>
+      <td>ERROR: 1</td>
+      <td>SKIPPED: 0</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <th colspan="2">Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+
+    
+    
+    <tr id="record_4_1">
+      <th class="failure" style="width:5em;">failure</td>
+      <td colspan="2">/api/get-token</td>
+      <td style="text-align:center;width:6em;">5.14 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_4_1">log</a>
+        <div id="popup_log_4_1" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_4_1">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://127.0.0.1:5000/api/get-token
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>user-agent</strong>: python-requests/2.18.4
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>device_sn</strong>: 7EkFNC8A2Yrn7me
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>app_version</strong>: 2.8.6
+                          </div>
+                          
+                          <div>
+                            <strong>os_platform</strong>: ios
+                          </div>
+                          
+                          <div>
+                            <strong>user_agent</strong>: iOS/10.3
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 52
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1535284662.416094
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'sign': '55931c55edb5f95334653d108b8317aec2c1d423'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;sign&#34;: &#34;55931c55edb5f95334653d108b8317aec2c1d423&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            503
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>Server</strong>: Charles
+                            </div>
+                            
+                            <div>
+                              <strong>Cache-Control</strong>: must-revalidate,no-cache,no-store
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Type</strong>: text/html;charset=ISO-8859-1
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 942
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: close
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            ISO-8859-1
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Charles Error Report&lt;/title&gt;
+    &lt;style type=&#34;text/css&#34;&gt;
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Charles Error Report&lt;/h1&gt;
+&lt;h2&gt;Failed to connect to remote host&lt;/h2&gt;
+&lt;p&gt;Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.&lt;/p&gt;
+&lt;p&gt;The actual exception reported was:&lt;/p&gt;
+&lt;pre&gt;
+java.net.ConnectException: Connection refused (Connection refused)
+&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;i&gt;Charles Proxy, &lt;a href=&#34;http://www.charlesproxy.com/&#34;&gt;http://www.charlesproxy.com/&lt;/a&gt;&lt;/i&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            False
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://127.0.0.1:5000/api/get-token
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            Error
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>942</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>5.14</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>3.467</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_4_1">traceback</a>
+          <div id="popup_attachment_4_1" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_4_1">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 264, in test
+    test_runner.run_test(teststep_dict)
+httprunner.exceptions.ExtractFailure: Failed to extract attribute from response body! => content.token
+response body: <html>
+<head>
+    <title>Charles Error Report</title>
+    <style type="text/css">
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<h1>Charles Error Report</h1>
+<h2>Failed to connect to remote host</h2>
+<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>
+<p>The actual exception reported was:</p>
+<pre>
+java.net.ConnectException: Connection refused (Connection refused)
+</pre>
+
+<p>
+<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>
+</p>
+</body>
+</html>
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/debugtalk/.pyenv/versions/3.6-dev/lib/python3.6/site-packages/httprunner/utils.py", line 266, in test
+    self.fail(repr(ex))
+AssertionError: ExtractFailure('Failed to extract attribute from response body! => content.token\nresponse body: <html>\n<head>\n    <title>Charles Error Report</title>\n    <style type="text/css">\nbody {\n    font-family: Arial,Helvetica,Sans-serif;\n    font-size: 12px;\n    color: #333333;\n    background-color: #ffffff;\n}\n\nh1 {\n    font-size: 24px;\n    font-weight: bold;\n}\n\nh2 {\n    font-size: 18px;\n    font-weight: bold;\n}\n    </style>\n</head>\n<body>\n\n<h1>Charles Error Report</h1>\n<h2>Failed to connect to remote host</h2>\n<p>Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.</p>\n<p>The actual exception reported was:</p>\n<pre>\njava.net.ConnectException: Connection refused (Connection refused)\n</pre>\n\n<p>\n<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>\n</p>\n</body>\n</html>\n',)
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_4_2">
+      <th class="error" style="width:5em;">error</td>
+      <td colspan="2">/api/users/$user_id</td>
+      <td style="text-align:center;width:6em;">N/A ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_4_2">log</a>
+        <div id="popup_log_4_2" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_4_2">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          N/A
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          None
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            N/A
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            None
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      
+                        
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>N/A</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>N/A</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_4_2">traceback</a>
+          <div id="popup_attachment_4_2" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_4_2">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+KeyError: 'token'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+httprunner.exceptions.VariableNotFound: token is not found.
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+  </table>
+  
+</body>
