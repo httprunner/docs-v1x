@@ -713,7 +713,7 @@
 <li><code>resultclass</code>: HtmlTestResult/TextTestResult，默认值为 HtmlTestResult</li>
 <li><code>failfast</code>: 设置为 True 时，测试在首次遇到错误或失败时会停止运行；默认值为 False</li>
 <li><code>dot_env_path</code>: 指定加载环境变量文件（.env）的路径，默认值为当前工作目录下的 <code>.env</code> 文件</li>
-<li><code>stream</code></li>
+<li><code>http_client_session</code>: 传入<code>requests.Session()</code>时进行自动化测试（默认），传入<code>locust.client.Session()</code>时进行性能测试</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">httprunner</span> <span class="kn">import</span> <span class="n">HttpRunner</span>
 
