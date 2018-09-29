@@ -13,7 +13,7 @@ HttpRunner 继承自 `unittest.TextTestRunner`，因此 TextTestRunner 可用的
 - `resultclass`: HtmlTestResult/TextTestResult，默认值为 HtmlTestResult
 - `failfast`: 设置为 True 时，测试在首次遇到错误或失败时会停止运行；默认值为 False
 - `dot_env_path`: 指定加载环境变量文件（.env）的路径，默认值为当前工作目录下的 `.env` 文件
-- `stream`
+- `http_client_session`: 传入`requests.Session()`时进行自动化测试（默认），传入`locust.client.Session()`时进行性能测试
 
 ```python
 from httprunner import HttpRunner
