@@ -47,7 +47,7 @@ HttpRunner 运行时，会自动将`.env`文件中的内容加载到运行时（
 若需加载不位于自动化项目根目录中的`.env`，或者其它名称的`.env`文件（例如`production.env`），可以采用`--dot-env-path`参数指定文件路径：
 
 ```bash
-$ hrun /path/to/testset.yml --dot-env-path /path/to/.env --log-level debug
+$ hrun /path/to/testcase.yml --dot-env-path /path/to/.env --log-level debug
 INFO     Loading environment variables from /path/to/.env
 DEBUG    Loaded variable: UserName
 DEBUG    Loaded variable: Password

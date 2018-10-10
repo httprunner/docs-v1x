@@ -64,7 +64,7 @@ JSON 和 YAML 格式的测试用例完全等价，包含的信息内容也完全
 
 ```json
 "config": {
-    "name": "testset description",
+    "name": "testcase description",
     "parameters": [
         {"user_agent": ["iOS/10.1", "iOS/10.2", "iOS/10.3"]},
         {"app_version": "${P(app_version.csv)}"},

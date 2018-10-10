@@ -1,5 +1,5 @@
 - config:
-    name: testset description
+    name: testcase description
     variables:
         - device_sn: ${gen_random_string(15)}
         - user_id: 1000

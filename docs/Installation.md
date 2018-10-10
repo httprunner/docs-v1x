@@ -60,6 +60,7 @@ $ har2case -V
 
 ```text
 $ hrun -h
+Loading .env environment variables...
 usage: main-debug.py [-h] [-V] [--no-html-report]
                      [--html-report-name HTML_REPORT_NAME]
                      [--html-report-template HTML_REPORT_TEMPLATE]
@@ -68,12 +69,12 @@ usage: main-debug.py [-h] [-V] [--no-html-report]
                      [--startproject STARTPROJECT]
                      [--validate [VALIDATE [VALIDATE ...]]]
                      [--prettify [PRETTIFY [PRETTIFY ...]]]
-                     [testset_paths [testset_paths ...]]
+                     [testcase_paths [testcase_paths ...]]
 
 One-stop solution for HTTP(S) testing.
 
 positional arguments:
-  testset_paths         testset file path
+  testcase_paths        testcase file path
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -89,14 +90,14 @@ optional arguments:
   --log-file LOG_FILE   Write logs to specified file path.
   --dot-env-path DOT_ENV_PATH
                         Specify .env file path, which is useful for keeping
-                        production credentials.
+                        sensitive data.
   --failfast            Stop the test run on the first error or failure.
   --startproject STARTPROJECT
                         Specify new project name.
   --validate [VALIDATE [VALIDATE ...]]
-                        Validate JSON testset format.
+                        Validate JSON testcase format.
   --prettify [PRETTIFY [PRETTIFY ...]]
-                        Prettify JSON testset format.
+                        Prettify JSON testcase format.
 ```
 
 ## 开发者模式

@@ -46,7 +46,7 @@ $ flask run
 
 ```bash
 $ har2case /path/to/demo-quickstart.har
-INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
+INFO:root:Generate JSON testcase successfully: /path/to/demo-quickstart.json
 ```
 
 关于 [har2case][har2case] 的详细使用说明，请查看[《录制生成测试用例》](/basic/record/)。
@@ -57,7 +57,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 [
   {
     "config": {
-      "name": "testset description",
+      "name": "testcase description",
       "variables": [],
       "request": {
         "base_url": "",
@@ -231,7 +231,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 ```json
 {
   "config": {
-    "name": "testset description",
+    "name": "testcase description",
     "variables": [],
     "request": {
         "base_url": "http://127.0.0.1:5000",
