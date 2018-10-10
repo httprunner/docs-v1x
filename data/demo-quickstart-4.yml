@@ -1,5 +1,5 @@
 - config:
-    name: testset description
+    name: testcase description
     variables:
         - device_sn: FwgRiO7CNA50DSU
         - user_id: 1000

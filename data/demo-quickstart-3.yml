@@ -1,5 +1,5 @@
 - config:
-    name: testset description
+    name: testcase description
     variables: []
     request:
         base_url: ''

@@ -853,7 +853,7 @@ $ flask run
 <p>首先，需要将抓取得到的数据包导出为 HAR 格式的文件，假设导出的文件名称为 <a href="../data/demo-quickstart.har">demo-quickstart.har</a>。</p>
 <p>然后，在命令行终端中运行如下命令，即可将 demo-quickstart.har 转换为 HttpRunner 的测试用例文件。</p>
 <div class="codehilite"><pre><span></span>$ har2case /path/to/demo-quickstart.har
-INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
+INFO:root:Generate JSON testcase successfully: /path/to/demo-quickstart.json
 </pre></div>
 
 
@@ -862,7 +862,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <div class="codehilite"><pre><span></span><span class="p">[</span>
   <span class="p">{</span>
     <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testcase description&quot;</span><span class="p">,</span>
       <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[],</span>
       <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -996,7 +996,7 @@ INFO:root:Generate JSON testset successfully: /path/to/demo-quickstart.json
 <p>将 device_sn、Content-Type 字段以及 host 抽取出来放置到 config 中后，config如下所示：</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testset description&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;testcase description&quot;</span><span class="p">,</span>
     <span class="nt">&quot;variables&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:5000&quot;</span><span class="p">,</span>

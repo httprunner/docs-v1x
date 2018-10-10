@@ -685,7 +685,7 @@ $ <span class="nb">echo</span> <span class="nv">$Password</span>
 <p>同时，<code>.env</code>文件不应该添加到代码仓库中，建议将<code>.env</code>加入到<code>.gitignore</code>中。</p>
 <p>HttpRunner 运行时，会自动将<code>.env</code>文件中的内容加载到运行时（RunTime）的环境变量中，然后在运行时中就可以对环境变量进行读取了。</p>
 <p>若需加载不位于自动化项目根目录中的<code>.env</code>，或者其它名称的<code>.env</code>文件（例如<code>production.env</code>），可以采用<code>--dot-env-path</code>参数指定文件路径：</p>
-<div class="codehilite"><pre><span></span>$ hrun /path/to/testset.yml --dot-env-path /path/to/.env --log-level debug
+<div class="codehilite"><pre><span></span>$ hrun /path/to/testcase.yml --dot-env-path /path/to/.env --log-level debug
 INFO     Loading environment variables from /path/to/.env
 DEBUG    Loaded variable: UserName
 DEBUG    Loaded variable: Password

@@ -641,26 +641,26 @@
 <p><img alt="" src="/images/charles-save-har.jpg" /></p>
 <h2 id="_1">转换生成测试用例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>然后，在命令行终端中运行 har2case 命令，即可将 demo.har 转换为 HttpRunner 的测试用例文件。</p>
-<p>这里需要说明的是，har2case 可将 HAR 文件转换为 YAML 或 JSON 格式的测试用例，具体转换为什么形式取决于第二个参数（testset_path）。</p>
-<div class="codehilite"><pre><span></span>$ har2case /path/to/demo.har testset_path
+<p>这里需要说明的是，har2case 可将 HAR 文件转换为 YAML 或 JSON 格式的测试用例，具体转换为什么形式取决于第二个参数（testcase_path）。</p>
+<div class="codehilite"><pre><span></span>$ har2case /path/to/demo.har testcase_path
 </pre></div>
 
 
 <p>若第二个参数为空，则默认转换为 JSON 格式的测试用例，文件名称和路径与 HAR 源文件相同。</p>
 <div class="codehilite"><pre><span></span>$ har2case docs/data/demo-quickstart.har
-INFO:root:Generate JSON testset successfully: docs/data/demo-quickstart.json
+INFO:root:Generate JSON testcase successfully: docs/data/demo-quickstart.json
 </pre></div>
 
 
 <p>若文件后缀为<code>.yml/.yaml</code>，则转换生成 YAML 格式的测试用例。</p>
 <div class="codehilite"><pre><span></span>$ har2case docs/data/demo-quickstart.har demo.yml
-INFO:root:Generate YAML testset successfully: demo.yml
+INFO:root:Generate YAML testcase successfully: demo.yml
 </pre></div>
 
 
 <p>若文件后缀为<code>.json</code>，则转换生成 JSON 格式的测试用例。</p>
 <div class="codehilite"><pre><span></span>$ har2case docs/data/demo-quickstart.har demo.json
-INFO:root:Generate JSON testset successfully: demo.json
+INFO:root:Generate JSON testcase successfully: demo.json
 </pre></div>
                 
                   

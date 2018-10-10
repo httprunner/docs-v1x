@@ -1,5 +1,5 @@
 - config:
-    name: testset description
+    name: testcase description
     parameters:
         - user_id: [1001, 1002, 1003, 1004]
     variables:
