@@ -15,12 +15,12 @@ HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维
 - 测试用例支持参数化和数据驱动机制
 - 使用 skip 机制实现对测试用例的分组执行控制
 - 测试请求支持完善的 hook 机制
-- 支持热加载机制，在文本测试用例中轻松实现复杂的动态计算逻辑
+- 借助辅助函数（debugtalk.py），在测试脚本中轻松实现复杂的动态计算逻辑
 - 基于 HAR 实现接口录制和用例生成功能（[har2case][har2case]）
 - 结合 [Locust][Locust] 框架，无需额外的工作即可实现分布式性能测试
 - 执行方式采用 CLI 调用，可与 Jenkins 等持续集成工具完美结合
 - 测试结果统计报告简洁清晰，附带详尽统计信息和日志记录
-- 具有可扩展性，便于扩展实现 Web 平台化（[HttpRunnerManager][HttpRunnerManager]）
+- 具有可扩展性，便于扩展实现 Web 平台
 
 ## 更多信息
 
@@ -32,4 +32,3 @@ HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维
 [Requests]: http://docs.python-requests.org/en/master/
 [Locust]: http://locust.io/
 [har2case]: https://github.com/HttpRunner/har2case
-[HttpRunnerManager]: https://github.com/HttpRunner/HttpRunnerManager
