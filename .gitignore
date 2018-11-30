@@ -3,3 +3,4 @@
 site/*
 reports/*
 __pycache__/
+.python-version

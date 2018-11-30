@@ -1,10 +1,10 @@
-# HttpRunner 中文使用手册
+# HttpRunner V1.x 中文使用文档
 
 ## 在线阅读
 
 本文档托管在`GitHub Pages`上，访问地址：
 
-http://cn.httprunner.org
+http://v1x.httprunner.org
 
 ## 本地预览
 
