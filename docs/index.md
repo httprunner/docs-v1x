@@ -1,4 +1,6 @@
 
+> [HttpRunner 2.0][httprunner2] 全新发布，请尽快升级至最新版本。
+
 HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维护一份 `YAML/JSON` 脚本，即可实现自动化测试、性能测试、线上监控、持续集成等多种测试需求。
 
 ## 设计理念
@@ -29,6 +31,7 @@ HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架，只需编写维
 ![](/images/qrcode_for_httprunner.jpg)
 
 
+[httprunner2]: https://cn.httprunner.org/
 [Requests]: http://docs.python-requests.org/en/master/
 [Locust]: http://locust.io/
 [har2case]: https://github.com/HttpRunner/har2case

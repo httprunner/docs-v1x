@@ -1,8 +1,8 @@
 # require mkdocs-material 3.x
 
 # Project information
-site_name: HttpRunner 中文使用手册
-site_description: HttpRunner User Documentation
+site_name: HttpRunner V1.x 中文使用手册
+site_description: HttpRunner V1.x User Documentation
 site_author: 'Leo Lee'
 
 # Repository
